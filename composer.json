@@ -1,0 +1,47 @@
+{
+    "name": "realodix/php-utility",
+    "description": "Collection of various PHP utility functions",
+    "keywords": [
+        "array", "helper", "mbstring", "misc", "string",
+        "url", "utility", "utils"
+    ],
+    "homepage": "https://github.com/realodix/php-utility",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Budi Hermawan",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "egulias/email-validator": "^2.1",
+        "nicebooks/isbn": "^0.2.67",
+        "ramsey/uuid": "^4.1",
+        "spatie/url": "^1.3",
+        "symfony/polyfill-php74": "^1.18",
+        "voku/portable-utf8": "^5.4"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^2.3",
+        "nunomaduro/phpinsights": "^1.14",
+        "phpstan/phpstan": "^0.12.42",
+        "phpunit/phpunit": "^8.4|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Realodix\\Utils\\": "src/"
+        },
+        "files": [
+            "src/Helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Realodix\\Utils\\Test\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

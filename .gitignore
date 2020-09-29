@@ -1,0 +1,10 @@
+# Composer
+/vendor
+/composer.phar
+/composer.lock
+/tests/coverage
+/.idea
+.phpunit.result.cache
+.php_cs.dist
+.php_cs.cache
+PHP_Insights.json

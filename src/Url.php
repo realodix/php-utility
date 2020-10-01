@@ -60,9 +60,9 @@ class Url
      * Remove http://, www., and slashes from the URL.
      *
      * @param string $url
-     * @return string
+     * @return mixed
      */
-    public static function sanitize(string $url)
+    public static function sanitize($url)
     {
         return preg_replace(['{^http(s)?://}', '{www.}', '{/$}'], '', $url);
     }

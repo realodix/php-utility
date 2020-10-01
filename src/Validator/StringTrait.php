@@ -48,7 +48,7 @@ trait StringTrait
     public static function containsAll(string $haystack, array $needles)
     {
         foreach ($needles as $needle) {
-            if (! static::contains($haystack, $needle)) {
+            if (! self::contains($haystack, $needle)) {
                 return false;
             }
         }

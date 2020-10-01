@@ -120,7 +120,7 @@ class Number
      */
     public static function format($value, array $options = []): string
     {
-        $formatter = static::formatter($options);
+        $formatter = self::formatter($options);
         $options += ['before' => '', 'after' => ''];
 
         return $options['before'].$formatter->format((float) $value).$options['after'];
@@ -142,7 +142,7 @@ class Number
         $sign = $value > 0 ? '+' : '';
         $options['before'] = isset($options['before']) ? $options['before'].$sign : $sign;
 
-        return static::format($value, $options);
+        return self::format($value, $options);
     }
 
     /**
@@ -156,7 +156,7 @@ class Number
      */
     public static function ordinal($value, array $options = []): string
     {
-        return static::formatter(['type' => NumberFormatter::ORDINAL] + $options)->format($value);
+        return self::formatter(['type' => NumberFormatter::ORDINAL] + $options)->format($value);
     }
 
     /**
@@ -173,7 +173,7 @@ class Number
      */
     public static function precision($value, int $precision = 2, array $options = []): string
     {
-        $formatter = static::formatter(['precision' => $precision, 'places' => $precision] + $options);
+        $formatter = self::formatter(['precision' => $precision, 'places' => $precision] + $options);
 
         return $formatter->format($value);
     }
@@ -221,7 +221,7 @@ class Number
             $num = round(($num / 1000), $precision);
         }
 
-        return static::format($num, ['precision' => $precision, 'after' => ' '.$suffix]);
+        return self::format($num, ['precision' => $precision, 'after' => ' '.$suffix]);
     }
 
     /**
@@ -239,7 +239,7 @@ class Number
 
         if ($n >= pow(10, 3) && $n < pow(10, 6)) {
             // 1k-999k
-            $nFormat = static::numbPrec($n / pow(10, 3));
+            $nFormat = self::numbPrec($n / pow(10, 3));
             $suffix = 'K+';
 
             if (($n / pow(10, 3) == 1) || ($n / pow(10, 4) == 1) || ($n / pow(10, 5) == 1)) {
@@ -247,7 +247,7 @@ class Number
             }
         } elseif ($n >= pow(10, 6) && $n < pow(10, 9)) {
             // 1m-999m
-            $nFormat = static::numbPrec($n / pow(10, 6));
+            $nFormat = self::numbPrec($n / pow(10, 6));
             $suffix = 'M+';
 
             if (($n / pow(10, 6) == 1) || ($n / pow(10, 7) == 1) || ($n / pow(10, 8) == 1)) {
@@ -255,7 +255,7 @@ class Number
             }
         } elseif ($n >= pow(10, 9) && $n < pow(10, 12)) {
             // 1b-999b
-            $nFormat = static::numbPrec($n / pow(10, 9));
+            $nFormat = self::numbPrec($n / pow(10, 9));
             $suffix = 'B+';
 
             if (($n / pow(10, 9) == 1) || ($n / pow(10, 10) == 1) || ($n / pow(10, 11) == 1)) {
@@ -263,7 +263,7 @@ class Number
             }
         } elseif ($n >= pow(10, 12)) {
             // 1t+
-            $nFormat = static::numbPrec($n / pow(10, 12));
+            $nFormat = self::numbPrec($n / pow(10, 12));
             $suffix = 'T+';
 
             if (($n / pow(10, 12) == 1) || ($n / pow(10, 13) == 1) || ($n / pow(10, 14) == 1)) {
@@ -291,7 +291,7 @@ class Number
             $value /= 100;
         }
 
-        return static::precision($value, $precision, $options);
+        return self::precision($value, $precision, $options);
     }
 
     /**
@@ -423,28 +423,28 @@ class Number
      */
     public static function formatter(array $options = []): NumberFormatter
     {
-        $locale = $options['locale'] ?? static::DEFAULT_LOCALE;
+        $locale = $options['locale'] ?? self::DEFAULT_LOCALE;
 
         $type = NumberFormatter::DECIMAL;
         if (! empty($options['type'])) {
             $type = $options['type'];
-            if ($options['type'] === static::FORMAT_CURRENCY) {
+            if ($options['type'] === self::FORMAT_CURRENCY) {
                 $type = NumberFormatter::CURRENCY;
-            } elseif ($options['type'] === static::FORMAT_CURRENCY_ACCOUNTING) {
+            } elseif ($options['type'] === self::FORMAT_CURRENCY_ACCOUNTING) {
                 if (defined('NumberFormatter::CURRENCY_ACCOUNTING')) {
                     $type = NumberFormatter::CURRENCY_ACCOUNTING;
                 } else {
-                    $type = static::CURRENCY_ACCOUNTING;
+                    $type = self::CURRENCY_ACCOUNTING;
                 }
             }
         }
 
-        if (! isset(static::$_formatters[$locale][$type])) {
-            static::$_formatters[$locale][$type] = new NumberFormatter($locale, $type);
+        if (! isset(self::$_formatters[$locale][$type])) {
+            self::$_formatters[$locale][$type] = new NumberFormatter($locale, $type);
         }
 
         // \NumberFormatter $formatter
-        $formatter = static::$_formatters[$locale][$type];
+        $formatter = self::$_formatters[$locale][$type];
 
         $options = array_intersect_key($options, [
             'places'      => null,
@@ -458,7 +458,7 @@ class Number
 
         $formatter = clone $formatter;
 
-        return static::_setAttributes($formatter, $options);
+        return self::_setAttributes($formatter, $options);
     }
 
     /**

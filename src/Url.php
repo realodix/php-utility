@@ -24,7 +24,7 @@ class Url
 
         // Remove URL schemes
         if (! $scheme) {
-            $url = static::sanitize($url);
+            $url = self::sanitize($url);
             $hostLen = strlen($sUrl->getHost());
             $urlLen = strlen($url);
         }

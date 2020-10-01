@@ -34,9 +34,9 @@ Url::display('https://example.com/abcdefghij', false, 21);
 
 ### `Url::sanitize`
 
-`Url::sanitize(string $url)`
+`Url::sanitize($url)`
 
-Display the link according to what You need.
+Remove http, https, www and slash from URL.
 
 ```php
 use Realodix\Utils\Url;

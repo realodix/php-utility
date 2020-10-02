@@ -529,44 +529,43 @@ class Str
     public static function titleCase($string): string
     {
         // find each word (including punctuation attached)
-        preg_match_all('/[\w\p{L}&`\'‘’"“\.@:\/\{\(\[<>_]+-? */u', $string, $m1, PREG_OFFSET_CAPTURE);
-        foreach ($m1[0] as &$m2) {
-            // shorthand these- "match" and "index"
-            [$m, $i] = $m2;
+        preg_match_all('/[\w\p{L}&`\'‘’"“\.@:\/\{\(\[<>_]+-? */u', $string, $match_1, PREG_OFFSET_CAPTURE);
+        foreach ($match_1[0] as &$match_2) {
+            [$match, $index] = $match_2;
 
             // Correct offsets for multi-byte characters (`PREG_OFFSET_CAPTURE` returns
             // byte-offset). We fix this by recounting the text before the offset using
             // multi-byte aware `strlen`
-            $i = mb_strlen(substr($string, 0, $i));
+            $index = mb_strlen(substr($string, 0, $index));
 
             // find words that should always be lowercase (never on the first word, and
             // never if preceded by a colon).
-            $m = $i > 0 && mb_substr($string, max(0, $i - 2), 1) !== ':' &&
-                ! preg_match('/[\x{2014}\x{2013}] ?/u', mb_substr($string, max(0, $i - 2), 2)) &&
-                preg_match('/^(a(nd?|s|t)?|b(ut|y)|en|for|i[fn]|o[fnr]|only|over|tha[tn]|t(he|o)|up|upon|vs?\.?|via)[ \-]/i', $m)
+            $match = $index > 0 && mb_substr($string, max(0, $index - 2), 1) !== ':' &&
+                ! preg_match('/[\x{2014}\x{2013}] ?/u', mb_substr($string, max(0, $index - 2), 2)) &&
+                preg_match('/^(a(nd?|s|t)?|b(ut|y)|en|for|i[fn]|o[fnr]|only|over|tha[tn]|t(he|o)|up|upon|vs?\.?|via)[ \-]/i', $match)
             ?   // ..and convert them to lowercase
-                mb_strtolower($m)
+                mb_strtolower($match)
 
             // else: brackets and other wrappers
-            : (preg_match('/[\'"_{(\[‘“]/u', mb_substr($string, max(0, $i - 1), 3))
+            : (preg_match('/[\'"_{(\[‘“]/u', mb_substr($string, max(0, $index - 1), 3))
             ?   // convert first letter within wrapper to uppercase
-                mb_substr($m, 0, 1).
-                mb_strtoupper(mb_substr($m, 1, 1)).
-                mb_substr($m, 2, mb_strlen($m) - 2)
+                mb_substr($match, 0, 1).
+                mb_strtoupper(mb_substr($match, 1, 1)).
+                mb_substr($match, 2, mb_strlen($match) - 2)
 
             // else: do not uppercase these cases
-            : (preg_match('/[\])}]/', mb_substr($string, max(0, $i - 1), 3)) ||
-                preg_match('/[A-Z]+|&|\w+[._]\w+/u', mb_substr($m, 1, mb_strlen($m) - 1))
-            ?	$m
+            : (preg_match('/[\])}]/', mb_substr($string, max(0, $index - 1), 3)) ||
+                preg_match('/[A-Z]+|&|\w+[._]\w+/u', mb_substr($match, 1, mb_strlen($match) - 1))
+            ?	$match
                 // if all else fails, then no more fringe-cases; uppercase the word
-            :   mb_strtoupper(mb_substr($m, 0, 1)).
-                mb_substr($m, 1, mb_strlen($m))
+            :   mb_strtoupper(mb_substr($match, 0, 1)).
+                mb_substr($match, 1, mb_strlen($match))
             ));
 
             // Resplice the title with the change (`substr_replace` is not multi-byte
             // aware)
-            $string = mb_substr($string, 0, $i).$m.
-                mb_substr($string, $i + mb_strlen($m), mb_strlen($string));
+            $string = mb_substr($string, 0, $index).$match.
+                mb_substr($string, $index + mb_strlen($match), mb_strlen($string));
         }
 
         return $string;

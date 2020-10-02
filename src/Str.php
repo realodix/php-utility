@@ -552,20 +552,20 @@ class Str
             $lowerC = preg_match('/[\])}]/', mb_substr($string, max(0, $index - 1), 3))
                       || preg_match('/[A-Z]+|&|\w+[._]\w+/u', mb_substr($match, 1, mb_strlen($match) - 1));
 
-            // find words that should always be lowercase (never on the first word, and
-            // never if preceded by a colon).
+            // Words that must always be lowercase are found (never in the first word, and
+            // never if they start with a colon).
             if ($wordLC) {
                 // ..and convert them to lowercase
                 $match = mb_strtolower($match);
 
-            // else: brackets and other wrappers
+            // Brackets and other wrappers were found
             } elseif ($wrappers) {
                 // convert first letter within wrapper to uppercase
                 $match = mb_substr($match, 0, 1).
                          mb_strtoupper(mb_substr($match, 1, 1)).
                          mb_substr($match, 2, mb_strlen($match) - 2);
 
-            // else: do not uppercase these cases
+            // Do not uppercase these cases
             } elseif ($lowerC) {
                 $match;
             } else {

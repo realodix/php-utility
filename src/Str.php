@@ -567,7 +567,7 @@ class Str
 
             // Do not uppercase these cases
             } elseif ($lowerC) {
-                $match;
+                continue;
             } else {
                 // if all else fails, then no more fringe-cases; uppercase the word
                 $match = mb_strtoupper(mb_substr($match, 0, 1)).

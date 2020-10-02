@@ -558,14 +558,14 @@ class Str
                 // ..and convert them to lowercase
                 $match = mb_strtolower($match);
 
-            // brackets and other wrappers
+            // else: brackets and other wrappers
             } elseif ($wrappers) {
                 // convert first letter within wrapper to uppercase
                 $match = mb_substr($match, 0, 1).
                          mb_strtoupper(mb_substr($match, 1, 1)).
                          mb_substr($match, 2, mb_strlen($match) - 2);
 
-            // do not uppercase these cases
+            // else: do not uppercase these cases
             } elseif ($lowerC) {
                 $match;
             } else {
@@ -574,8 +574,7 @@ class Str
                          mb_substr($match, 1, mb_strlen($match));
             }
 
-            // Resplice the title with the change (`substr_replace` is not multi-byte
-            // aware)
+            // Resplice the title with the change
             $string = mb_substr($string, 0, $index).$match.
                       mb_substr($string, $index + mb_strlen($match), mb_strlen($string));
         }

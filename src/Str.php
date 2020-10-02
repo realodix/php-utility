@@ -537,7 +537,7 @@ class Str
         // find each word (including punctuation attached)
         preg_match_all('/[\w\p{L}&`\'‘’"“\.@:\/\{\(\[<>_]+-? */u', $string, $match_1, PREG_OFFSET_CAPTURE);
 
-        foreach ($match_1[0] as &$match_2) {
+        foreach ($match_1[0] as $match_2) {
             [$match, $index] = $match_2;
 
             // Correct offsets for multi-byte characters (`PREG_OFFSET_CAPTURE` returns

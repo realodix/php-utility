@@ -240,29 +240,6 @@ class Str
     }
 
     /**
-     * Makes string's first char uppercase.
-     *
-     * EXAMPLE: <code>UTF8::ucfirst('ñtërnâtiônàlizætiøn foo'); // 'Ñtërnâtiônàlizætiøn foo'</code>
-     *
-     * @param string $encoding [optional] <p>Set the charset for e.g. "mb_" function</p>
-     *
-     * @return string The resulting string with with char uppercase
-     */
-    public function ucfirst(string $encoding = 'UTF-8'): string
-    {
-        $str = $this->str;
-
-        if ($str === '') {
-            return '';
-        }
-
-        $str_part_two = (string) mb_substr($str, 1);
-        $str_part_one = mb_strtoupper((string) mb_substr($str, 0, 1));
-
-        return $str_part_one.$str_part_two;
-    }
-
-    /**
      * Wraps text at the specified character. Maintains the integrity of words. Anything
      * placed between {unwrap}{/unwrap} will not be word wrapped, nor will URLs.
      *
@@ -479,7 +456,7 @@ class Str
      */
     public static function sentenceCase($text): string
     {
-        return str(self::noCase($text))->ucfirst();
+        return ucfirst(self::noCase($text));
     }
 
     /**
@@ -537,7 +514,7 @@ class Str
         // find each word (including punctuation attached)
         preg_match_all('/[\w\p{L}&`\'‘’"“\.@:\/\{\(\[<>_]+-? */u', $string, $match_1, PREG_OFFSET_CAPTURE);
 
-        foreach ($match_1[0] as &$match_2) {
+        foreach ($match_1[0] as $match_2) {
             [$match, $index] = $match_2;
 
             // Correct offsets for multi-byte characters (`PREG_OFFSET_CAPTURE` returns
@@ -567,7 +544,7 @@ class Str
 
             // Do not uppercase these cases
             } elseif ($lowerC) {
-                $match;
+                continue;
             } else {
                 // if all else fails, then no more fringe-cases; uppercase the word
                 $match = mb_strtoupper(mb_substr($match, 0, 1)).

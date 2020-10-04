@@ -78,8 +78,7 @@ trait IdentificationsTrait
             return false;
         }
 
-        $value = (string) $value;
-        $canonical = $value;
+        $canonical = (string) $value;
 
         // 1234-567X
         //     ^

@@ -240,15 +240,11 @@ class Str
     }
 
     /**
-     * Makes string's first char uppercase.
-     *
-     * EXAMPLE: <code>UTF8::ucfirst('ñtërnâtiônàlizætiøn foo'); // 'Ñtërnâtiônàlizætiøn foo'</code>
-     *
-     * @param string $encoding [optional] <p>Set the charset for e.g. "mb_" function</p>
+     * Makes string's first char uppercase
      *
      * @return string The resulting string with with char uppercase
      */
-    public function ucfirst(string $encoding = 'UTF-8'): string
+    public function ucfirst(): string
     {
         $str = $this->str;
 

@@ -240,25 +240,6 @@ class Str
     }
 
     /**
-     * Makes string's first char uppercase
-     *
-     * @return string The resulting string with with char uppercase
-     */
-    public function ucfirst(): string
-    {
-        $str = $this->str;
-
-        if ($str === '') {
-            return '';
-        }
-
-        $str_part_two = (string) mb_substr($str, 1);
-        $str_part_one = mb_strtoupper((string) mb_substr($str, 0, 1));
-
-        return $str_part_one.$str_part_two;
-    }
-
-    /**
      * Wraps text at the specified character. Maintains the integrity of words. Anything
      * placed between {unwrap}{/unwrap} will not be word wrapped, nor will URLs.
      *
@@ -475,7 +456,7 @@ class Str
      */
     public static function sentenceCase($text): string
     {
-        return str(self::noCase($text))->ucfirst();
+        return ucfirst(self::noCase($text));
     }
 
     /**

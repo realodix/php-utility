@@ -133,22 +133,6 @@ class StringsTest extends TestCase
     }
 
     /** @test */
-    public function ucfirst()
-    {
-        $this->assertSame('', str('')->ucfirst());
-
-        // Test ucfirst space
-        $str = ' iñtërnâtiônàlizætiøn';
-        $ucfirst = ' iñtërnâtiônàlizætiøn';
-        $this->assertSame($ucfirst, str($str)->ucfirst());
-
-        // Test ucfirst upper
-        $str = 'Ñtërnâtiônàlizætiøn';
-        $ucfirst = 'Ñtërnâtiônàlizætiøn';
-        $this->assertSame($ucfirst, str($str)->ucfirst());
-    }
-
-    /** @test */
     public function wordWrap()
     {
         $string = 'Here is a simple string of text that will help us demonstrate this function.';

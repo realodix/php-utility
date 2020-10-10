@@ -4,31 +4,31 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run Tests",
+            "label": "[Tests] PHPUnit",
             "type": "shell",
             "command": "./vendor/bin/phpunit",
             "problemMatcher": []
         },
         {
-            "label": "Tests (coverage-html)",
+            "label": "[Tests] PHPUnit (coverage-html)",
             "type": "shell",
             "command": "./vendor/bin/phpunit --coverage-html tests/coverage",
             "problemMatcher": []
         },
         {
-            "label": "Run PHP CS Fixer",
+            "label": "[CS] PHP CS Fixer",
             "type": "shell",
             "command": "./vendor/bin/php-cs-fixer fix -v",
             "problemMatcher": []
         },
         {
-            "label": "Run PHPStan",
+            "label": "[SA] PHPStan",
             "type": "shell",
             "command": "./vendor/bin/phpstan analyse src",
             "problemMatcher": []
         },
         {
-            "label": "Run PHP Insights",
+            "label": "[SA] PHP Insights",
             "type": "shell",
             "command": "./vendor/bin/phpinsights --no-interaction --disable-security-check -v",
             "problemMatcher": []

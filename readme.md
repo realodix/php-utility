@@ -1,4 +1,4 @@
-<h1>PHP Utility Classes</h1>
+<h1>Realodix PHP Utility</h1>
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/realodix/php-utility/tests)
 [![GitHub license](https://img.shields.io/github/license/realodix/php-utility)](https://github.com/realodix/php-utility/blob/master/LICENSE)
@@ -7,15 +7,16 @@ Collection of various PHP utility functions.
 
 
 ## WARNING
-If you are interested, feel free to use it. But there are a few things that you should pay attention to before installing it.
+Feel free to install and use it. But before installing it, there are a few things that you must understand:
 
-- Work in progress
-- Currently only for personal project use, not ready for public.
-- We could change and / or remove functions in any moment.
+- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+- Still in alpha, We haven’t finished adding or removing everything. Breaking changes will continue to occur until our first beta.
+- Currently designed only for use in my personal projects, not public ready.
 - All kinds of issues related to breaking changes will be closed immediately.
 
 
 ## Install
+To install Realodix PHP Utility, install [Composer](https://getcomposer.org/) and issue the following command:
 
 ```sh
 composer require realodix/php-utility
@@ -32,7 +33,7 @@ In package realodix/php-utility you will find a set of useful classes for everyd
 - [Validator](/docs/Validator.md)
 
 
-## Running Tests
+## Testing
 From the projects root folder run `./vendor/bin/phpunit` (VSCode Task `Run test`).
 
 

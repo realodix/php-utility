@@ -1,0 +1,21 @@
+{
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "tests"
+        ]
+    },
+    "timeout": 10,
+    "logs": {
+        "text": "infection.log",
+        "summary": "summary.log",
+        "json": "infection-log.json",
+        "perMutator": "per-mutator.md",
+        "badge": {
+            "branch": "master"
+        }
+    },
+    "testFrameworkOptions": "-vvv"
+}

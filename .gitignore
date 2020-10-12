@@ -2,8 +2,10 @@
 /vendor/
 composer.phar
 
-/tests/coverage
+# PhpStorm
 /.idea
+
+/tests/coverage
 .phpunit.result.cache
 .php_cs.dist
 .php_cs.cache

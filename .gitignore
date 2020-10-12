@@ -9,6 +9,8 @@ composer.phar
 .phpunit.result.cache
 /tests/coverage
 
-.php_cs.dist
+# PHP-CS-Fixer
 .php_cs.cache
+.php_cs.dist
+
 PHP_Insights.json

@@ -7,6 +7,7 @@ composer.phar
 
 # PHPUnit
 .phpunit.result.cache
+phpunit.xml
 /tests/coverage
 
 # PHP-CS-Fixer
@@ -15,5 +16,3 @@ composer.phar
 
 # Psalm
 /.psalm/cache
-
-PHP_Insights.json

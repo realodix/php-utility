@@ -10,6 +10,11 @@ composer.phar
 phpunit.xml
 /tests/coverage
 
+# CodeSniffer
+/wpcs/*
+/CodeSniffer.conf
+/phpcs.xml
+
 # PHP-CS-Fixer
 .php_cs.cache
 .php_cs.dist

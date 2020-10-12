@@ -26,7 +26,7 @@
         "kubawerlos/php-cs-fixer-custom-fixers": "^2.3",
         "nunomaduro/phpinsights": "^1.14",
         "phpstan/phpstan": "^0.12.42",
-        "phpunit/phpunit": "^8.4|^9.0"
+        "phpunit/phpunit": "^8.4|^9"
     },
     "autoload": {
         "psr-4": {

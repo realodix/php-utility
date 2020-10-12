@@ -8,8 +8,9 @@ jobs:
     strategy:
       matrix:
         php: [7.2, 7.3, 7.4, 8.0]
+        stability: [prefer-lowest, prefer-stable]
 
-    name: PHP ${{ matrix.php }}
+    name: PHP ${{ matrix.php }} - ${{ matrix.stability }}
 
     steps:
       - name: Checkout
@@ -40,7 +41,7 @@ jobs:
           max_attempts: 5
           command: |
               composer -V
-              composer update --prefer-dist --no-interaction --no-progress
+              composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
 
       - name: Install PHP 8 dependencies
         uses: nick-invision/retry@v1
@@ -50,7 +51,7 @@ jobs:
           max_attempts: 5
           command: |
               composer -V
-              composer update --prefer-dist --no-interaction --no-progress --ignore-platform-reqs
+              composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress --ignore-platform-reqs
 
       - name: Execute tests
         run: ./vendor/bin/phpunit

@@ -3,7 +3,7 @@
 composer.phar
 
 # PhpStorm
-/.idea
+.idea/*
 
 # PHPUnit
 .phpunit.result.cache

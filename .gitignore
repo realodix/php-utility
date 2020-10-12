@@ -5,8 +5,10 @@ composer.phar
 # PhpStorm
 /.idea
 
-/tests/coverage
+# PHPUnit
 .phpunit.result.cache
+/tests/coverage
+
 .php_cs.dist
 .php_cs.cache
 PHP_Insights.json

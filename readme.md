@@ -1,6 +1,6 @@
 <h1>Realodix PHP Utility</h1>
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/realodix/php-utility/tests)
+[![Tests](https://github.com/realodix/php-utility/actions/workflows/run-tests.yml/badge.svg)](https://github.com/realodix/php-utility/actions/workflows/run-tests.yml)
 [![GitHub license](https://img.shields.io/github/license/realodix/php-utility)](https://github.com/realodix/php-utility/blob/master/LICENSE)
 
 Collection of various PHP utility functions.

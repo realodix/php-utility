@@ -3,7 +3,6 @@
 namespace Realodix\Utils\Number;
 
 use NumberFormatter;
-use Symfony\Polyfill\Php74\Php74;
 
 class Number
 {
@@ -43,7 +42,7 @@ class Number
      */
     public static function charToInt(string $value): string
     {
-        $chars = Php74::mb_str_split($value);
+        $chars = mb_str_split($value);
         $bigInt = '';
 
         foreach ($chars as $char) {
@@ -68,7 +67,7 @@ class Number
      */
     public static function charUpperToInt(string $value): string
     {
-        $chars = Php74::mb_str_split($value);
+        $chars = mb_str_split($value);
         $bigInt = '';
 
         foreach ($chars as $char) {
@@ -93,7 +92,7 @@ class Number
      */
     public static function charLowerToInt(string $value): string
     {
-        $chars = Php74::mb_str_split($value);
+        $chars = mb_str_split($value);
         $bigInt = '';
 
         foreach ($chars as $char) {
@@ -503,7 +502,7 @@ class Number
      */
     public static function mod97(string $bigInt): int
     {
-        $parts = Php74::mb_str_split($bigInt, 7);
+        $parts = mb_str_split($bigInt, 7);
         $rest = 0;
 
         foreach ($parts as $part) {
@@ -516,7 +515,7 @@ class Number
     /**
      * Alternative to make number_format() not to round numbers up.
      *
-     * Based on: (@link https://stackoverflow.com/q/3833137).
+     * Based on: (@see https://stackoverflow.com/q/3833137).
      *
      * @param float $number
      * @param int   $precision

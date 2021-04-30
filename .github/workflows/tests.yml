@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [7.2, 7.3, 7.4, 8.0]
+        stability: [prefer-lowest, prefer-stable]
 
-    name: PHP ${{ matrix.php }}
+    name: PHP 8 - ${{ matrix.stability }}
 
     steps:
       - name: Checkout
@@ -18,7 +18,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
+          php-version: '8.0'
           coverage: xdebug
 
       # https://github.com/marketplace/actions/setup-php-action#cache-composer-dependencies
@@ -32,25 +32,14 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      - name: Install PHP 7 dependencies
-        uses: nick-invision/retry@v1
-        if: "matrix.php < 8"
+      - name: Install PHP dependencies
+        uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5
           max_attempts: 5
           command: |
               composer -V
-              composer update --prefer-dist --no-interaction --no-progress
-
-      - name: Install PHP 8 dependencies
-        uses: nick-invision/retry@v1
-        if: "matrix.php >= 8"
-        with:
-          timeout_minutes: 5
-          max_attempts: 5
-          command: |
-              composer -V
-              composer update --prefer-dist --no-interaction --no-progress --ignore-platform-reqs
+              composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests
         run: ./vendor/bin/phpunit

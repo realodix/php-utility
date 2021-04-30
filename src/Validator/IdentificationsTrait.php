@@ -4,7 +4,6 @@ namespace Realodix\Utils\Validator;
 
 use Nicebooks\Isbn\IsbnTools;
 use Ramsey\Uuid\Validator\GenericValidator;
-use Symfony\Polyfill\Php74\Php74;
 
 trait IdentificationsTrait
 {
@@ -156,7 +155,7 @@ trait IdentificationsTrait
         //         ^     ^     ^     ^     ^
         //    =    1+8 + 4  +  6  +  1+6 + 2
         for ($i = $length - 2; $i >= 0; $i -= 2) {
-            $checkSum += array_sum(Php74::mb_str_split((int) $value[$i] * 2));
+            $checkSum += array_sum(mb_str_split((int) $value[$i] * 2));
         }
 
         if (0 === $checkSum || 0 !== $checkSum % 10) {

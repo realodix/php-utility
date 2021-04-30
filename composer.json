@@ -14,6 +14,7 @@
         }
     ],
     "require": {
+        "php": "^8.0",
         "egulias/email-validator": "^2.1",
         "nicebooks/isbn": "^0.2.67",
         "ramsey/uuid": "^4.1",

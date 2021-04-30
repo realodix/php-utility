@@ -515,7 +515,7 @@ class Number
     /**
      * Alternative to make number_format() not to round numbers up.
      *
-     * Based on: (@link https://stackoverflow.com/q/3833137).
+     * Based on: (@see https://stackoverflow.com/q/3833137).
      *
      * @param float $number
      * @param int   $precision

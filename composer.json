@@ -16,13 +16,13 @@
     "require": {
         "php": "^8.0",
         "egulias/email-validator": "^3.1",
-        "nicebooks/isbn": "^0.2.67",
+        "nicebooks/isbn": "^0.2.85",
         "ramsey/uuid": "^4.1",
         "spatie/url": "^2.0",
         "voku/portable-utf8": "^5.4"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16",
+        "friendsofphp/php-cs-fixer": "^2.18",
         "kubawerlos/php-cs-fixer-custom-fixers": "^2.4",
         "nunomaduro/phpinsights": "dev-master",
         "phpstan/phpstan": "^0.12.42",

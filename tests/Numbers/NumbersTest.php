@@ -121,7 +121,7 @@ class NumbersTest extends TestCase
     {
         $this->assertSame($expected, Number::toPercentage($value, $precision, $options));
 
-        $result = Number::toPercentage(0.456, 2, ['locale' => 'de-DE', 'multiply' => true]);
+        $result = Number::toPercentage(0.456, options: ['locale' => 'de-DE', 'multiply' => true]);
         $formatResult = str_replace("\xc2\xa0", ' ', $result);
         $this->assertSame('45,60 %', $formatResult);
 

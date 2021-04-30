@@ -37,22 +37,22 @@ class DisplayTest extends TestCase
     {
         $this->assertEquals(
             21,
-            strlen(Url::display('https://example.com/abcde', true, 21))
+            strlen(Url::display('https://example.com/abcde', limit: 21))
         );
 
         $this->assertSame(
             'https://example.com/abcde...',
-            Url::display('https://example.com/abcdefghij', true, 28)
+            Url::display('https://example.com/abcdefghij', limit: 28)
         );
 
         $this->assertSame(
             'https://example.com/abc...hij',
-            Url::display('https://example.com/abcdefghij', true, 29)
+            Url::display('https://example.com/abcdefghij', limit: 29)
         );
 
         $this->assertSame(
             'https://example...',
-            Url::display('https://example.com/abc', true, 18)
+            Url::display('https://example.com/abc', limit: 18)
         );
     }
 

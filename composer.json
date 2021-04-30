@@ -19,7 +19,6 @@
         "nicebooks/isbn": "^0.2.67",
         "ramsey/uuid": "^4.1",
         "spatie/url": "^1.3",
-        "symfony/polyfill-php74": "^1.18",
         "voku/portable-utf8": "^5.4"
     },
     "require-dev": {

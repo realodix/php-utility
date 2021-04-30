@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1904c721c4e24ea59952ab96aba85dc1",
+    "content-hash": "c17598113f3e62e0660b1781bd9f1712",
     "packages": [
         {
             "name": "brick/math",
@@ -482,20 +482,20 @@
         },
         {
             "name": "spatie/macroable",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/macroable.git",
-                "reference": "7a99549fc001c925714b329220dea680c04bfa48"
+                "reference": "ec2c320f932e730607aff8052c44183cf3ecb072"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/macroable/zipball/7a99549fc001c925714b329220dea680c04bfa48",
-                "reference": "7a99549fc001c925714b329220dea680c04bfa48",
+                "url": "https://api.github.com/repos/spatie/macroable/zipball/ec2c320f932e730607aff8052c44183cf3ecb072",
+                "reference": "ec2c320f932e730607aff8052c44183cf3ecb072",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2|^8.0"
+                "php": "^8.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.0|^9.3"
@@ -526,31 +526,31 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/macroable/issues",
-                "source": "https://github.com/spatie/macroable/tree/1.0.1"
+                "source": "https://github.com/spatie/macroable/tree/2.0.0"
             },
-            "time": "2020-11-03T10:15:05+00:00"
+            "time": "2021-03-26T22:39:02+00:00"
         },
         {
             "name": "spatie/url",
-            "version": "1.3.5",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/url.git",
-                "reference": "3633de58e0709ea98cecceff61ee51caf1fde7e3"
+                "reference": "8d996c2e69a02683908d12b439b96c60268ed085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/url/zipball/3633de58e0709ea98cecceff61ee51caf1fde7e3",
-                "reference": "3633de58e0709ea98cecceff61ee51caf1fde7e3",
+                "url": "https://api.github.com/repos/spatie/url/zipball/8d996c2e69a02683908d12b439b96c60268ed085",
+                "reference": "8d996c2e69a02683908d12b439b96c60268ed085",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2|^8.0",
+                "php": "^8.0",
                 "psr/http-message": "^1.0",
-                "spatie/macroable": "^1.0.1"
+                "spatie/macroable": "^2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.0|^9.3"
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "autoload": {
@@ -578,9 +578,19 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/url/issues",
-                "source": "https://github.com/spatie/url/tree/1.3.5"
+                "source": "https://github.com/spatie/url/tree/2.0.0"
             },
-            "time": "2020-11-03T10:36:20+00:00"
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-03-31T10:15:44+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1402,20 +1412,21 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "6c12ce263da71641903e399c3ce8ecb08fd375fb"
+                "reference": "986e8b86b7b570632ad0a905c3726c33dd4c0efb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/6c12ce263da71641903e399c3ce8ecb08fd375fb",
-                "reference": "6c12ce263da71641903e399c3ce8ecb08fd375fb",
+                "url": "https://api.github.com/repos/composer/composer/zipball/986e8b86b7b570632ad0a905c3726c33dd4c0efb",
+                "reference": "986e8b86b7b570632ad0a905c3726c33dd4c0efb",
                 "shasum": ""
             },
             "require": {
                 "composer/ca-bundle": "^1.0",
+                "composer/metadata-minifier": "^1.0",
                 "composer/semver": "^3.0",
                 "composer/spdx-licenses": "^1.2",
                 "composer/xdebug-handler": "^1.1",
@@ -1479,7 +1490,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.0.12"
+                "source": "https://github.com/composer/composer/tree/2.0.13"
             },
             "funding": [
                 {
@@ -1495,7 +1506,76 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-01T08:14:59+00:00"
+            "time": "2021-04-27T11:11:08+00:00"
+        },
+        {
+            "name": "composer/metadata-minifier",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/metadata-minifier.git",
+                "reference": "c549d23829536f0d0e984aaabbf02af91f443207"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/metadata-minifier/zipball/c549d23829536f0d0e984aaabbf02af91f443207",
+                "reference": "c549d23829536f0d0e984aaabbf02af91f443207",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.2 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "composer/composer": "^2",
+                "phpstan/phpstan": "^0.12.55",
+                "symfony/phpunit-bridge": "^4.2 || ^5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\MetadataMinifier\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "Small utility library that handles metadata minification and expansion.",
+            "keywords": [
+                "composer",
+                "compression"
+            ],
+            "support": {
+                "issues": "https://github.com/composer/metadata-minifier/issues",
+                "source": "https://github.com/composer/metadata-minifier/tree/1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-04-07T13:37:33+00:00"
         },
         {
             "name": "composer/semver",
@@ -2349,12 +2429,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/phpinsights.git",
-                "reference": "0004d04d07ae4b1902d395ebe6f0db99148cc776"
+                "reference": "d4f92e93a2a5ddf90664eb6a4cb9d159440abbcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/phpinsights/zipball/0004d04d07ae4b1902d395ebe6f0db99148cc776",
-                "reference": "0004d04d07ae4b1902d395ebe6f0db99148cc776",
+                "url": "https://api.github.com/repos/nunomaduro/phpinsights/zipball/d4f92e93a2a5ddf90664eb6a4cb9d159440abbcf",
+                "reference": "d4f92e93a2a5ddf90664eb6a4cb9d159440abbcf",
                 "shasum": ""
             },
             "require": {
@@ -2451,7 +2531,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-04-24T15:41:11+00:00"
+            "time": "2021-04-29T06:43:47+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -3014,16 +3094,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.84",
+            "version": "0.12.85",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "9c43f15da8798c8f30a4b099e6a94530a558cfd5"
+                "reference": "20e6333c0067875ad7697cd8acdf245c6ef69d03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9c43f15da8798c8f30a4b099e6a94530a558cfd5",
-                "reference": "9c43f15da8798c8f30a4b099e6a94530a558cfd5",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/20e6333c0067875ad7697cd8acdf245c6ef69d03",
+                "reference": "20e6333c0067875ad7697cd8acdf245c6ef69d03",
                 "shasum": ""
             },
             "require": {
@@ -3054,7 +3134,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.84"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.85"
             },
             "funding": [
                 {
@@ -3070,7 +3150,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-19T17:10:54+00:00"
+            "time": "2021-04-27T14:13:16+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4868,16 +4948,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "7.0.5",
+            "version": "7.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "35e0235aeeea6422d0caa2921c4e5e1411d8a379"
+                "reference": "cad651ba4920b4fe458cd38b76a87a6f4a18f64f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/35e0235aeeea6422d0caa2921c4e5e1411d8a379",
-                "reference": "35e0235aeeea6422d0caa2921c4e5e1411d8a379",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/cad651ba4920b4fe458cd38b76a87a6f4a18f64f",
+                "reference": "cad651ba4920b4fe458cd38b76a87a6f4a18f64f",
                 "shasum": ""
             },
             "require": {
@@ -4889,7 +4969,7 @@
             "require-dev": {
                 "phing/phing": "2.16.4",
                 "php-parallel-lint/php-parallel-lint": "1.3.0",
-                "phpstan/phpstan": "0.12.83",
+                "phpstan/phpstan": "0.12.85",
                 "phpstan/phpstan-deprecation-rules": "0.12.6",
                 "phpstan/phpstan-phpunit": "0.12.18",
                 "phpstan/phpstan-strict-rules": "0.12.9",
@@ -4913,7 +4993,7 @@
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
             "support": {
                 "issues": "https://github.com/slevomat/coding-standard/issues",
-                "source": "https://github.com/slevomat/coding-standard/tree/7.0.5"
+                "source": "https://github.com/slevomat/coding-standard/tree/7.0.6"
             },
             "funding": [
                 {
@@ -4925,7 +5005,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-20T06:34:22+00:00"
+            "time": "2021-04-27T16:34:01+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

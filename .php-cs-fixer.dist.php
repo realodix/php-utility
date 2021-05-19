@@ -2,7 +2,7 @@
 
 use PhpCsFixerCustomFixers\Fixer;
 
-// PHP-CS-Fixer v2.18
+// PHP-CS-Fixer v3
 // Based on https://docs.styleci.io/presets#laravel
 $rules = [
     '@Symfony' => true,

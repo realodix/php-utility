@@ -26,12 +26,6 @@
             "type": "shell",
             "command": "./vendor/bin/phpstan analyse src",
             "problemMatcher": []
-        },
-        {
-            "label": "[SA] PHP Insights",
-            "type": "shell",
-            "command": "./vendor/bin/phpinsights --no-interaction --disable-security-check -v",
-            "problemMatcher": []
         }
     ]
 }

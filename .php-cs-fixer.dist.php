@@ -7,11 +7,9 @@ use PhpCsFixerCustomFixers\Fixer;
 $rules = [
     '@Symfony' => true,
     'array_indentation' => true,
-    'array_syntax' => ['syntax' => 'short'], // short_array_syntax
     'compact_nullable_typehint' => true,
     'heredoc_to_nowdoc' => true,
     'increment_style' => ['style' => 'post'], // post_increment
-    'list_syntax' => ['syntax' => 'short'], // short_list_syntax
     'multiline_whitespace_before_semicolons' => true, // no_multiline_whitespace_before_semicolons
     'no_alias_functions' => true, // @Symfony:risky, @PhpCsFixer:risky
     'no_extra_blank_lines' => [
@@ -102,7 +100,8 @@ $finder = PhpCsFixer\Finder::create()
     ->notName('.phpstorm.meta.php')
     ->notName('_ide_*.php');
 
-return PhpCsFixer\Config::create()
+$config = new PhpCsFixer\Config();
+return $config
     ->registerCustomFixers(new PhpCsFixerCustomFixers\Fixers())
     ->setRiskyAllowed(true)
     ->setRules($rules)

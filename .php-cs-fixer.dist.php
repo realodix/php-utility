@@ -69,7 +69,7 @@ $rules = [
     ],
     'phpdoc_to_comment' => true,
     'phpdoc_var_annotation_correct_order' => true,
-    // 'ordered_traits' => true, // alpha_ordered_traits ^2.17.0 #4701
+
     Fixer\CommentedOutFunctionFixer::name() => true,
     Fixer\CommentSurroundedBySpacesFixer::name() => true,
     Fixer\DataProviderNameFixer::name() => ['prefix' => '', 'suffix' => 'Provider'],

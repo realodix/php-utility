@@ -1,4 +1,4 @@
-name: "tests"
+name: tests
 
 on: [push]
 
@@ -15,7 +15,7 @@ jobs:
           - laravel: 8.*
             testbench: 6.*
 
-    name: Laravel ${{ matrix.laravel }}
+    name: Laravel ${{ matrix.laravel }} compatibility
 
     steps:
       - name: Checkout code

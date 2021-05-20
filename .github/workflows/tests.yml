@@ -7,9 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        php-version: [8.0]
         stability: [prefer-lowest, prefer-stable]
 
-    name: PHP 8 - ${{ matrix.stability }}
+    name: PHP ${{ matrix.php-version }} - ${{ matrix.stability }}
 
     steps:
       - name: Checkout
@@ -18,7 +19,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'
+          php-version: ${{ matrix.php-version }}
           coverage: xdebug
 
       # https://github.com/marketplace/actions/setup-php-action#cache-composer-dependencies

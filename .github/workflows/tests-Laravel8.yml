@@ -1,6 +1,6 @@
 name: "tests"
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   test:
@@ -11,7 +11,6 @@ jobs:
       matrix:
         php: [8.0]
         laravel: [8.*]
-        dependency-version: [prefer-lowest, prefer-stable]
         include:
           - laravel: 8.*
             testbench: 6.*
@@ -38,6 +37,6 @@ jobs:
       - name: Install dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "symfony/console:>=4.3.4" --no-interaction --no-update
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+          composer update --prefer-dist --no-interaction
       - name: Execute tests
         run: vendor/bin/phpunit

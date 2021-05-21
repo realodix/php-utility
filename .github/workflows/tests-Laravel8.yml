@@ -10,7 +10,7 @@ jobs:
       fail-fast: true
       matrix:
         php: [8.0]
-        laravel: [8.*]
+        laravel: ['8.x-dev']
 
     name: Laravel ${{ matrix.laravel }} compatibility
 
@@ -22,13 +22,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.composer/cache/files
-          key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-laravel-${{ matrix.laravel }}-php-8-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
-          extensions: curl, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, iconv
+          php-version: '8.0'
           coverage: none
 
       - name: Install dependencies

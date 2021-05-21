@@ -9,16 +9,15 @@ env:
 
 jobs:
   tests:
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest]
         php-version: ['8.0']
         dependencies: ['']
         coverage-driver: [pcov]
 
-    name: Mutation testing on ${{ matrix.operating-system }} with PHP ${{ matrix.php-version }}, using ${{ matrix.coverage-driver }}
+    name: Mutation testing on PHP ${{ matrix.php-version }}, using ${{ matrix.coverage-driver }}
 
     steps:
       - name: Checkout code

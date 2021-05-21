@@ -4,7 +4,7 @@ name: tests
 on: [push]
 
 env:
-  MIN_MSI: 68.00
+  MIN_MSI: 70.00
   MIN_COVERED_MSI: 80.00
 
 jobs:

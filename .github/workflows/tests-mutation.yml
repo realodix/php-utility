@@ -1,0 +1,49 @@
+
+name: tests
+
+on: [push]
+
+env:
+  MIN_MSI: 70.00
+  MIN_COVERED_MSI: 80.00
+
+jobs:
+  tests:
+    name: Mutation
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          coverage: xdebug
+
+      # https://github.com/marketplace/actions/setup-php-action#cache-composer-dependencies
+      - name: Get composer cache directory
+        id: composercache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composercache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install dependencies
+        run: |
+          composer require infection/infection
+          composer update --no-interaction --prefer-dist --no-progress
+
+      - name: Collect coverage report
+        run: |
+          php vendor/phpunit/phpunit/phpunit --stop-on-failure --coverage-xml=build/logs/coverage-xml --log-junit=build/logs/junit.xml
+
+      - name: Run Infection
+        env:
+          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+        run: |
+          ./vendor/bin/infection -j2 --skip-initial-tests --min-msi=$MIN_MSI --min-covered-msi=$MIN_COVERED_MSI --coverage=build/logs --log-verbosity=none --no-interaction --no-progress

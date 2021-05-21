@@ -1,0 +1,35 @@
+name: compatibility
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    name: yii
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # https://github.com/marketplace/actions/setup-php-action#cache-composer-dependencies
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          coverage: none
+
+      - name: Install dependencies
+        run: |
+          composer require yiisoft/yii2-app-basic --no-interaction --no-update
+          composer update --prefer-dist --no-interaction

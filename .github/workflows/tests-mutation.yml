@@ -14,8 +14,6 @@ jobs:
     strategy:
       matrix:
         php-version: ['8.0']
-        dependencies: ['']
-        coverage-driver: [pcov]
 
     name: Mutation testing on PHP ${{ matrix.php-version }}, using ${{ matrix.coverage-driver }}
 
@@ -27,8 +25,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          coverage: ${{ matrix.coverage-driver }}
-          tools: composer:v2
+          coverage: xdebug
 
       # https://github.com/marketplace/actions/setup-php-action#cache-composer-dependencies
       - name: Get composer cache directory
@@ -43,7 +40,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer update --no-interaction --prefer-dist --no-progress ${{ matrix.dependencies }}
+          composer update --no-interaction --prefer-dist --no-progress
 
       - name: Collect coverage report
         run: |

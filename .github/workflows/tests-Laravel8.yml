@@ -11,9 +11,6 @@ jobs:
       matrix:
         php: [8.0]
         laravel: [8.*]
-        include:
-          - laravel: 8.*
-            testbench: 6.*
 
     name: Laravel ${{ matrix.laravel }} compatibility
 

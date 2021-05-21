@@ -3,8 +3,7 @@ name: compatibility
 on: [push]
 
 jobs:
-  test:
-
+  build:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true

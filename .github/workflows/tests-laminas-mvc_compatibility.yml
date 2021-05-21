@@ -11,7 +11,7 @@ jobs:
       matrix:
         laminas-mvc: ['3.2.x-dev', '4.0.x-dev']
 
-    name: laminas-mvc ${{ matrix.laravel }} compatibility
+    name: laminas-mvc ${{ matrix.laminas-mvc }} compatibility
 
     steps:
       - name: Checkout code

@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        laravel: ['6.x-dev', '8.x-dev']
+        laravel: ['8.x-dev']
 
     name: Laravel ${{ matrix.laravel }} compatibility
 

@@ -11,7 +11,7 @@ jobs:
       matrix:
         laravel: ['8.x-dev']
 
-    name: Laravel ${{ matrix.laravel }} compatibility
+    name: Laravel ${{ matrix.laravel }}
 
     steps:
       - name: Checkout code

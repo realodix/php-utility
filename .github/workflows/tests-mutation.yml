@@ -9,14 +9,9 @@ env:
 
 jobs:
   tests:
+    name: Mutation testing
+
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        php-version: ['8.0']
-
-    name: Mutation testing on PHP ${{ matrix.php-version }}, using ${{ matrix.coverage-driver }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -24,7 +19,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-version }}
+          php-version: '8.0'
           coverage: xdebug
 
       # https://github.com/marketplace/actions/setup-php-action#cache-composer-dependencies
@@ -40,6 +35,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          composer require infection/infection
           composer update --no-interaction --prefer-dist --no-progress
 
       - name: Collect coverage report

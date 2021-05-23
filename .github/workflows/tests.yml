@@ -9,6 +9,10 @@ jobs:
       matrix:
         php-version: ['8.0']
         stability: [prefer-lowest, prefer-stable]
+        include:
+          - php-version: '8.1'
+            flags: "--ignore-platform-req=php"
+            stability: prefer-stable
 
     name: PHP ${{ matrix.php-version }} - ${{ matrix.stability }}
 
@@ -40,7 +44,7 @@ jobs:
           max_attempts: 5
           command: |
               composer -V
-              composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
+              composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress ${{ matrix.flags }}
 
       - name: Execute tests
-        run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit --verbose

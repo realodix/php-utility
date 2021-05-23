@@ -13,9 +13,7 @@
         "summary": "summary.log",
         "json": "infection-log.json",
         "perMutator": "per-mutator.md",
-        "badge": {
-            "branch": "master"
-        }
+        "github": true
     },
     "testFrameworkOptions": "-vvv"
 }

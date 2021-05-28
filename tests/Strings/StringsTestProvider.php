@@ -53,6 +53,17 @@ trait StringsTestProvider
         ];
     }
 
+    public function removeNonNumericProvider()
+    {
+        return [
+            ['33', '!@low3rUPP3R_?'],
+            ['6', 'Every 6 Months'],
+            ['123099', '$ 123.099'],
+            ['', 'fòô bàř'],
+            ['', 'òô'],
+        ];
+    }
+
     public function sliceProvider()
     {
         return [

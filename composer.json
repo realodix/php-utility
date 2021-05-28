@@ -34,6 +34,11 @@
             "src/Helper.php"
         ]
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
     "autoload-dev": {
         "psr-4": {
             "Realodix\\Utils\\Test\\": "tests/"

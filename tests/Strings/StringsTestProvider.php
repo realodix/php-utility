@@ -38,6 +38,21 @@ trait StringsTestProvider
         ];
     }
 
+    public function removeNonAlphaNumProvider()
+    {
+        return [
+            ['low3rUPP3R', '!@low3rUPP3R_?'],
+            [
+                'httpstranslategooglecomslidtlentextRealodix0Aoptranslate',
+                'https://translate.google.com/?sl=id&tl=en&text=Realodix%0A&op=translate'
+            ],
+            ['httpsiwsemojidomainexample', 'https://i❤️.ws/emojidomain/example'],
+            ['fB', 'fòôBàř'],
+            ['fb', 'fòô bàř'],
+            ['', 'òô'],
+        ];
+    }
+
     public function sliceProvider()
     {
         return [

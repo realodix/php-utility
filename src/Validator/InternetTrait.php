@@ -2,9 +2,6 @@
 
 namespace Realodix\Utils\Validator;
 
-use Egulias\EmailValidator\EmailValidator;
-use Egulias\EmailValidator\Validation\RFCValidation;
-
 trait InternetTrait
 {
     /**

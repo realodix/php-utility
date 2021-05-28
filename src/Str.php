@@ -197,6 +197,16 @@ class Str
     }
 
     /**
+     * Remove non-alpha characters.
+     *
+     * @return string|empty
+     */
+    public function removeNonAlpha()
+    {
+        return preg_replace('/[^a-z]/i', '', $this->str);
+    }
+
+    /**
      * Returns the substring beginning at $start, and up to, but not including the index
      * specified by $end. If $end is omitted, the function extracts the remaining string.
      * If $end is negative, it is computed from the end of the string.

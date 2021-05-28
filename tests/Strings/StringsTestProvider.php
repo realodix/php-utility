@@ -18,6 +18,26 @@ trait StringsTestProvider
         ];
     }
 
+    public function removeNonAlphaProvider()
+    {
+        return [
+            ['lowerUPPER', '!@lowerUPPER_?'],
+            ['httpsgithubcomrealodixphputility', 'https://github.com/realodix/php-utility'],
+            [
+                'httpspackagistorgpackagesrealodixphputility',
+                'https://packagist.org/packages/realodix/php-utility'
+            ],
+            [
+                'httpstranslategooglecomslidtlentextRealodixAoptranslate',
+                'https://translate.google.com/?sl=id&tl=en&text=Realodix%0A&op=translate'
+            ],
+            ['httpsiwsemojidomainexample', 'https://i❤️.ws/emojidomain/example'],
+            ['fB', 'fòôBàř'],
+            ['fb', 'fòô bàř'],
+            ['', 'òô'],
+        ];
+    }
+
     public function sliceProvider()
     {
         return [

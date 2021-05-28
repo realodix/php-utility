@@ -116,6 +116,15 @@ class StringsTest extends TestCase
 
     /**
      * @test
+     * @dataProvider removeNonAlphaProvider
+     */
+    public function removeNonAlpha($expected, $value)
+    {
+        $this->assertSame($expected, str($value)->removeNonAlpha());
+    }
+
+    /**
+     * @test
      * @dataProvider sliceProvider
      */
     public function slice($expected, $value1, $value2)

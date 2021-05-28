@@ -37,7 +37,7 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      - name: Install PHP dependencies
+      - name: Install dependencies
         uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5

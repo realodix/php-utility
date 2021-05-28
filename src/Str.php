@@ -207,7 +207,7 @@ class Str
     }
 
     /**
-     * Remove non-alpha characters.
+     * Remove non-alphanumeric characters.
      *
      * @return string|empty
      */

@@ -344,6 +344,9 @@ use Realodix\Utils\Str;
 
 $str = 'fooB4r';
 Str::of($str)->removeNonAlpha(); // 'fooBr'
+
+$str = 'fooBar';
+Str::of($str)->removeNonAlpha(); // ''
 ```
 
 <br>
@@ -355,6 +358,9 @@ use Realodix\Utils\Str;
 
 $str = 'f@@B4r';
 Str::of($str)->removeNonAlphaNum(); // 'fB4r'
+
+$str = 'fooBar';
+Str::of($str)->removeNonAlpha(); // ''
 ```
 
 <br>
@@ -366,6 +372,9 @@ use Realodix\Utils\Str;
 
 $str = 'fooB4r';
 Str::of($str)->removeNonNumeric(); // '4'
+
+$str = '1234';
+Str::of($str)->removeNonNumeric(); // ''
 ```
 
 <br>

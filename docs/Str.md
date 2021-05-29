@@ -360,7 +360,7 @@ $str = 'f@@B4r';
 Str::of($str)->removeNonAlphaNum(); // 'fB4r'
 
 $str = 'fooBar';
-Str::of($str)->removeNonAlpha(); // ''
+Str::of($str)->removeNonAlphaNum(); // ''
 ```
 
 <br>

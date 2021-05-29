@@ -18,6 +18,52 @@ trait StringsTestProvider
         ];
     }
 
+    public function removeNonAlphaProvider()
+    {
+        return [
+            ['lowerUPPER', '!@lowerUPPER_?'],
+            ['httpsgithubcomrealodixphputility', 'https://github.com/realodix/php-utility'],
+            [
+                'httpspackagistorgpackagesrealodixphputility',
+                'https://packagist.org/packages/realodix/php-utility'
+            ],
+            [
+                'httpstranslategooglecomslidtlentextRealodixAoptranslate',
+                'https://translate.google.com/?sl=id&tl=en&text=Realodix%0A&op=translate'
+            ],
+            ['httpsiwsemojidomainexample', 'https://i❤️.ws/emojidomain/example'],
+            ['fB', 'fòôBàř'],
+            ['fb', 'fòô bàř'],
+            ['', 'òô'],
+        ];
+    }
+
+    public function removeNonAlphaNumProvider()
+    {
+        return [
+            ['low3rUPP3R', '!@low3rUPP3R_?'],
+            [
+                'httpstranslategooglecomslidtlentextRealodix0Aoptranslate',
+                'https://translate.google.com/?sl=id&tl=en&text=Realodix%0A&op=translate'
+            ],
+            ['httpsiwsemojidomainexample', 'https://i❤️.ws/emojidomain/example'],
+            ['fB', 'fòôBàř'],
+            ['fb', 'fòô bàř'],
+            ['', 'òô'],
+        ];
+    }
+
+    public function removeNonNumericProvider()
+    {
+        return [
+            ['33', '!@low3rUPP3R_?'],
+            ['6', 'Every 6 Months'],
+            ['123099', '$ 123.099'],
+            ['', 'fòô bàř'],
+            ['', 'òô'],
+        ];
+    }
+
     public function sliceProvider()
     {
         return [

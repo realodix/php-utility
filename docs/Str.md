@@ -337,6 +337,48 @@ $string->reduceMultiples(", ", TRUE);
 
 <br>
 
+### `removeNonAlpha()`
+
+```php
+use Realodix\Utils\Str;
+
+$str = 'fooB4r';
+Str::of($str)->removeNonAlpha(); // 'fooBr'
+
+$str = 'fooBar';
+Str::of($str)->removeNonAlpha(); // ''
+```
+
+<br>
+
+### `removeNonAlphaNum()`
+
+```php
+use Realodix\Utils\Str;
+
+$str = 'f@@B4r';
+Str::of($str)->removeNonAlphaNum(); // 'fB4r'
+
+$str = 'fooBar';
+Str::of($str)->removeNonAlphaNum(); // ''
+```
+
+<br>
+
+### `removeNonNumeric()`
+
+```php
+use Realodix\Utils\Str;
+
+$str = 'fooB4r';
+Str::of($str)->removeNonNumeric(); // '4'
+
+$str = '1234';
+Str::of($str)->removeNonNumeric(); // ''
+```
+
+<br>
+
 ### `slice()`
 
 Returns the substring beginning at $start, and up to, but not including the index specified by $end.

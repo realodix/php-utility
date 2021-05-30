@@ -175,28 +175,6 @@ class Str
     }
 
     /**
-     * Reduces multiple instances of a particular character.
-     *
-     * Example:
-     * - Fred, Bill,, Joe, Jimmy
-     *
-     * becomes:
-     * - Fred, Bill, Joe, Jimmy
-     *
-     * @param string $character The character you wish to reduce
-     * @param bool   $trim      TRUE/FALSE - whether to trim the character from the
-     *                          beginning/end
-     *
-     * @return string
-     */
-    public function reduceMultiples(string $character = ',', bool $trim = false): string
-    {
-        $str = preg_replace('#'.preg_quote($character, '#').'{2,}#', $character, $this->str);
-
-        return ($trim) ? trim($str, $character) : $str;
-    }
-
-    /**
      * Remove non-alpha characters.
      *
      * @return string|empty

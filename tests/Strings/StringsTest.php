@@ -94,26 +94,6 @@ class StringsTest extends TestCase
         $this->assertSame('这是一', $nonAsciiString->limit(6, ''));
     }
 
-    /** @test */
-    public function reduceMultiples()
-    {
-        $strs = [
-            'Fred, Bill,, Joe, Jimmy' => 'Fred, Bill, Joe, Jimmy',
-            'Ringo, John, Paul,,'     => 'Ringo, John, Paul,',
-        ];
-        foreach ($strs as $str => $expect) {
-            $this->assertEquals($expect, str($str)->reduceMultiples());
-        }
-
-        $strs = [
-            'Fred, Bill,, Joe, Jimmy' => 'Fred, Bill, Joe, Jimmy',
-            'Ringo, John, Paul,,'     => 'Ringo, John, Paul',
-        ];
-        foreach ($strs as $str => $expect) {
-            $this->assertEquals($expect, str($str)->reduceMultiples(',', true));
-        }
-    }
-
     /**
      * @test
      * @dataProvider removeNonAlphaProvider

@@ -305,38 +305,6 @@ Str::of($str)->limit(20, '(...)');
 
 <br>
 
-### `reduceMultiples()`
-
-`reduceMultiples(string $character = ',', bool $trim = false): string`
-
-Reduces multiple instances of a particular character occurring directly after each other.
-
-Example:
-
-```php
-use Realodix\Utils\Str;
-
-$string = Str::of("Fred, Bill,, Joe, Jimmy");
-$string->reduceMultiples(","); 
-
-// Fred, Bill, Joe, Jimmy
-```
-
-If the third parameter is set to TRUE it will remove occurrences of the character at the beginning and the end of the string.
-
-Example:
-
-```php
-use Realodix\Utils\Str;
-
-$string = Str::of(",Fred, Bill,, Joe, Jimmy,");
-$string->reduceMultiples(", ", TRUE); 
-
-// Fred, Bill, Joe, Jimmy
-```
-
-<br>
-
 ### `removeNonAlpha()`
 
 ```php

@@ -1,26 +1,8 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<details>
-<summary>Table of Contents</summary>
-
-- [Number](#number)
-    - [Characters To Integers](#characters-to-integers)
-    - [Number::format()](#numberformat)
-    - [Number::formatDelta()](#numberformatdelta)
-    - [IBAN](#iban)
-    - [Number::ordinal()](#numberordinal)
-    - [Number::precision()](#numberprecision)
-    - [Number::toAmount()](#numbertoamount)
-    - [Number::toAmountShort()](#numbertoamountshort)
-    - [Number::toPercentage()](#numbertopercentage)
-    - [Number::toRoman()](#numbertoroman)
-    - [Number::toSize()](#numbertosize)
-
-</details>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 Number
 ===
+
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 ### Characters To Integers
 

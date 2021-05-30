@@ -94,6 +94,19 @@ class StringsTest extends TestCase
         $this->assertSame('这是一', $nonAsciiString->limit(6, ''));
     }
 
+    /** @test */
+    public function limitWord()
+    {
+        $this->assertSame(
+            'Perfectly balanced, as >>>',
+            str('Perfectly balanced, as all things should be.')->limitWord(3, ' >>>')
+        );
+        $this->assertSame('Hanster...', str('Hanster Realodix')->limitWord(1));
+        $this->assertSame('Hanster___', str('Hanster Realodix')->limitWord(1, '___'));
+        $this->assertSame('Hanster Realodix', str('Hanster Realodix')->limitWord(3));
+    }
+
+
     /**
      * @test
      * @dataProvider removeNonAlphaProvider

@@ -1,8 +1,37 @@
 String
 ===
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+  - [`Str::camelCase()`](#strcamelcase)
+  - [`Str::capitalCase()`](#strcapitalcase)
+  - [`Str::constantCase()`](#strconstantcase)
+  - [`Str::dotCase()`](#strdotcase)
+  - [`Str::headerCase()`](#strheadercase)
+  - [`Str::noCase()`](#strnocase)
+  - [`Str::pascalCase()`](#strpascalcase)
+  - [`Str::pathCase()`](#strpathcase)
+  - [`Str::sentenceCase()`](#strsentencecase)
+  - [`Str::snakeCase()`](#strsnakecase)
+  - [`Str::spinalCase()`](#strspinalcase)
+  - [`Str::swapCase()`](#strswapcase)
+  - [`Str::titleCase()`](#strtitlecase)
+- [Other Functions](#other-functions)
+  - [`charAt()`](#charat)
+  - [`ellipsize()`](#ellipsize)
+  - [`excerpt()`](#excerpt)
+  - [`incrementString()`](#incrementstring)
+  - [`limit()`](#limit)
+  - [`removeNonAlpha()`](#removenonalpha)
+  - [`removeNonAlphaNum()`](#removenonalphanum)
+  - [`removeNonNumeric()`](#removenonnumeric)
+  - [`slice()`](#slice)
+  - [`toAscii()`](#toascii)
+  - [`wordWrap()`](#wordwrap)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
 ### `Str::camelCase()`

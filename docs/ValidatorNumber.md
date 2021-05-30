@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details>
+<summary>Table of Contents</summary>
+
+- [VALIDATOR - NUMBER](#validator---number)
+    - [`divisibleBy($value1, $value2)`](#divisiblebyvalue1-value2)
+    - [`numeric()`](#numeric)
+    - [`numericInt()`](#numericint)
+
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 VALIDATOR - NUMBER
 ---
 

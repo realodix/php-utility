@@ -1,20 +1,19 @@
+VALIDATOR - IDENTIFICATION
+---
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <details>
 <summary>Table of Contents</summary>
 
-- [VALIDATOR - IDENTIFICATION](#validator---identification)
-    - [`creditCard()`](#creditcard)
-    - [`isbn()`](#isbn)
-    - [`issn()`](#issn)
-    - [`luhn()`](#luhn)
-    - [`uuid()`](#uuid)
+- [`creditCard()`](#creditcard)
+- [`isbn()`](#isbn)
+- [`issn()`](#issn)
+- [`luhn()`](#luhn)
+- [`uuid()`](#uuid)
 
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-VALIDATOR - IDENTIFICATION
----
 
 #### `creditCard()`
 

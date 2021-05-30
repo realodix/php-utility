@@ -1,23 +1,8 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<details>
-<summary>Table of Contents</summary>
-
-- [VALIDATOR - STRING](#validator---string)
-    - [`ascii(string $str)`](#asciistring-str)
-    - [`contains()`](#contains)
-    - [`containsAll()`](#containsall)
-    - [`hexRgbColor()`](#hexrgbcolor)
-    - [`list()`](#list)
-    - [`range(mixed $value, array $range)`](#rangemixed-value-array-range)
-    - [`startsWith()`](#startswith)
-    - [`endsWith()`](#endswith)
-
-</details>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 VALIDATOR - STRING
 ---
+
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 #### `ascii(string $str)`
 

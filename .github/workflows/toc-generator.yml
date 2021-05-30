@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: technote-space/toc-generator@v4
         with:
-          TARGET_PATHS: doctoc /docs/Str.md
+          TARGET_PATHS: ./docs/Str.md

@@ -1,0 +1,13 @@
+name: TOC Generator
+
+on: push
+
+jobs:
+  generateTOC:
+    name: TOC Generator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: technote-space/toc-generator@v4
+        with:
+          TARGET_PATHS: ./docs/Identifier.md, ./docs/Number.md, ./docs/Str.md, ./docs/Url.md, ./docs/ValidatorIdentifier.md, ./docs/ValidatorInternet.md, ./docs/ValidatorNumber.md, ./docs/ValidatorString.md
+          FOLDING: TRUE

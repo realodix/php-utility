@@ -4,6 +4,7 @@ String
 <!-- START doctoc -->
 <!-- END doctoc -->
 
+
 ### `Str::camelCase()`
 
 Transform into a string with the separator denoted by the next word capitalized.

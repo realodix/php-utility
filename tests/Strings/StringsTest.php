@@ -116,8 +116,6 @@ class StringsTest extends TestCase
         $this->assertSame(10.0, str($shortSentences)->readingTime());
         $this->assertSame(125.0, str($longSentences)->readingTime());
         $this->assertSame(300.0, str($longSentences)->readingTime(100));
-
-        $this->assertSame(6.0, str($faker->sentence(24, false))->readingTime(100));
     }
 
     /**

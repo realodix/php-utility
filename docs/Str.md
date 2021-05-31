@@ -330,15 +330,16 @@ Str::of($str)->limitWord(3, ' >>>');
 
 ``readingTime(int $wpm = 240)`
 
+Calculate the estimated reading time in seconds for a given piece of content.
 
 ```php
 use Realodix\Utils\Str;
 
-// 12 words
-$sentences = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
+// 24 words
+$sentences = 'Wikipedia is an online free-content encyclopedia project helping to create a world in which everyone can freely share in the sum of all knowledge.';
 
-Str::of($sentences)->readingTime(); // (12/240) = 1.0 (Round fractions up)
-Str::of($sentences)->readingTime(10); // (12/10) = 2.0 (Round fractions up)
+Str::of($sentences)->readingTime(); // (24/(240/60)) = 6.0
+Str::of($sentences)->readingTime(100); // (24/(100/60)) = 15.0
 ```
 
 | Screen | Paper | Reader Profile |

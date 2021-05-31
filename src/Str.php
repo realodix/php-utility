@@ -196,7 +196,7 @@ class Str
     }
 
     /**
-     * Calculate the estimated reading time.
+     * Calculate the estimated reading time in seconds for a given piece of content.
      *
      * @param int $wpm Estimated words per minute of reader
      *
@@ -205,11 +205,12 @@ class Str
     public function readingTime(int $wpm = 240)
     {
         $content = $this->stripTags($this->str);
-
+        $wordsPerSecond = $wpm / 60;
         $wordCount = str_word_count($content);
-        $time = ceil($wordCount / $wpm);
 
-        return $time;
+        $secondsTotal = ceil($wordCount / $wordsPerSecond);
+
+        return $secondsTotal;
     }
 
     /**

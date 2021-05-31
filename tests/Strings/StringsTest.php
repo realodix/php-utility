@@ -111,11 +111,13 @@ class StringsTest extends TestCase
     {
         $faker = FakerFactory::create();
         $shortSentences = $faker->sentence(40, false);
-        $longSentences = $faker->sentence(400, false);
+        $longSentences = $faker->sentence(500, false);
 
-        $this->assertSame(1.0, str($shortSentences)->readingTime());
-        $this->assertSame(2.0, str($longSentences)->readingTime());
-        $this->assertSame(4.0, str($longSentences)->readingTime(100));
+        $this->assertSame(10.0, str($shortSentences)->readingTime());
+        $this->assertSame(125.0, str($longSentences)->readingTime());
+        $this->assertSame(300.0, str($longSentences)->readingTime(100));
+
+        $this->assertSame(6.0, str($faker->sentence(24, false))->readingTime(100));
     }
 
     /**

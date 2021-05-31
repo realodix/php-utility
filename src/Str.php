@@ -196,6 +196,25 @@ class Str
     }
 
     /**
+     * Strip HTML, PHP and shortcode tags from a string.
+     *
+     * @return string|empty
+     */
+    public function stripTags()
+    {
+        $content = strip_tags($this->str);
+
+        if (false === strpos($content, '[')) {
+            return $content;
+        }
+
+        $pattern = '|[[\/\!]*?[^\[\]]*?]|si';
+        $content = preg_replace("/$pattern/", '', $content);
+
+        return $content;
+    }
+
+    /**
      * Remove non-alpha characters.
      *
      * @return string|empty

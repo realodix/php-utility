@@ -260,6 +260,22 @@ trait StringsTestProvider
         ];
     }
 
+    public function stripTagsProvider()
+    {
+        return [
+            ['before', 'before[gallery]'],
+            ['after', '[gallery]after'],
+            ['beforeafter', 'before[gallery]after'],
+            ['before[after', 'before[after'],
+            ['beforeafter', 'beforeafter'],
+            ['beforeafter', 'before[gallery id="123" size="medium"]after'],
+            ['beforeafter', 'before[footag]after'],
+            ['before content after', 'before [footag]content[/footag] after'],
+            ['before content after', 'before [footag foo="123"]content[/footag] after'],
+            ['This is bold and This is colored', '[B]This is bold[/B] and This is [color=#FFCCCC]colored[/color]'],
+        ];
+    }
+
     public function swapCaseProvider()
     {
         return [

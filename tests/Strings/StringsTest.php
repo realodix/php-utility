@@ -10,8 +10,6 @@ class StringsTest extends TestCase
 {
     use StringsTestProvider;
 
-    private $_long_string = 'Once upon a time, a PHP package had no tests. It sad. So some nice people began to write tests. The more time that went on, the happier it became. Everyone was happy.';
-
     /**
      * @test
      * @dataProvider charAtProvider
@@ -49,23 +47,6 @@ class StringsTest extends TestCase
                 $this->assertEquals($expect, str($str)->ellipsize(10, $pos));
             }
         }
-    }
-
-    /** @test */
-    public function excerpt()
-    {
-        $string = $this->_long_string;
-        $result = ' Once upon a time, a PHP package had no tests. It s d. So some nice people began to write tests. The more time that went on, the happier it became. ...';
-        $this->assertEquals(str($string)->excerpt(), $result);
-    }
-
-    /** @test */
-    public function excerptRadius()
-    {
-        $string = $this->_long_string;
-        $phrase = 'began';
-        $result = '... people began to ...';
-        $this->assertEquals(str($string)->excerpt($phrase, 10), $result);
     }
 
     /** @test */

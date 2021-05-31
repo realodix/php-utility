@@ -88,58 +88,6 @@ class Str
     }
 
     /**
-     * Allows to extract a piece of text surrounding a word or phrase.
-     *
-     * @param string $phrase   Phrase that will be searched for.
-     * @param int    $radius   The amount of characters returned around the phrase.
-     * @param string $ellipsis Ending that will be appended
-     *
-     * @return string
-     *
-     * If no $phrase is passed, will generate an excerpt of $radius characters from the
-     * beginning of $text.
-     */
-    public function excerpt(string $phrase = null, int $radius = 100, string $ellipsis = '...'): string
-    {
-        $text = $this->str;
-
-        if (isset($phrase)) {
-            $phrasePos = stripos($text, $phrase);
-            $phraseLen = mb_strlen($phrase);
-        } elseif (! isset($phrase)) {
-            $phrasePos = $radius / 2;
-            $phraseLen = 1;
-        }
-
-        $pre = explode(' ', substr($text, 0, $phrasePos)); // @phpstan-ignore-line
-        $pos = explode(' ', substr($text, $phrasePos + $phraseLen)); // @phpstan-ignore-line
-
-        $prev = ' ';
-        $post = ' ';
-        $count = 0;
-
-        foreach (array_reverse($pre) as $e) {
-            if ((mb_strlen($e) + $count + 1) < $radius) {
-                $prev = ' '.$e.$prev;
-            }
-            $count = ++ $count + mb_strlen($e);
-        }
-
-        $count = 0;
-
-        foreach ($pos as $s) {
-            if ((mb_strlen($s) + $count + 1) < $radius) {
-                $post .= $s.' ';
-            }
-            $count = ++ $count + mb_strlen($s);
-        }
-
-        $ellPre = $phrase ? $ellipsis : '';
-
-        return str_replace('  ', ' ', $ellPre.$prev.$phrase.$post.$ellipsis);
-    }
-
-    /**
      * Add's _1 to a string or increment the ending number to allow _2, _3, etc
      *
      * @param string $separator What should the duplicate number be appended with

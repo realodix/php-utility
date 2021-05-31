@@ -231,38 +231,6 @@ Str::of($str)->ellipsize(32, .5);
 
 <br>
 
-### `excerpt()`
-
-`excerpt(string $phrase = null, int $radius = 100, string $ellipsis = '...'): string`
-
-This function will extract $radius number of characters before and after the central $phrase with an elipsis before and after.
-
-The first paramenter is the text to extract an excerpt from, the second is the central word or phrase to count before and after. The third parameter is the number of characters to count before and after the central phrase. If no phrase passed, the excerpt will include the first $radius characters with the elipsis at the end.
-
-Example:
-
-```php
-use Realodix\Utils\Str;
-
-
-$text = 'Ut vel faucibus odio. Quisque quis congue libero. Etiam gravida
-eros lorem, eget porttitor augue dignissim tincidunt. In eget risus eget
-mauris faucibus molestie vitae ultricies odio. Vestibulum id ultricies diam.
-Curabitur non mauris lectus. Phasellus eu sodales sem. Integer dictum purus
-ac enim hendrerit gravida. Donec ac magna vel nunc tincidunt molestie sed
-vitae nisl. Cras sed auctor mauris, non dictum tortor. Nulla vel scelerisque
-arcu. Cras ac ipsum sit amet augue laoreet laoreet. Aenean a risus lacus.
-Sed ut tortor diam.';
-
-Str::of($text)->excerpt('Donec');
-
-// ... non mauris lectus. Phasellus eu sodales sem. Integer dictum purus ac
-// enim hendrerit gravida. Donec ac magna vel nunc tincidunt molestie sed
-// vitae nisl. Cras sed auctor mauris, non dictum ...
-```
-
-<br>
-
 ### `incrementString()`
 
 `incrementString(string $separator = '_', int $first = 1): string`

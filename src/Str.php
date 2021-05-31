@@ -2,6 +2,7 @@
 
 namespace Realodix\Utils;
 
+use NumberToWords\NumberToWords;
 use voku\helper\ASCII;
 
 class Str
@@ -202,36 +203,40 @@ class Str
      *
      * @return string|empty
      */
-    public function readingTime(int $wpm = 240)
+    public function readingTime(int $wpm = 240, $nicely = false)
     {
         $content = $this->stripTags($this->str);
         $wordsPerSecond = $wpm / 60;
         $wordCount = str_word_count($content);
 
-        $secondsTotal = ceil($wordCount / $wordsPerSecond);
+        $time = (int) ceil($wordCount / $wordsPerSecond);
 
-        return $secondsTotal;
+        if (! $nicely) {
+            return $time;
+        }
+
+        return $this->parseReadingTime($time);
     }
 
     /**
-     * PARSE TIME
-     *
      * Convert seconds (int) into a nicely formatted string.
      *
      * @return  string Formatted output.
      */
-    public function parseReadingTime()
+    private function parseReadingTime($seconds)
     {
+        $numberToWords = new NumberToWords();
+        $numberTransformer = $numberToWords->getNumberTransformer('en');
 
         // String to store our output.
         $stringOutput = '';
 
         // Double-check we're using an integer.
-        $seconds = (int) $this->str;
+        $seconds = (int) $seconds;
 
         // How many minutes?
         $minuteCount = floor($seconds / 60);
-        $minuteCount = convert_number_to_words($minuteCount);
+        $minuteCount = $numberTransformer->toWords($minuteCount);
 
         // How many seconds?
         $minuteRemainder = $seconds % 60;

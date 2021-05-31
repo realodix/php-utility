@@ -97,14 +97,10 @@ class StringsTest extends TestCase
     /** @test */
     public function limitWord()
     {
-        $this->assertSame(
-            'Perfectly balanced, as >>>',
-            str('Perfectly balanced, as all things should be.')->limitWord(3, ' >>>')
-        );
-        $this->assertSame(
-            'Perfectly...',
-            str('Perfectly balanced, as all things should be.')->limitWord(1)
-        );
+        $str = 'Lorem ipsum dolor sit amet.';
+
+        $this->assertSame('Lorem ipsum...', str($str)->limitWord(2));
+        $this->assertSame('Lorem ipsum', str($str)->limitWord(2, ''));
         $this->assertSame('Hanster___', str('Hanster Realodix')->limitWord(1, '___'));
         $this->assertSame('Hanster Realodix', str('Hanster Realodix')->limitWord(3));
     }

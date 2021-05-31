@@ -348,10 +348,16 @@ The`limitWord()` method limits the number of words in a string. If necessary, yo
 ```php
 use Realodix\Utils\Str;
 
-$str = 'Perfectly balanced, as all things should be.';
+$str = 'Lorem ipsum dolor sit amet.';
+
+Str::of($str)->limitWord(2);
+// Lorem ipsum...
+
+Str::of($str)->limitWord(2, '');
+// Lorem ipsum
 
 Str::of($str)->limitWord(3, ' >>>');
-// Perfectly balanced, as >>>
+// Lorem ipsum dolor >>>
 ```
 
 <br>

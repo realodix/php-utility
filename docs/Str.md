@@ -305,6 +305,27 @@ Str::of($str)->limit(20, '(...)');
 
 <br>
 
+### `limitWord()`
+
+The`limitWord()` method limits the number of words in a string. If necessary, you may specify an additional string that will be appended to the truncated string:
+
+```php
+use Realodix\Utils\Str;
+
+$str = 'Lorem ipsum dolor sit amet.';
+
+Str::of($str)->limitWord(2);
+// Lorem ipsum...
+
+Str::of($str)->limitWord(2, '');
+// Lorem ipsum
+
+Str::of($str)->limitWord(3, ' >>>');
+// Lorem ipsum dolor >>>
+```
+
+<br>
+
 ### `removeNonAlpha()`
 
 ```php

@@ -20,36 +20,6 @@ class StringsTest extends TestCase
     }
 
     /** @test */
-    public function ellipsize()
-    {
-        $strs = [
-            '0'  => [
-                'this is my string'             => '&hellip; my string',
-                "here's another one"            => '&hellip;nother one',
-                'this one is just a bit longer' => '&hellip;bit longer',
-                'short'                         => 'short',
-            ],
-            '.5' => [
-                'this is my string'             => 'this &hellip;tring',
-                "here's another one"            => "here'&hellip;r one",
-                'this one is just a bit longer' => 'this &hellip;onger',
-                'short'                         => 'short',
-            ],
-            '1'  => [
-                'this is my string'             => 'this is my&hellip;',
-                "here's another one"            => "here's ano&hellip;",
-                'this one is just a bit longer' => 'this one i&hellip;',
-                'short'                         => 'short',
-            ],
-        ];
-        foreach ($strs as $pos => $s) {
-            foreach ($s as $str => $expect) {
-                $this->assertEquals($expect, str($str)->ellipsize(10, $pos));
-            }
-        }
-    }
-
-    /** @test */
     public function incrementString()
     {
         $this->assertSame('my-test_1', Str::of('my-test')->incrementString());

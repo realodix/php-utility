@@ -56,38 +56,6 @@ class Str
     }
 
     /**
-     * This function will strip tags from a string, split it at its max_length and
-     * ellipsize
-     *
-     * @param int    $max_length Max length of string
-     * @param mixed  $position   int (1|0) or float, .5, .2, etc for position to split
-     * @param string $ellipsis   ellipsis ; Default '...'
-     *
-     * @return string    Ellipsized string
-     */
-    public function ellipsize(int $max_length, $position = 1, string $ellipsis = '&hellip;'): string
-    {
-        // Strip tags
-        $str = trim(strip_tags($this->str));
-
-        // Is the string long enough to ellipsize?
-        if (mb_strlen($str) <= $max_length) {
-            return $str;
-        }
-
-        $beg = mb_substr($str, 0, (int) floor($max_length * $position));
-        $position = ($position > 1) ? 1 : $position;
-
-        if ($position === 1) {
-            $end = mb_substr($str, 0, -($max_length - mb_strlen($beg)));
-        } else {
-            $end = mb_substr($str, -($max_length - mb_strlen($beg)));
-        }
-
-        return $beg.$ellipsis.$end;
-    }
-
-    /**
      * Add's _1 to a string or increment the ending number to allow _2, _3, etc
      *
      * @param string $separator What should the duplicate number be appended with

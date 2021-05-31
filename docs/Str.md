@@ -208,29 +208,6 @@ Str::of($str)->charAt(7); // ''
 
 <br>
 
-### `ellipsize()`
-
-`ellipsize(int $max_length, $position = 1, string $ellipsis = '&hellip;'): string`
-
-This function will strip tags from a string, split it at a defined maximum length, and insert an ellipsis.
-
-The first parameter is the string to ellipsize, the second is the number of characters in the final string. The third parameter is where in the string the ellipsis should appear from 0 - 1, left to right. For example. a value of 1 will place the ellipsis at the right of the string, .5 in the middle, and 0 at the left.
-
-An optional fourth parameter is the kind of ellipsis. By default, `&hellip;` will be inserted.
-
-Example:
-
-```php
-use Realodix\Utils\Str;
-
-$str = 'this_string_is_entirely_too_long_and_might_break_my_design.jpg';
-Str::of($str)->ellipsize(32, .5);
-
-// this_string_is_e&hellip;ak_my_design.jpg
-```
-
-<br>
-
 ### `incrementString()`
 
 `incrementString(string $separator = '_', int $first = 1): string`

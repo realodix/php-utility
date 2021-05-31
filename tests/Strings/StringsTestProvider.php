@@ -269,8 +269,6 @@ trait StringsTestProvider
             ['before[after', 'before[after'],
             ['beforeafter', 'before[gallery id="123" size="medium"]after'],
             ['beforeafter', 'before[footag]after'],
-            ['before content after', 'before [footag]content[/footag] after'],
-            ['before content after', 'before [footag foo="123"]content[/footag] after'],
             ['This is bold and This is colored', '[B]This is bold[/B] and This is [color=#FFCCCC]colored[/color]'],
             ['bold', '[b:20m4ill1]bold[/b:20m4ill1]'],
             ['bold', '<r><B><s>[b]</s>bold<e>[/b]</e></B></r>'],

@@ -385,6 +385,25 @@ Str::of($str)->slice(3, 5); // 'ba'
 
 <br>
 
+### `stripTags()`
+
+Strip HTML, PHP and shortcode tags from a string.
+
+```php
+use Realodix\Utils\Str;
+
+$str = '<r><B><s>[b]</s>bold<e>[/b]</e></B></r>';
+Str::of($str)->stripTags(); // 'bold'
+
+$str = '[B]This is bold[/B] and This is [color=#FFCCCC]colored[/color]';
+Str::of($str)->stripTags(); // 'This is bold and This is colored'
+
+$str = 'foo[bar';
+Str::of($str)->stripTags(); // 'foo[bar'
+```
+
+<br>
+
 ### `toAscii()`
 
 The `toAscii()` method will attempt to transliterate the string into an ASCII value:

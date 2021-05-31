@@ -223,63 +223,58 @@ class Str
     public function parseReadingTime()
     {
 
-    // String to store our output.
-        $string_output = '';
+        // String to store our output.
+        $stringOutput = '';
 
         // Double-check we're using an integer.
         $seconds = (int) $this->str;
 
         // How many minutes?
-        $minute_count = floor($seconds / 60);
-        $minute_count = convert_number_to_words($minute_count);
+        $minuteCount = floor($seconds / 60);
+        $minuteCount = convert_number_to_words($minuteCount);
 
         // How many seconds?
-        $minute_remainder = $seconds % 60;
+        $minuteRemainder = $seconds % 60;
 
         // Specific responses for a range  of times up to two minutes:
         if ($seconds < 30) {
-            $string_output .= 'hardly any time at all.';
+            $stringOutput .= 'hardly any time at all.';
         } elseif ($seconds < 50) {
-            $string_output .= 'less than a minute.';
+            $stringOutput .= 'less than a minute.';
         } elseif ($seconds < 55) {
-            $string_output .= 'nearly a minute.';
+            $stringOutput .= 'nearly a minute.';
         } elseif ($seconds < 65) {
-            $string_output .= 'one minute dead.';
+            $stringOutput .= 'one minute dead.';
         } elseif ($seconds < 85) {
-            $string_output .= 'a minute and a bit.';
+            $stringOutput .= 'a minute and a bit.';
         } elseif ($seconds < 95) {
-            $string_output .= 'roughly a minute and a half.';
+            $stringOutput .= 'roughly a minute and a half.';
         } elseif ($seconds < 120) {
-            $string_output .= 'less than two minutes.';
+            $stringOutput .= 'less than two minutes.';
 
         // Dynamic responses for a variety of times over two minutes:
-        } elseif ($minute_remainder < 2 || $minute_remainder > 58) {
-
+        } elseif ($minuteRemainder < 2 || $minuteRemainder > 58) {
             // If we're within +/- 2 seconds of a minute:
-            $string_output .= $minute_count.' minutes, on the nose.';
-        } elseif ($minute_remainder > 50) {
-
+            $stringOutput .= $minuteCount.' minutes, on the nose.';
+        } elseif ($minuteRemainder > 50) {
             // If we're within less than 10 seconds short of any minute:
-            $string_output .= 'just shy of '.$minute_count.' minutes.';
-        } elseif ($minute_remainder < 10) {
-
+            $stringOutput .= 'just shy of '.$minuteCount.' minutes.';
+        } elseif ($minuteRemainder < 10) {
             // If we're within less than 10 seconds over any minute:
-            $string_output .= 'a little over '.$minute_count.' minutes.';
-        } elseif ($minute_remainder < 15 || $minute_remainder > 45) {
-
+            $stringOutput .= 'a little over '.$minuteCount.' minutes.';
+        } elseif ($minuteRemainder < 15 || $minuteRemainder > 45) {
             // If we're within +/- 15 seconds of any minute:
-            $string_output .= 'about '.$minute_count.' minutes.';
-        } elseif ($minute_remainder > 20 && $minute_remainder < 40) {
-
+            $stringOutput .= 'about '.$minuteCount.' minutes.';
+        } elseif ($minuteRemainder > 20 && $minuteRemainder < 40) {
             // If we're within +/- 10 seconds of any half-minute:
-            $string_output .= $minute_count.' and a half minutes.';
-        } elseif ($minute_remainder < 10 || $minute_remainder > 50) {
-            $string_output .= $minute_count.' minutes (ish).';
+            $stringOutput .= $minuteCount.' and a half minutes.';
+        } elseif ($minuteRemainder < 10 || $minuteRemainder > 50) {
+            $stringOutput .= $minuteCount.' minutes (ish).';
         } else {
-            $string_output .= 'something like '.$minute_count.' minutes.';
+            $stringOutput .= 'something like '.$minuteCount.' minutes.';
         }
 
-        return $string_output;
+        return $stringOutput;
     }
 
     /**

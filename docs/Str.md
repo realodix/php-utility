@@ -335,8 +335,7 @@ Calculate the estimated reading time in seconds for a given piece of content.
 ```php
 use Realodix\Utils\Str;
 
-// 24 words
-$sentences = 'Wikipedia is an online free-content encyclopedia project helping to create a world in which everyone can freely share in the sum of all knowledge.';
+$sentences = $faker->sentence(24, false);
 
 Str::of($sentences)->readingTime(); // (24/(240/60)) = 6.0
 Str::of($sentences)->readingTime(100); // (24/(100/60)) = 15.0

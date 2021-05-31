@@ -6,17 +6,6 @@ A simple static class to deal with URL's in your applications.
 
 <br>
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<details>
-<summary>Table of Contents</summary>
-
-- [`Url::display()`](#urldisplay)
-- [`Url::sanitize`](#urlsanitize)
-
-</details>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ### `Url::display()`
 
 `Url::display(string $url, bool $scheme = true, int $limit = null)`

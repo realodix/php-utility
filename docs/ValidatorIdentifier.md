@@ -1,20 +1,6 @@
 VALIDATOR - IDENTIFICATION
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<details>
-<summary>Table of Contents</summary>
-
-- [`creditCard()`](#creditcard)
-- [`isbn()`](#isbn)
-- [`issn()`](#issn)
-- [`luhn()`](#luhn)
-- [`uuid()`](#uuid)
-
-</details>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 #### `creditCard()`
 
 Ensures that a credit card number is valid for a given credit card company. It can be used to validate the number before trying to initiate a payment through a payment gateway.

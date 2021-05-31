@@ -218,10 +218,9 @@ class Str
      *
      * Convert seconds (int) into a nicely formatted string.
      *
-     * @param int $seconds The number of seconds.
      * @return  string Formatted output.
      */
-    public function parsereadingTime($seconds)
+    public function parseReadingTime()
     {
 
     // String to store our output.
@@ -237,10 +236,7 @@ class Str
         // How many seconds?
         $minute_remainder = $seconds % 60;
 
-        /*
-         * Specific responses for a range
-         * of times up to two minutes:
-         */
+        // Specific responses for a range  of times up to two minutes:
         if ($seconds < 30) {
             $string_output .= 'hardly any time at all.';
         } elseif ($seconds < 50) {

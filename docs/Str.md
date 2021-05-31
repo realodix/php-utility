@@ -25,7 +25,7 @@ String
   - [`excerpt()`](#excerpt)
   - [`incrementString()`](#incrementstring)
   - [`limit()`](#limit)
-  - [`removeNonAlpha()`](#removenonalpha)
+  - [`limitWord()`](#limitword)
   - [`removeNonAlphaNum()`](#removenonalphanum)
   - [`removeNonNumeric()`](#removenonnumeric)
   - [`slice()`](#slice)

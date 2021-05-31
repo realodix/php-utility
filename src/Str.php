@@ -236,9 +236,9 @@ class Str
 
     private function readTimeImageCount($value)
     {
-        $patter = '/<(img)([\W\w]+?)[\/]?>/';
+        $pattern = '/<(img)([\W\w]+?)[\/]?>/';
 
-        return preg_match_all($patter, $value, $matches);
+        return preg_match_all($pattern, $value, $matches);
     }
 
     /**

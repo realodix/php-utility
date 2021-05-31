@@ -26,6 +26,7 @@ String
   - [`incrementString()`](#incrementstring)
   - [`limit()`](#limit)
   - [`limitWord()`](#limitword)
+  - [`removeNonAlpha()`](#removenonalpha)
   - [`removeNonAlphaNum()`](#removenonalphanum)
   - [`removeNonNumeric()`](#removenonnumeric)
   - [`slice()`](#slice)

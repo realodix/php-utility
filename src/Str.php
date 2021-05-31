@@ -254,6 +254,25 @@ class Str
     }
 
     /**
+     * Strip HTML, PHP and shortcode tags from a string.
+     *
+     * @return string|empty
+     */
+    public function stripTags()
+    {
+        $content = strip_tags($this->str);
+
+        if (false === strpos($content, '[')) {
+            return $content;
+        }
+
+        $pattern = '|[[\/\!]*?[^\[\]]*?]|si';
+        $content = preg_replace("/$pattern/", '', $content);
+
+        return $content;
+    }
+
+    /**
      * Transliterate a UTF-8 value to ASCII.
      *
      * @param string $language          Language of the source string.

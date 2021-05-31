@@ -134,6 +134,15 @@ class StringsTest extends TestCase
 
     /**
      * @test
+     * @dataProvider stripTagsProvider
+     */
+    public function stripTags($expected, $value)
+    {
+        $this->assertSame($expected, str($value)->stripTags());
+    }
+
+    /**
+     * @test
      * @dataProvider sliceProvider
      */
     public function slice($expected, $value1, $value2)

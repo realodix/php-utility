@@ -204,9 +204,9 @@ class Str
      */
     public function readingTime(int $wpm = 250)
     {
-        $content = $this->str;
+        $content = $this->stripTags($this->str);
 
-        $wordCount = str_word_count(strip_tags($content));
+        $wordCount = str_word_count($content);
         $time = ceil($wordCount / $wpm);
 
         return $time;

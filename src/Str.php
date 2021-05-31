@@ -220,7 +220,7 @@ class Str
         return ceil($readTime).' min read';
     }
 
-    public function readTimeImage($value, $imageReadTime = 12)
+    private function readTimeImage($value, $imageReadTime = 12)
     {
         $seconds = 0;
         $count = $this->readTimeImageCount($value);
@@ -234,7 +234,7 @@ class Str
         return $seconds / 60;
     }
 
-    public function readTimeImageCount($value)
+    private function readTimeImageCount($value)
     {
         $patter = '/<(img)([\W\w]+?)[\/]?>/';
 

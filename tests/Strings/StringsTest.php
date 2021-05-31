@@ -13,6 +13,30 @@ class StringsTest extends TestCase
     private $_long_string = 'Once upon a time, a PHP package had no tests. It sad. So some nice people began to write tests. The more time that went on, the happier it became. Everyone was happy.';
 
     /**
+     * Testing private/protected PHP methods using the Reflection API.
+     *
+     * @param mixed  $object
+     * @param string $method
+     * @param array  $parameters
+     * @return mixed
+     * @throws \Exception
+     */
+    private function callMethod($object, string $method, array $parameters = [])
+    {
+        try {
+            $className = get_class($object);
+            $reflection = new \ReflectionClass($className);
+        } catch (\ReflectionException $e) {
+            throw new \Exception($e->getMessage());
+        }
+
+        $method = $reflection->getMethod($method);
+        $method->setAccessible(true);
+
+        return $method->invokeArgs($object, $parameters);
+    }
+
+    /**
      * @test
      * @dataProvider charAtProvider
      */
@@ -141,7 +165,7 @@ class StringsTest extends TestCase
             <img />
         ';
 
-        $this->assertSame(0.55, (new Str)->readTimeImage($content));
+        $this->assertSame(0.55, $this->callMethod(new Str, 'readTimeImage', [$content]));
     }
 
     /** @test */
@@ -155,7 +179,7 @@ class StringsTest extends TestCase
             <img>
         ';
 
-        $this->assertSame(3, (new Str)->readTimeImageCount($content));
+        $this->assertSame(3, $this->callMethod(new Str, 'readTimeImageCount', [$content]));
     }
 
     /**

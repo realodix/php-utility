@@ -220,13 +220,6 @@ class Str
         return ceil($readTime).' min read';
     }
 
-    public function readTimeImageCount($value)
-    {
-        $patter = '/<(img)([\W\w]+?)[\/]?>/';
-
-        return preg_match_all($patter, $value, $matches);
-    }
-
     public function readTimeImage($value, $imageReadTime = 12)
     {
         $seconds = 0;
@@ -239,6 +232,13 @@ class Str
         }
 
         return $seconds / 60;
+    }
+
+    public function readTimeImageCount($value)
+    {
+        $patter = '/<(img)([\W\w]+?)[\/]?>/';
+
+        return preg_match_all($patter, $value, $matches);
     }
 
     /**

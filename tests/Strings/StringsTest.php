@@ -132,6 +132,19 @@ class StringsTest extends TestCase
     }
 
     /** @test */
+    public function readTimeImage()
+    {
+        $content =
+        '
+            <img src="url" alt="alternatetext">
+            <img src="dinosaur.jpg">
+            <img />
+        ';
+
+        $this->assertSame(0.55, (new Str)->readTimeImage($content));
+    }
+
+    /** @test */
     public function readTimeImageCount()
     {
         $content =
@@ -143,19 +156,6 @@ class StringsTest extends TestCase
         ';
 
         $this->assertSame(3, (new Str)->readTimeImageCount($content));
-    }
-
-    /** @test */
-    public function readTimeImage()
-    {
-        $content =
-        '
-            <img src="url" alt="alternatetext">
-            <img src="dinosaur.jpg">
-            <img />
-        ';
-
-        $this->assertSame(0.55, (new Str)->readTimeImage($content));
     }
 
     /**

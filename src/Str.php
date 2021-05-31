@@ -204,10 +204,11 @@ class Str
      */
     public function readTime(int $wpm = 265): string
     {
-        $content = $this->stripTags($this->str);
+        $content = strip_tags($this->str, '<img>');
         $wordCount = str_word_count($content);
+        $imageReadTime = $this->readTimeImage($content);
 
-        $readTime = $wordCount / $wpm;
+        $readTime = ($wordCount / $wpm) + $imageReadTime;
 
         if ($readTime < 0.5) {
             return 'less than a minute';
@@ -217,6 +218,27 @@ class Str
         }
 
         return ceil($readTime).' min read';
+    }
+
+    public function readTimeImageCount($value)
+    {
+        $patter = '/<(img)([\W\w]+?)[\/]?>/';
+
+        return preg_match_all($patter, $value, $matches);
+    }
+
+    public function readTimeImage($value, $imageReadTime = 12)
+    {
+        $seconds = 0;
+        $count = $this->readTimeImageCount($value);
+
+        if ($count > 10) {
+            $seconds = (($count / 2) * ($imageReadTime + 3)) + ($count - 10) * 3; // n/2(a+b) + 3 sec/image
+        } else {
+            $seconds = ($count / 2) * (2 * $imageReadTime + (1 - $count)); // n/2[2a+(n-1)d]
+        }
+
+        return $seconds / 60;
     }
 
     /**

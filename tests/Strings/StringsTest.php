@@ -117,6 +117,47 @@ class StringsTest extends TestCase
         $this->assertSame('3 min read', str($faker->sentence($wpm * 3, false))->readTime($wpm));
     }
 
+    /** @test */
+    public function readTimeWithImage()
+    {
+        $faker = FakerFactory::create();
+        $wpm = 265;
+        $content =
+        '
+            <img src="url" alt="alternatetext">
+            <img src="dinosaur.jpg">
+        '.$faker->sentence($wpm * 2, false);
+
+        $this->assertSame('3 min read', str($content)->readTime($wpm));
+    }
+
+    /** @test */
+    public function readTimeImageCount()
+    {
+        $content =
+        '
+            <img src="url" alt="alternatetext">
+            <img src="dinosaur.jpg">
+            <img />
+            <img>
+        ';
+
+        $this->assertSame(3, (new Str)->readTimeImageCount($content));
+    }
+
+    /** @test */
+    public function readTimeImage()
+    {
+        $content =
+        '
+            <img src="url" alt="alternatetext">
+            <img src="dinosaur.jpg">
+            <img />
+        ';
+
+        $this->assertSame(0.55, (new Str)->readTimeImage($content));
+    }
+
     /**
      * @test
      * @dataProvider removeNonAlphaProvider

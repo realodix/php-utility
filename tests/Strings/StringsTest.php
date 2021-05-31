@@ -122,59 +122,6 @@ class StringsTest extends TestCase
         $this->assertSame($expected, str($value1)->slice($value2, $value3));
     }
 
-    /** @test */
-    public function wordWrap()
-    {
-        $string = 'Here is a simple string of text that will help us demonstrate this function.';
-        $expected = "Here is a simple string\nof text that will help us\ndemonstrate this\nfunction.";
-        $this->assertEquals(substr_count(str($string)->wordWrap(25), "\n"), 3);
-        $this->assertEquals($expected, str($string)->wordWrap(25));
-
-        $string2 = "Here is a\nbroken up sentence\rspanning lines\r\nwoohoo!";
-        $expected2 = "Here is a\nbroken up sentence\nspanning lines\nwoohoo!";
-        $this->assertEquals(substr_count(str($string2)->wordWrap(25), "\n"), 3);
-        $this->assertEquals($expected2, str($string2)->wordWrap(25));
-
-        $string3 = "Here is another slightly longer\nbroken up sentence\rspanning lines\r\nwoohoo!";
-        $expected3 = "Here is another slightly\nlonger\nbroken up sentence\nspanning lines\nwoohoo!";
-        $this->assertEquals(substr_count(str($string3)->wordWrap(25), "\n"), 4);
-        $this->assertEquals($expected3, str($string3)->wordWrap(25));
-    }
-
-    /** @test */
-    public function wordWrapUnwrap()
-    {
-        $string = 'Here is a {unwrap}simple string of text{/unwrap} that will help us demonstrate this function.';
-        $expected = "Here is a simple string of text\nthat will help us\ndemonstrate this\nfunction.";
-        $this->assertEquals(substr_count(str($string)->wordWrap(25), "\n"), 3);
-        $this->assertEquals($expected, str($string)->wordWrap(25));
-    }
-
-    /** @test */
-    public function wordWrapLongWords()
-    {
-        // the really really long word will be split
-        $string = 'Here is an unbelievable super-complicated and reallyreallyquiteextraordinarily sophisticated sentence.';
-        $expected = "Here is an unbelievable\nsuper-complicated and\nreallyreallyquiteextraor\ndinarily\nsophisticated sentence.";
-        $this->assertEquals($expected, str($string)->wordWrap(25));
-    }
-
-    /** @test */
-    public function wordWrapURL()
-    {
-        // the really really long word will be split
-        $string = 'Here is an unbelievable super-complicated and http://www.reallyreallyquiteextraordinarily.com sophisticated sentence.';
-        $expected = "Here is an unbelievable\nsuper-complicated and\nhttp://www.reallyreallyquiteextraordinarily.com\nsophisticated sentence.";
-        $this->assertEquals($expected, str($string)->wordWrap(25));
-    }
-
-    /** @test */
-    public function wordWrapCharlim()
-    {
-        $string = 'Here is a longer string of text that will help us demonstrate the default charlim of this function.';
-        $this->assertEquals(strpos(str($string)->wordWrap(), "\n"), 73);
-    }
-
     /**
      * @test
      * @dataProvider noCaseProvider

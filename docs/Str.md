@@ -384,24 +384,3 @@ use Realodix\Utils\Str;
 Str::of('û')->toAscii();
 // 'u'
 ```
-
-<br>
-
-### `wordWrap()`
-
-`wordWrap(int $charlim = 76): string`
-
-Wraps text at the specified character count while maintaining complete words.
-
-```php
-use Realodix\Utils\Str;
-
-$string = "Here is a simple string of text that will help us demonstrate this function.";
-Str::of($string)->wordWrap(25);
-
-// Would produce:
-// Here is a simple string
-// of text that will help us
-// demonstrate this
-// function.
-```

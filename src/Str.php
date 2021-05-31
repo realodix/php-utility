@@ -202,13 +202,13 @@ class Str
      *
      * @return string|empty
      */
-    public function readTime(int $wpm = 265): string
+    public function readTime(int $wpm = 265, int $imageReadTime = 12): string
     {
         $content = strip_tags($this->str, '<img>');
         $wordCount = str_word_count($content);
-        $imageReadTime = $this->readTimeImage($content);
+        $imgReadTime = $this->readTimeImage($content, $imageReadTime);
 
-        $readTime = ($wordCount / $wpm) + $imageReadTime;
+        $readTime = ($wordCount / $wpm) + $imgReadTime;
 
         if ($readTime < 0.5) {
             return 'less than a minute';

@@ -21,6 +21,7 @@
         "voku/portable-utf8": "^5.4"
     },
     "require-dev": {
+        "fakerphp/faker": "^1.14",
         "friendsofphp/php-cs-fixer": "^3.0",
         "kubawerlos/php-cs-fixer-custom-fixers": "^2.4",
         "phpstan/phpstan": "^0.12.88",

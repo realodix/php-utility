@@ -2,6 +2,7 @@
 
 namespace Realodix\Utils\Test\Strings;
 
+use Faker\Factory as FakerFactory;
 use PHPUnit\Framework\TestCase;
 use Realodix\Utils\Str;
 
@@ -103,6 +104,18 @@ class StringsTest extends TestCase
         $this->assertSame('Lorem ipsum', str($str)->limitWord(2, ''));
         $this->assertSame('Hanster___', str('Hanster Realodix')->limitWord(1, '___'));
         $this->assertSame('Hanster Realodix', str('Hanster Realodix')->limitWord(3));
+    }
+
+    /** @test */
+    public function readingTime()
+    {
+        $faker = FakerFactory::create();
+        $shortSentences = $faker->sentence(40, false);
+        $longSentences = $faker->sentence(500, false);
+
+        $this->assertSame(10.0, str($shortSentences)->readingTime());
+        $this->assertSame(125.0, str($longSentences)->readingTime());
+        $this->assertSame(300.0, str($longSentences)->readingTime(100));
     }
 
     /**

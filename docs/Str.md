@@ -326,6 +326,32 @@ Str::of($str)->limitWord(3, ' >>>');
 
 <br>
 
+### `readingTime()`
+
+``readingTime(int $wpm = 240)`
+
+Calculate the estimated reading time in seconds for a given piece of content.
+
+```php
+use Realodix\Utils\Str;
+
+$sentences = $faker->sentence(24);
+
+Str::of($sentences)->readingTime(); // (24/(240/60)) = 6.0
+Str::of($sentences)->readingTime(100); // (24/(100/60)) = 15.0
+```
+
+| Screen | Paper | Reader Profile |
+| --- | --- | --- |
+| 100 wpm | 110 wpm | Insufficient |
+| 200 wpm | 240 wpm | Average reader |
+| 300 wpm | 400 wpm | Good reader |
+| 700 wpm | 1000 wpm | Excellent, accomplished reader |
+
+Source: http://www.readingsoft.com/
+
+<br>
+
 ### `removeNonAlpha()`
 
 ```php

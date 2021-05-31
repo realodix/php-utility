@@ -352,7 +352,6 @@ $str = 'Perfectly balanced, as all things should be.';
 Str::of($str)->limitWord(3, ' >>>');
 // Perfectly balanced, as >>>
 ```
-```
 
 <br>
 

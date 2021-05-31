@@ -196,6 +196,23 @@ class Str
     }
 
     /**
+     * Calculate the estimated reading time.
+     *
+     * @param int $wpm Estimated words per minute of reader
+     *
+     * @return string|empty
+     */
+    public function readingTime(int $wpm = 250)
+    {
+        $content = $this->str;
+
+        $wordCount = str_word_count(strip_tags($content));
+        $time = ceil($wordCount / $wpm);
+
+        return $time;
+    }
+
+    /**
      * Remove non-alpha characters.
      *
      * @return string|empty

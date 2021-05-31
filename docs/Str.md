@@ -326,6 +326,18 @@ Str::of($str)->limitWord(3, ' >>>');
 
 <br>
 
+### `readingTime()`
+
+```php
+use Realodix\Utils\Str;
+
+$sentences = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
+
+Str::of($sentences)->readingTime(); // 1.0
+```
+
+<br>
+
 ### `removeNonAlpha()`
 
 ```php

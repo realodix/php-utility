@@ -265,7 +265,9 @@ class Str
      */
     public static function toAscii(string $language = 'en', bool $removeUnsupported = true)
     {
-        return ASCII::to_ascii($this->str, $language, $removeUnsupported);
+        $str = this->str;
+
+        return ASCII::to_ascii($str, $language, $removeUnsupported);
     }
 
     /**

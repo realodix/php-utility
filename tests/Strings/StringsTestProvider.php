@@ -25,11 +25,11 @@ trait StringsTestProvider
             ['httpsgithubcomrealodixphputility', 'https://github.com/realodix/php-utility'],
             [
                 'httpspackagistorgpackagesrealodixphputility',
-                'https://packagist.org/packages/realodix/php-utility'
+                'https://packagist.org/packages/realodix/php-utility',
             ],
             [
                 'httpstranslategooglecomslidtlentextRealodixAoptranslate',
-                'https://translate.google.com/?sl=id&tl=en&text=Realodix%0A&op=translate'
+                'https://translate.google.com/?sl=id&tl=en&text=Realodix%0A&op=translate',
             ],
             ['httpsiwsemojidomainexample', 'https://i❤️.ws/emojidomain/example'],
             ['fB', 'fòôBàř'],
@@ -44,7 +44,7 @@ trait StringsTestProvider
             ['low3rUPP3R', '!@low3rUPP3R_?'],
             [
                 'httpstranslategooglecomslidtlentextRealodix0Aoptranslate',
-                'https://translate.google.com/?sl=id&tl=en&text=Realodix%0A&op=translate'
+                'https://translate.google.com/?sl=id&tl=en&text=Realodix%0A&op=translate',
             ],
             ['httpsiwsemojidomainexample', 'https://i❤️.ws/emojidomain/example'],
             ['fB', 'fòôBàř'],

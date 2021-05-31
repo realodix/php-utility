@@ -105,7 +105,6 @@ class StringsTest extends TestCase
         $this->assertSame('Hanster Realodix', str('Hanster Realodix')->limitWord(3));
     }
 
-
     /**
      * @test
      * @dataProvider removeNonAlphaProvider

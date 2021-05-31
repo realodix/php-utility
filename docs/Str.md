@@ -336,9 +336,12 @@ Calculate the estimated reading time in seconds for a given piece of content.
 use Realodix\Utils\Str;
 
 $sentences = $faker->sentence(24);
-
 Str::of($sentences)->readingTime(); // (24/(240/60)) = 6.0
 Str::of($sentences)->readingTime(100); // (24/(100/60)) = 15.0
+
+$sentences = $faker->sentence(500);
+Str::of($sentences)->readingTime(nicely: true);
+// 'a little over two minutes.'
 ```
 
 | Screen | Paper | Reader Profile |

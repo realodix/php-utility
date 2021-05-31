@@ -220,7 +220,7 @@ class Number
             $num = round(($num / 1000), $precision);
         }
 
-        return self::format($num, ['precision' => $precision, 'after' => ' '.$suffix]);
+        return rtrim(self::format($num, ['precision' => $precision, 'after' => ' '.$suffix]));
     }
 
     /**

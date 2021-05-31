@@ -328,13 +328,27 @@ Str::of($str)->limitWord(3, ' >>>');
 
 ### `readingTime()`
 
+``readingTime(int $wpm = 240)`
+
+
 ```php
 use Realodix\Utils\Str;
 
+// 12 words
 $sentences = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
 
-Str::of($sentences)->readingTime(); // 1.0
+Str::of($sentences)->readingTime(); // (12/240) = 1.0 (Round fractions up)
+Str::of($sentences)->readingTime(10); // (12/10) = 2.0 (Round fractions up)
 ```
+
+| Screen | Paper | Reader Profile |
+|---|---|---|---|---|
+| 100 wpm | 110 wpm | Insufficient |
+| 200 wpm | 240 wpm | Average reader |
+| 300 wpm | 400 wpm | Good reader |
+| 700 wpm | 1000 wpm | Excellent, accomplished reader |
+
+Source: http://www.readingsoft.com/
 
 <br>
 

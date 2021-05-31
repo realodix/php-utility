@@ -202,7 +202,7 @@ class Str
      *
      * @return string|empty
      */
-    public function readingTime(int $wpm = 250)
+    public function readingTime(int $wpm = 240)
     {
         $content = $this->stripTags($this->str);
 

@@ -342,6 +342,7 @@ Str::of($sentences)->readingTime(); // (24/(240/60)) = 6.0
 Str::of($sentences)->readingTime(100); // (24/(100/60)) = 15.0
 ```
 
+
 | Screen | Paper | Reader Profile |
 |---|---|---|---|---|
 | 100 wpm | 110 wpm | Insufficient |

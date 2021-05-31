@@ -124,7 +124,10 @@ class StringsTest extends TestCase
         $faker = FakerFactory::create();
         $longSentences = $faker->sentence(500, false);
 
-        $this->assertSame('a little over two minutes.', str($longSentences)->readingTime(nicely: true));
+        $this->assertSame(
+            'a little over two minutes.',
+            str($longSentences)->readingTime(nicely: true)
+        );
     }
 
     /**

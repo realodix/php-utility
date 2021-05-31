@@ -326,29 +326,23 @@ Str::of($str)->limitWord(3, ' >>>');
 
 <br>
 
-### `readingTime()`
+### `readTime()`
 
-``readingTime(int $wpm = 240)`
+`readTime(int $wpm = 265)`
 
-Calculate the estimated reading time in seconds for a given piece of content.
+Calculate the estimated reading time in seconds for a given piece of content. Read time is based on the average reading speed of an adult (roughly 265 WPM).
 
 ```php
 use Realodix\Utils\Str;
 
-$sentences = $faker->sentence(24);
+$sentences = $faker->sentence(300);
 
-Str::of($sentences)->readingTime(); // (24/(240/60)) = 6.0
-Str::of($sentences)->readingTime(100); // (24/(100/60)) = 15.0
+Str::of($sentences)->readTime();    // '1 min read'
+Str::of($sentences)->readTime(100); // '3 min read'
 ```
 
-| Screen | Paper | Reader Profile |
-| --- | --- | --- |
-| 100 wpm | 110 wpm | Insufficient |
-| 200 wpm | 240 wpm | Average reader |
-| 300 wpm | 400 wpm | Good reader |
-| 700 wpm | 1000 wpm | Excellent, accomplished reader |
-
-Source: http://www.readingsoft.com/
+**References**
+- https://help.medium.com/hc/en-us/articles/214991667-Read-time
 
 <br>
 

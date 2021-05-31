@@ -202,15 +202,21 @@ class Str
      *
      * @return string|empty
      */
-    public function readingTime(int $wpm = 240)
+    public function readTime(int $wpm = 265): string
     {
         $content = $this->stripTags($this->str);
-        $wordsPerSecond = $wpm / 60;
         $wordCount = str_word_count($content);
 
-        $secondsTotal = ceil($wordCount / $wordsPerSecond);
+        $readTime = $wordCount / $wpm;
 
-        return $secondsTotal;
+        if ($readTime < 0.5) {
+            return 'less than a minute';
+        }
+        if ($readTime >= 0.5 && $readTime < 1.5) {
+            return '1 min read';
+        }
+
+        return ceil($readTime).' min read';
     }
 
     /**

@@ -350,12 +350,6 @@ class Number
             $type = $options['type'];
             if ($options['type'] === self::FORMAT_CURRENCY) {
                 $type = NumberFormatter::CURRENCY;
-            } elseif ($options['type'] === self::FORMAT_CURRENCY_ACCOUNTING) {
-                if (defined('NumberFormatter::CURRENCY_ACCOUNTING')) {
-                    $type = NumberFormatter::CURRENCY_ACCOUNTING;
-                } else {
-                    $type = self::CURRENCY_ACCOUNTING;
-                }
             }
         }
 

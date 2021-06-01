@@ -7,21 +7,15 @@ use voku\helper\ASCII;
 class Str
 {
     /**
-     * An instance's string.
-     *
-     * @var string
-     */
-    protected $str;
-
-    /**
      * Initializes a string object and assigns str properties to the supplied values. $str
      * is cast to a string prior to assignment.
      *
      * @param mixed $str [optional] Value to modify, after being cast to string.
      *                   Default: ''
      */
-    public function __construct($str = '')
-    {
+    public function __construct(
+        protected $str = ''
+    ) {
         $this->str = (string) $str;
     }
 

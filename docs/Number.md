@@ -16,64 +16,6 @@ Number::charLowerToInt('A 23 d') // A 23 45
 
 <br>
 
-### Number::format()
-
-`Number::format(mixed $value, array $options = [])`
-
-This method gives you much more control over the formatting of numbers for use in your views (and is used as the main method by most of the other NumberHelper methods).
-
-The ``$value`` parameter is the number that you are planning on
-formatting for output. With no ``$options`` supplied, the number
-1236.334 would output as 1,236. Note that the default precision is
-zero decimal places.
-
-The ``$options`` parameter is where the real magic for this method
-resides.
-
--  If you pass an integer then this becomes the amount of precision
-   or places for the function.
--  If you pass an associated array, you can use the following keys:
-
-
-| Option   | Description                                      |
-|----------|--------------------------------------------------|
-| places   | Number of decimal places to use, ie. 2 |
-| precision| Maximum number of decimal places to use, ie. 2 |
-| pattern  | An ICU number pattern to use for formatting the number ie. #,###.00 |
-| locale   | The locale name to use for formatting number, ie. "fr_FR". |
-| before   | Text to display before the rendered number. |
-| after    | Text to display after the rendered number. |
-
-```php
-use Realodix\Utils\Number\Number;
-
-Number::format('123456.7890', [
-    'places' => 2,
-    'before' => '¥ ',
-    'after'  => ' !'
-]);
-// Output '¥ 123,456.79 !'
-
-Number::format('123456.7890', [
-    'locale' => 'fr_FR'
-]);
-// Output '123 456,79 !'
-
-Number::format('123456.7890', [
-    'places' => 2,
-    'before' => '¥ ',
-    'after'  => ' !'
-]);
-// Output '¥ 123,456.79 !'
-
-Number::format('123456.7890', [
-    'locale' => 'fr_FR'
-]);
-// Output '123 456,79 !'
-```
-
-<br>
-
 ### IBAN
 
 IBAN (International Bank Account Number) is an internationally agreed means of identifying bank accounts across national borders with a reduced risk of propagating transcription errors.

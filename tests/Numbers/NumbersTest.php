@@ -28,16 +28,6 @@ class NumbersTest extends TestCase
         $this->assertSame('A 23 45', Number::charLowerToInt('A 23 d'));
     }
 
-    /**
-     * @test
-     * @dataProvider formatProvider
-     */
-    public function format($expected, $value, $options)
-    {
-        $this->assertSame('100,100,100', Number::format('100100100'));
-        $this->assertSame($expected, Number::format($value, $options));
-    }
-
     /** @test */
     public function mod97()
     {

@@ -4,21 +4,6 @@ namespace Realodix\Utils\Test\Numbers;
 
 trait NumbersTestProvider
 {
-    public function formatProvider()
-    {
-        $value = '100100100';
-
-        return [
-            ['#100,100,100', $value, ['before' => '#']],
-            ['100,100,100.000', $value, ['places' => 3]],
-            ['100.100.100', $value, ['locale' => 'es_VE']],
-
-            ['$0.0', 0.00001, ['places' => 1, 'before' => '$']],
-            ['$-0.0', -0.00001, ['places' => 1, 'before' => '$']],
-            ['1,23 €', 1.23, ['locale' => 'fr_FR', 'after' => ' €']],
-        ];
-    }
-
     public function toAmountShortProvider()
     {
         return [

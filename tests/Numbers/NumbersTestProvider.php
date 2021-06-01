@@ -43,18 +43,6 @@ trait NumbersTestProvider
         ];
     }
 
-    public function toAmountProvider()
-    {
-        return [
-            ['123', '123', 0],
-            ['123 thousand', '123,000', 0],
-            ['123.4 million', '123,400,000', 1],
-            ['123.46 billion', '123,456,000,000', 2],
-            ['123.457 trillion', '123,456,700,000,000', 3],
-            ['123.5 quadrillion', '123,456,700,000,000,000', 1],
-        ];
-    }
-
     public function toAmountShortProvider()
     {
         return [

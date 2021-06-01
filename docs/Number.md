@@ -187,25 +187,6 @@ Number::precision(1.234, 3, ['locale' => 'id_ID'])
 
 <br>
 
-### Number::toAmount()
-
-`Number::toAmount($num, int $precision = 0)`
-
-Converts a number into a human-readable version, like 123.4 trillion for numbers up to the quadrillions. 
-
-Examples:
-
-```php
-use Realodix\Utils\Number\Number;
-
-Number::toAmount(123456);               // 123 thousand
-Number::toAmount(123456789);            // 123 million
-Number::toAmount(1234567890123, 2);     // 1.23 trillion
-Number::toAmount('123,456,789,012', 2); // 123.46 billion
-```
-
-<br>
-
 ### Number::toAmountShort()
 
 `Number::toAmountShort(int $n)`

@@ -178,52 +178,6 @@ class Number
     }
 
     /**
-     * Converts numbers to a more readable representation when dealing with very large
-     * numbers (in the thousands or above), up to the quadrillions, because you won't
-     * often deal with numbers larger than that.
-     *
-     * It uses the "short form" numbering system as this is most commonly used within
-     * most English-speaking countries today.
-     *
-     * @see https://simple.wikipedia.org/wiki/Names_for_large_numbers
-     *
-     * @param string $num
-     * @param int    $precision
-     *
-     * @return bool|string
-     */
-    public static function toAmount($num, int $precision = 0)
-    {
-        // Strip any formatting & ensure numeric input
-        try {
-            $num = 0 + str_replace(',', '', $num);
-        } catch (\ErrorException $ee) {
-            return false;
-        }
-
-        $suffix = '';
-
-        if ($num > 1000000000000000) {
-            $suffix = 'quadrillion';
-            $num = round(($num / 1000000000000000), $precision);
-        } elseif ($num > 1000000000000) {
-            $suffix = 'trillion';
-            $num = round(($num / 1000000000000), $precision);
-        } elseif ($num > 1000000000) {
-            $suffix = 'billion';
-            $num = round(($num / 1000000000), $precision);
-        } elseif ($num > 1000000) {
-            $suffix = 'million';
-            $num = round(($num / 1000000), $precision);
-        } elseif ($num > 1000) {
-            $suffix = 'thousand';
-            $num = round(($num / 1000), $precision);
-        }
-
-        return rtrim(self::format($num, ['precision' => $precision, 'after' => ' '.$suffix]));
-    }
-
-    /**
      * Convert large positive numbers in to short form like 1K+, 100K+, 199K+, 1M+, 10M+,
      * 1B+ etc.
      * Based on: ({@link https://gist.github.com/RadGH/84edff0cc81e6326029c}).

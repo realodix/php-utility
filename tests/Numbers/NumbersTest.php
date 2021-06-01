@@ -80,15 +80,6 @@ class NumbersTest extends TestCase
 
     /**
      * @test
-     * @dataProvider toAmountProvider
-     */
-    public function toAmount($expected, $actual, $opt)
-    {
-        $this->assertEquals($expected, Number::toAmount($actual, $opt));
-    }
-
-    /**
-     * @test
      * @dataProvider toAmountShortProvider
      */
     public function toAmountShort($expected, $actual)

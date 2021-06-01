@@ -18,7 +18,6 @@ class Number
         foreach ($chars as $char) {
             if (ctype_alpha($char)) {
                 $bigInt .= (ord($char) - 55);
-
                 continue;
             }
 
@@ -43,7 +42,6 @@ class Number
         foreach ($chars as $char) {
             if (ctype_upper($char)) {
                 $bigInt .= (ord($char) - 55);
-
                 continue;
             }
 
@@ -68,7 +66,6 @@ class Number
         foreach ($chars as $char) {
             if (ctype_lower($char)) {
                 $bigInt .= (ord($char) - 55);
-
                 continue;
             }
 

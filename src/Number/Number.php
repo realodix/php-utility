@@ -157,7 +157,7 @@ class Number
      *
      * @return string Percentage string
      */
-    public static function toPercentage($value, int $precision = 2, $multiply = false, string $locale = 'en_US'): string
+    public static function toPercentage($value, int $precision = 2, bool $multiply = false, string $locale = 'en_US'): string
     {
         if ($multiply) {
             $value *= 100;

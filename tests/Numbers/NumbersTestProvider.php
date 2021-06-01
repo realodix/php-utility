@@ -32,7 +32,7 @@ trait NumbersTestProvider
         ];
     }
 
-    public function toPercentageProvider()
+    public function toPercentageWithPrecisionProvider()
     {
         return [
             ['45%', 45, 0],

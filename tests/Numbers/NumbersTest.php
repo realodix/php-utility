@@ -58,11 +58,18 @@ class NumbersTest extends TestCase
         }
     }
 
+    /** @test */
+    public function toPercentage()
+    {
+        $result = Number::toPercentage(45.691873645);
+        $this->assertSame('45.69%', $result);
+    }
+
     /**
      * @test
-     * @dataProvider toPercentageProvider
+     * @dataProvider toPercentageWithPrecisionProvider
      */
-    public function toPercentage($expected, $value, $precision)
+    public function toPercentageWithPrecision($expected, $value, $precision)
     {
         $this->assertSame($expected, Number::toPercentage($value, $precision));
     }
@@ -76,14 +83,8 @@ class NumbersTest extends TestCase
         $result = Number::toPercentage(0.456, 2, multiply: true);
         $this->assertSame('45.60%', $result);
 
-        $result = Number::toPercentage(0.456, locale: 'de-DE', multiply: true);
+        $result = Number::toPercentage(45.6, locale: 'de-DE');
         $this->assertSame('45,60%', $result);
-
-        $result = Number::toPercentage(13, 0, locale: 'fi_FI');
-        $this->assertSame('13%', $result);
-
-        $result = Number::toPercentage(0.13, 0, locale: 'fi_FI', multiply: true);
-        $this->assertSame('13%', $result);
     }
 
     /**

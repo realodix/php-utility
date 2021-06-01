@@ -94,10 +94,12 @@ Number::toAmountShort(123,456,789,012); // 1.23T+
 
 `Number::toPercentage($value, int $precision = 2, $multiply = false, string $locale = 'en_US'): string`
 
+Expresses the number as a percentage and appends the output with a percent sign.
+
 **Options:**
 - `multiply` - Boolean to indicate whether the value has to be multiplied by 100. Useful for decimal percentages.
 
-Like `Number::precision()`, this method formats a number according to the supplied precision (where numbers are rounded to meet the given precision). This method also expresses the number as a percentage and appends the output with a percent sign.
+Like `Number::precision()`, this method formats a number according to the supplied precision (where numbers are rounded to meet the given precision).
 
 ```php
 use Realodix\Utils\Number\Number;

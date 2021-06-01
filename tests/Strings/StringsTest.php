@@ -196,6 +196,13 @@ class StringsTest extends TestCase
         $this->assertSame($expected, Str::noCase($actual));
     }
 
+    /** @test */
+    public function noCaseWithOpt()
+    {
+        $this->assertSame('camel#case', Str::noCase('camelCase', '#'));
+        $this->assertSame('camel#case', Str::noCase('#camel Case#', '#'));
+    }
+
     /**
      * @test
      * @dataProvider camelCaseProvider

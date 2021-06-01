@@ -201,7 +201,6 @@ use Realodix\Utils\Str;
 $str = 'foo bar';
 
 Str::of($str)->charAt(0); // 'f'
-Str::of($str)->charAt(1); // 'o'
 Str::of($str)->charAt(6); // 'r'
 Str::of($str)->charAt(7); // ''
 ```

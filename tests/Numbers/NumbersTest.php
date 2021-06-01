@@ -28,25 +28,6 @@ class NumbersTest extends TestCase
         $this->assertSame('A 23 45', Number::charLowerToInt('A 23 d'));
     }
 
-    /**
-     * @test
-     * @dataProvider formatProvider
-     */
-    public function format($expected, $value, $options)
-    {
-        $this->assertSame('100,100,100', Number::format('100100100'));
-        $this->assertSame($expected, Number::format($value, $options));
-    }
-
-    /**
-     * @test
-     * @dataProvider formatDeltaProvider
-     */
-    public function formatDelta($expected, $value, $options)
-    {
-        $this->assertSame($expected, Number::formatDelta($value, $options));
-    }
-
     /** @test */
     public function mod97()
     {
@@ -54,37 +35,10 @@ class NumbersTest extends TestCase
     }
 
     /** @test */
-    public function ordinal()
-    {
-        $this->assertSame('1st', Number::ordinal(1));
-        $this->assertSame('2nd', Number::ordinal(2));
-        $this->assertSame('3rd', Number::ordinal(3));
-        $this->assertSame('4th', Number::ordinal(4));
-
-        $options = ['locale' => 'id_ID'];
-        $this->assertSame('ke-1', Number::ordinal(1, $options));
-        $this->assertSame('ke-2', Number::ordinal(2, $options));
-
-        $options = ['locale' => 'fr_FR'];
-        $this->assertSame('1er', Number::ordinal(1, $options));
-        $this->assertSame('2e', Number::ordinal(2, $options));
-    }
-
-    /** @test */
     public function precision()
     {
-        $this->assertSame('1,234', Number::precision(1.234, 3, ['locale' => 'id_ID']));
         $this->assertSame('19.12', Number::precision(19.123456));
         $this->assertSame('19.123', Number::precision(19.123456, 3));
-    }
-
-    /**
-     * @test
-     * @dataProvider toAmountProvider
-     */
-    public function toAmount($expected, $actual, $opt)
-    {
-        $this->assertEquals($expected, Number::toAmount($actual, $opt));
     }
 
     /**
@@ -104,43 +58,33 @@ class NumbersTest extends TestCase
         }
     }
 
+    /** @test */
+    public function toPercentage()
+    {
+        $result = Number::toPercentage(45.691873645);
+        $this->assertSame('45.69%', $result);
+    }
+
     /**
      * @test
-     * @dataProvider toPercentageProvider
+     * @dataProvider toPercentageWithPrecisionProvider
      */
-    public function toPercentage($expected, $value, $precision)
+    public function toPercentageWithPrecision($expected, $value, $precision)
     {
         $this->assertSame($expected, Number::toPercentage($value, $precision));
     }
 
-    /**
-     * @test
-     * @dataProvider toPercentageWithOptionsProvider
-     */
-    public function toPercentageWithOptions($expected, $value, $precision, $options)
+    /** @test */
+    public function toPercentageWithOptions()
     {
-        $this->assertSame($expected, Number::toPercentage($value, $precision, $options));
+        $result = Number::toPercentage(0.456, 0, multiply: true);
+        $this->assertSame('46%', $result);
 
-        $result = Number::toPercentage(0.456, options: ['locale' => 'de-DE', 'multiply' => true]);
-        $formatResult = str_replace("\xc2\xa0", ' ', $result);
-        $this->assertSame('45,60 %', $formatResult);
+        $result = Number::toPercentage(0.456, 2, multiply: true);
+        $this->assertSame('45.60%', $result);
 
-        $result = Number::toPercentage(13, 0, ['locale' => 'fi_FI']);
-        $formatResult = str_replace("\xc2\xa0", ' ', $result);
-        $this->assertSame('13 %', $formatResult);
-
-        $result = Number::toPercentage(0.13, 0, ['locale' => 'fi_FI', 'multiply' => true]);
-        $formatResult = str_replace("\xc2\xa0", ' ', $result);
-        $this->assertSame('13 %', $formatResult);
-    }
-
-    /**
-     * @test
-     * @dataProvider toPercentageFormatResultProvider
-     */
-    public function toPercentageFormatResult($expected, $actual)
-    {
-        $this->assertSame($expected, $actual);
+        $result = Number::toPercentage(45.6, locale: 'de-DE');
+        $this->assertSame('45,60%', $result);
     }
 
     /**

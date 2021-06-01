@@ -7,21 +7,15 @@ use voku\helper\ASCII;
 class Str
 {
     /**
-     * An instance's string.
-     *
-     * @var string
-     */
-    protected $str;
-
-    /**
      * Initializes a string object and assigns str properties to the supplied values. $str
      * is cast to a string prior to assignment.
      *
      * @param mixed $str [optional] Value to modify, after being cast to string.
      *                   Default: ''
      */
-    public function __construct($str = '')
-    {
+    public function __construct(
+        protected $str = ''
+    ) {
         $this->str = (string) $str;
     }
 
@@ -53,90 +47,6 @@ class Str
     public function charAt(int $index): string
     {
         return (string) mb_substr($this->str, $index, 1);
-    }
-
-    /**
-     * This function will strip tags from a string, split it at its max_length and
-     * ellipsize
-     *
-     * @param int    $max_length Max length of string
-     * @param mixed  $position   int (1|0) or float, .5, .2, etc for position to split
-     * @param string $ellipsis   ellipsis ; Default '...'
-     *
-     * @return string    Ellipsized string
-     */
-    public function ellipsize(int $max_length, $position = 1, string $ellipsis = '&hellip;'): string
-    {
-        // Strip tags
-        $str = trim(strip_tags($this->str));
-
-        // Is the string long enough to ellipsize?
-        if (mb_strlen($str) <= $max_length) {
-            return $str;
-        }
-
-        $beg = mb_substr($str, 0, (int) floor($max_length * $position));
-        $position = ($position > 1) ? 1 : $position;
-
-        if ($position === 1) {
-            $end = mb_substr($str, 0, -($max_length - mb_strlen($beg)));
-        } else {
-            $end = mb_substr($str, -($max_length - mb_strlen($beg)));
-        }
-
-        return $beg.$ellipsis.$end;
-    }
-
-    /**
-     * Allows to extract a piece of text surrounding a word or phrase.
-     *
-     * @param string $phrase   Phrase that will be searched for.
-     * @param int    $radius   The amount of characters returned around the phrase.
-     * @param string $ellipsis Ending that will be appended
-     *
-     * @return string
-     *
-     * If no $phrase is passed, will generate an excerpt of $radius characters from the
-     * beginning of $text.
-     */
-    public function excerpt(string $phrase = null, int $radius = 100, string $ellipsis = '...'): string
-    {
-        $text = $this->str;
-
-        if (isset($phrase)) {
-            $phrasePos = stripos($text, $phrase);
-            $phraseLen = mb_strlen($phrase);
-        } elseif (! isset($phrase)) {
-            $phrasePos = $radius / 2;
-            $phraseLen = 1;
-        }
-
-        $pre = explode(' ', substr($text, 0, $phrasePos)); // @phpstan-ignore-line
-        $pos = explode(' ', substr($text, $phrasePos + $phraseLen)); // @phpstan-ignore-line
-
-        $prev = ' ';
-        $post = ' ';
-        $count = 0;
-
-        foreach (array_reverse($pre) as $e) {
-            if ((mb_strlen($e) + $count + 1) < $radius) {
-                $prev = ' '.$e.$prev;
-            }
-            $count = ++ $count + mb_strlen($e);
-        }
-
-        $count = 0;
-
-        foreach ($pos as $s) {
-            if ((mb_strlen($s) + $count + 1) < $radius) {
-                $post .= $s.' ';
-            }
-            $count = ++ $count + mb_strlen($s);
-        }
-
-        $ellPre = $phrase ? $ellipsis : '';
-
-        return str_replace('  ', ' ', $ellPre.$prev.$phrase.$post.$ellipsis);
     }
 
     /**
@@ -333,85 +243,6 @@ class Str
         $str = this->str;
 
         return ASCII::to_ascii($str, $language, $removeUnsupported);
-    }
-
-    /**
-     * Wraps text at the specified character. Maintains the integrity of words. Anything
-     * placed between {unwrap}{/unwrap} will not be word wrapped, nor will URLs.
-     *
-     * @param int $charlim = 76    the number of characters to wrap at
-     *
-     * @return string
-     */
-    public function wordWrap(int $charlim = 76): string
-    {
-        // Reduce multiple spaces
-        $str = preg_replace('| +|', ' ', $this->str);
-
-        // Standardize newlines
-        if (strpos($str, "\r") !== false) {
-            $str = str_replace(["\r\n", "\r"], "\n", $str);
-        }
-
-        // If the current word is surrounded by {unwrap} tags we'll strip the entire chunk
-        // and replace it with a marker.
-        $unwrap = [];
-
-        if (preg_match_all('|\{unwrap\}(.+?)\{/unwrap\}|s', $str, $matches)) {
-            for ($i = 0, $c = count($matches[0]); $i < $c; $i ++) {
-                $unwrap[] = $matches[1][$i];
-                $str = str_replace($matches[0][$i], '{{unwrapped'.$i.'}}', $str);
-            }
-        }
-
-        // Use PHP's native function to do the initial wordwrap. We set the cut flag to
-        // FALSE so that any individual words that are too long get left alone. In the
-        // next step we'll deal with them.
-        $str = wordwrap($str, $charlim, "\n", false);
-
-        // Split the string into individual lines of text and cycle through them
-        $output = '';
-
-        foreach (explode("\n", $str) as $line) {
-            // Is the line within the allowed character count? If so we'll join it to the
-            // output and continue
-            if (mb_strlen($line) <= $charlim) {
-                $output .= $line."\n";
-                continue;
-            }
-
-            $temp = '';
-
-            while (mb_strlen($line) > $charlim) {
-                // If the over-length word is a URL we won't wrap it
-                if (preg_match('!\[url.+\]|://|www\.!', $line)) {
-                    break;
-                }
-                // Trim the word down
-                $temp .= mb_substr($line, 0, $charlim - 1);
-                $line = mb_substr($line, $charlim - 1);
-            }
-
-            // If $temp contains data it means we had to split up an over-length word into
-            // smaller chunks so we'll add it back to our current line
-            if ($temp !== '') {
-                $output .= $temp."\n".$line."\n";
-            } else {
-                $output .= $line."\n";
-            }
-        }
-
-        // Put our markers back
-        if (! empty($unwrap)) {
-            foreach ($unwrap as $key => $val) {
-                $output = str_replace('{{unwrapped'.$key.'}}', $val, $output);
-            }
-        }
-
-        // remove any trailing newline
-        $output = rtrim($output);
-
-        return $output;
     }
 
     /**

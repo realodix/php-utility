@@ -208,61 +208,6 @@ Str::of($str)->charAt(7); // ''
 
 <br>
 
-### `ellipsize()`
-
-`ellipsize(int $max_length, $position = 1, string $ellipsis = '&hellip;'): string`
-
-This function will strip tags from a string, split it at a defined maximum length, and insert an ellipsis.
-
-The first parameter is the string to ellipsize, the second is the number of characters in the final string. The third parameter is where in the string the ellipsis should appear from 0 - 1, left to right. For example. a value of 1 will place the ellipsis at the right of the string, .5 in the middle, and 0 at the left.
-
-An optional fourth parameter is the kind of ellipsis. By default, `&hellip;` will be inserted.
-
-Example:
-
-```php
-use Realodix\Utils\Str;
-
-$str = 'this_string_is_entirely_too_long_and_might_break_my_design.jpg';
-Str::of($str)->ellipsize(32, .5);
-
-// this_string_is_e&hellip;ak_my_design.jpg
-```
-
-<br>
-
-### `excerpt()`
-
-`excerpt(string $phrase = null, int $radius = 100, string $ellipsis = '...'): string`
-
-This function will extract $radius number of characters before and after the central $phrase with an elipsis before and after.
-
-The first paramenter is the text to extract an excerpt from, the second is the central word or phrase to count before and after. The third parameter is the number of characters to count before and after the central phrase. If no phrase passed, the excerpt will include the first $radius characters with the elipsis at the end.
-
-Example:
-
-```php
-use Realodix\Utils\Str;
-
-
-$text = 'Ut vel faucibus odio. Quisque quis congue libero. Etiam gravida
-eros lorem, eget porttitor augue dignissim tincidunt. In eget risus eget
-mauris faucibus molestie vitae ultricies odio. Vestibulum id ultricies diam.
-Curabitur non mauris lectus. Phasellus eu sodales sem. Integer dictum purus
-ac enim hendrerit gravida. Donec ac magna vel nunc tincidunt molestie sed
-vitae nisl. Cras sed auctor mauris, non dictum tortor. Nulla vel scelerisque
-arcu. Cras ac ipsum sit amet augue laoreet laoreet. Aenean a risus lacus.
-Sed ut tortor diam.';
-
-Str::of($text)->excerpt('Donec');
-
-// ... non mauris lectus. Phasellus eu sodales sem. Integer dictum purus ac
-// enim hendrerit gravida. Donec ac magna vel nunc tincidunt molestie sed
-// vitae nisl. Cras sed auctor mauris, non dictum ...
-```
-
-<br>
-
 ### `incrementString()`
 
 `incrementString(string $separator = '_', int $first = 1): string`
@@ -441,25 +386,4 @@ use Realodix\Utils\Str;
 
 Str::of('û')->toAscii();
 // 'u'
-```
-
-<br>
-
-### `wordWrap()`
-
-`wordWrap(int $charlim = 76): string`
-
-Wraps text at the specified character count while maintaining complete words.
-
-```php
-use Realodix\Utils\Str;
-
-$string = "Here is a simple string of text that will help us demonstrate this function.";
-Str::of($string)->wordWrap(25);
-
-// Would produce:
-// Here is a simple string
-// of text that will help us
-// demonstrate this
-// function.
 ```

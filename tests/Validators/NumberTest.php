@@ -32,6 +32,7 @@ class NumberTest extends TestCase
     {
         $this->assertTrue(Val::fibonacci(1));
         $this->assertTrue(Val::fibonacci(34));
+        $this->assertFalse(Val::fibonacci('is_not_numeric'));
     }
 
     /** @test */

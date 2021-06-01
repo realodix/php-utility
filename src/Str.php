@@ -277,14 +277,6 @@ class Str
         $start = 0;
         $end = mb_strlen($result);
 
-        // Trim the delimiter from around the output string.
-        while ($result->charAt($start) === "\0") {
-            $start++;
-        }
-        while ($result->charAt($end - 1) === "\0") {
-            $end--;
-        }
-
         // Transform each token independently.
         return implode($delimiter,
             explode("\0", $result->slice($start, $end))

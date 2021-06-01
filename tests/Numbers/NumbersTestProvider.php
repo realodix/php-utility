@@ -73,6 +73,8 @@ trait NumbersTestProvider
             ['CCCXXIX', 329],
             ['IV', 4],
             ['X', 10],
+            [null, 0],
+            [null, 4000],
         ];
     }
 }

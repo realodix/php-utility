@@ -89,6 +89,7 @@ trait StringsTestProvider
     public function noCaseProvider()
     {
         return [
+            ['', null],
             ['string', 'string'],
             ['camel case', 'camelCase'],
             ['camel case', 'CAMELCase'],

@@ -189,6 +189,7 @@ trait IdentificationsTestProvider
         return [
             // Too short error
             [0],
+            [null],
             ['1539'],
 
             // Invalid characters error

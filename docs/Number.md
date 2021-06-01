@@ -92,7 +92,7 @@ Number::toAmountShort(123,456,789,012); // 1.23T+
 
 ### Number::toPercentage()
 
-`Number::toPercentage($value, int $precision = 2, $multiply = false, string $locale = 'en_US'): string`
+`Number::toPercentage($value, int $precision = 2, bool $multiply = false, string $locale = 'en_US'): string`
 
 Expresses the number as a percentage and appends the output with a percent sign.
 

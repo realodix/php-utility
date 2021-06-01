@@ -67,9 +67,7 @@ class NumbersTest extends TestCase
         $this->assertSame($expected, Number::toPercentage($value, $precision));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function toPercentageWithOptions()
     {
         $result = Number::toPercentage(0.456, 0, multiply: true);

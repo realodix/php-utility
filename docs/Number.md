@@ -143,32 +143,6 @@ Iban::setChecksum($withoutChecksum);
 
 <br>
 
-### Number::ordinal()
-
-`Number::ordinal(mixed $value, array $options = [])`
-
-This method will output an ordinal number.
-
-```php
-use Realodix\Utils\Number\Number;
-
-Number::ordinal(1);
-// Output '1st'
-
-Number::ordinal(2);
-// Output '2nd'
-
-Number::ordinal(2, [
-    'locale' => 'fr_FR'
-]);
-// Output '2e'
-
-Number::ordinal(410);
-// Output '410th'
-```
-
-<br>
-
 ### Number::precision()
 
 `Number::precision(float $value, int $precision = 2, array $options = [])`

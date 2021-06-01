@@ -54,23 +54,6 @@ class NumbersTest extends TestCase
     }
 
     /** @test */
-    public function ordinal()
-    {
-        $this->assertSame('1st', Number::ordinal(1));
-        $this->assertSame('2nd', Number::ordinal(2));
-        $this->assertSame('3rd', Number::ordinal(3));
-        $this->assertSame('4th', Number::ordinal(4));
-
-        $options = ['locale' => 'id_ID'];
-        $this->assertSame('ke-1', Number::ordinal(1, $options));
-        $this->assertSame('ke-2', Number::ordinal(2, $options));
-
-        $options = ['locale' => 'fr_FR'];
-        $this->assertSame('1er', Number::ordinal(1, $options));
-        $this->assertSame('2e', Number::ordinal(2, $options));
-    }
-
-    /** @test */
     public function precision()
     {
         $this->assertSame('1,234', Number::precision(1.234, 3, ['locale' => 'id_ID']));

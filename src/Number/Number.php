@@ -145,20 +145,6 @@ class Number
     }
 
     /**
-     * Returns a formatted integer as an ordinal number string (e.g. 1st, 2nd, 3rd, 4th,
-     * [...]). For all other options see formatter().
-     *
-     * @param int|float $value   An integer
-     * @param array     $options An array with options.
-     *
-     * @return string
-     */
-    public static function ordinal($value, array $options = []): string
-    {
-        return self::formatter(['type' => NumberFormatter::ORDINAL] + $options)->format($value);
-    }
-
-    /**
      * Formats a number with a level of precision.
      *
      * Options:

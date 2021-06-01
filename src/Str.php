@@ -244,20 +244,25 @@ class Str
         // Remove all non-word characters.
         $stripRegexp = '/[^a-zA-Z0-9]/i';
 
-        $result = mb_strtolower(
+        $result = str(mb_strtolower(
             preg_replace($stripRegexp, $delimiter,
                 preg_replace($splitRegexp, '$1 $2', $text)
             )
-        );
+        ));
 
-        $result = str($result);
-
+        // Trim the delimiter from around the output string.
         $start = 0;
         $end = mb_strlen($result);
+        while ($result->charAt($start) === $delimiter) {
+            $start++;
+        }
+        while ($result->charAt($end - 1) === $delimiter) {
+            $end--;
+        }
 
         // Transform each token independently.
         return implode($delimiter,
-            explode("\0", $result->slice($start, $end))
+            explode($delimiter, $result->slice($start, $end))
         );
     }
 

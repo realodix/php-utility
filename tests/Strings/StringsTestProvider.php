@@ -90,6 +90,7 @@ trait StringsTestProvider
     {
         return [
             ['', null],
+            ['string', ' string '],
             ['string', 'string'],
             ['camel case', 'camelCase'],
             ['camel case', 'CAMELCase'],

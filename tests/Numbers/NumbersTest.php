@@ -38,15 +38,6 @@ class NumbersTest extends TestCase
         $this->assertSame($expected, Number::format($value, $options));
     }
 
-    /**
-     * @test
-     * @dataProvider formatDeltaProvider
-     */
-    public function formatDelta($expected, $value, $options)
-    {
-        $this->assertSame($expected, Number::formatDelta($value, $options));
-    }
-
     /** @test */
     public function mod97()
     {

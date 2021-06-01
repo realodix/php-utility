@@ -126,25 +126,6 @@ class Number
     }
 
     /**
-     * Formats a number into the correct locale format to show deltas (signed differences
-     * in value).
-     *
-     * @param float|string $value   A floating point number
-     * @param array        $options Options list.
-     *
-     * @return string formatted delta
-     */
-    public static function formatDelta($value, array $options = []): string
-    {
-        $options += ['places' => 0];
-        $value = number_format((float) $value, $options['places'], '.', '');
-        $sign = $value > 0 ? '+' : '';
-        $options['before'] = isset($options['before']) ? $options['before'].$sign : $sign;
-
-        return self::format($value, $options);
-    }
-
-    /**
      * Formats a number with a level of precision.
      *
      * Options:

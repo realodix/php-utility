@@ -21,28 +21,6 @@ trait NumbersTestProvider
         ];
     }
 
-    public function formatDeltaProvider()
-    {
-        $value = '100100100';
-        $testOptions = ['before' => '[', 'after' => ']'];
-        $testOptions2 = ['places' => 1, 'before' => '[', 'after' => ']'];
-
-        return [
-            ['+100,100,100', $value, ['places' => 0]],
-            ['+100,100,100', $value, ['before' => '', 'after' => '']],
-
-            ['[+100,100,100]', $value, $testOptions],
-            ['[-100,100,100]', -$value, $testOptions],
-
-            ['[ -100,100,100 ]', -$value, ['before' => '[ ', 'after' => ' ]']],
-
-            ['[0.0]', 0, $testOptions2],
-            ['[0.0]', 0.0001, $testOptions2],
-
-            ['+9.876,1', 9876.1234, ['places' => 1, 'locale' => 'de_DE']],
-        ];
-    }
-
     public function toAmountShortProvider()
     {
         return [

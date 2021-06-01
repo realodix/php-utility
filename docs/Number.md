@@ -74,37 +74,6 @@ Number::format('123456.7890', [
 
 <br>
 
-### Number::formatDelta()
-
-`Number::formatDelta($value, array $options = [])`
-
-This method gives you much more control over the formatting of numbers for use in your views (and is used as the main method by most of the other NumberHelper methods).
-
-The `$value` parameter is the number that you are planning on formatting for output. With no $options supplied, the number 1236.334 would output as 1,236. Note that the default precision is zero decimal places.
-
-The `$options` parameter takes the same keys as `Number::format()` itself:
-
-| Option   | Description                                      |
-|----------|--------------------------------------------------|
-| places   | Number of decimal places to use, ie. 2 |
-| precision| Maximum number of decimal places to use, ie. 2 |
-| locale   | The locale name to use for formatting number, ie. "fr_FR". |
-| before   | Text to display before the rendered number. |
-| after    | Text to display after the rendered number. |
-
-```php
-use Realodix\Utils\Number\Number;
-
-Number::formatDelta('123456.7890', [
-    'places' => 2,
-    'before' => '[',
-    'after' => ']'
-]);
-// Output '[+123,456.79]'
-```
-
-<br>
-
 ### IBAN
 
 IBAN (International Bank Account Number) is an internationally agreed means of identifying bank accounts across national borders with a reduced risk of propagating transcription errors.

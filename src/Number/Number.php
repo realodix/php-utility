@@ -133,15 +133,16 @@ class Number
      *
      * @param float|string $value     A floating point number.
      * @param int          $precision The precision of the returned number.
-     * @param array        $options   Additional options
      *
      * @return string Formatted float.
      */
-    public static function precision($value, int $precision = 2, array $options = []): string
+    public static function precision($value, int $precision = 2, string $locale = 'en_US'): string
     {
-        $formatter = self::formatter(['precision' => $precision, 'places' => $precision] + $options);
+        $a = new \NumberFormatter($locale, \NumberFormatter::DECIMAL);
+        $a->setAttribute(\NumberFormatter::MIN_FRACTION_DIGITS, $precision);
+        $a->setAttribute(\NumberFormatter::MAX_FRACTION_DIGITS, $precision);
 
-        return $formatter->format($value);
+        return $a->format($value);
     }
 
     /**
@@ -199,19 +200,16 @@ class Number
      *
      * @param float|string $value     A floating point number
      * @param int          $precision The precision of the returned number
-     * @param array        $options   Options
      *
      * @return string Percentage string
      */
-    public static function toPercentage($value, int $precision = 2, array $options = []): string
+    public static function toPercentage($value, int $precision = 2, $multiply = false, string $locale = 'en_US'): string
     {
-        $options += ['multiply' => false, 'type' => NumberFormatter::PERCENT];
-
-        if (! $options['multiply']) {
-            $value /= 100;
+        if ($multiply) {
+            $value *= 100;
         }
 
-        return self::precision($value, $precision, $options);
+        return self::precision($value, $precision, $locale).'%';
     }
 
     /**

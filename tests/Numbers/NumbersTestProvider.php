@@ -2,8 +2,6 @@
 
 namespace Realodix\Utils\Test\Numbers;
 
-use Realodix\Utils\Number\Number;
-
 trait NumbersTestProvider
 {
     public function formatProvider()
@@ -56,39 +54,6 @@ trait NumbersTestProvider
             ['45.00%', 45, 2],
             ['0%', 0, 0],
             ['0.0000%', 0, 4],
-        ];
-    }
-
-    public function toPercentageWithOptionsProvider()
-    {
-        $options = ['multiply' => false];
-
-        return [
-            ['45%', 45, 0, $options],
-            ['45.00%', 45, 2, $options],
-            ['0%', 0, 0, $options],
-            ['0.0000%', 0, 4, $options],
-
-            ['46%', 0.456, 0, ['multiply' => true]],
-            ['45.60%', 0.456, 2, ['multiply' => true]],
-        ];
-    }
-
-    public function toPercentageFormatResultProvider()
-    {
-        $result = Number::toPercentage(0.456, 2, ['locale' => 'de-DE', 'multiply' => true]);
-        $formatResult = str_replace("\xc2\xa0", ' ', $result);
-
-        $result2 = Number::toPercentage(13, 0, ['locale' => 'fi_FI']);
-        $formatResult2 = str_replace("\xc2\xa0", ' ', $result2);
-
-        $result3 = Number::toPercentage(0.13, 0, ['locale' => 'fi_FI', 'multiply' => true]);
-        $formatResult3 = str_replace("\xc2\xa0", ' ', $result3);
-
-        return [
-            ['45,60 %', $formatResult],
-            ['13 %', $formatResult2],
-            ['13 %', $formatResult3],
         ];
     }
 

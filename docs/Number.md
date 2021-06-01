@@ -114,7 +114,7 @@ Iban::setChecksum($withoutChecksum);
 
 ### Number::precision()
 
-`Number::precision(float $value, int $precision = 2, array $options = [])`
+`Number::precision($value, int $precision = 2, string $locale = 'en_US'): string`
 
 This method displays a number with the specified amount of precision (decimal places). It will round in order to maintain the level of precision defined.
 
@@ -124,7 +124,7 @@ use Realodix\Utils\Number\Number;
 Number::precision(456.91873645, 2);
 // 456.92
 
-Number::precision(1.234, 3, ['locale' => 'id_ID'])
+Number::precision(1.234, 3, locale: 'id_ID')
 // 1,234
 ```
 
@@ -150,7 +150,7 @@ Number::toAmountShort(123,456,789,012); // 1.23T+
 
 ### Number::toPercentage()
 
-`Number::toPercentage($value, int $precision = 2, array $options = [])`
+`Number::toPercentage($value, int $precision = 2, $multiply = false, string $locale = 'en_US'): string`
 
 **Options:**
 - `multiply` - Boolean to indicate whether the value has to be multiplied by 100. Useful for decimal percentages.
@@ -163,9 +163,7 @@ use Realodix\Utils\Number\Number;
 Number::toPercentage(45.691873645);
 // 45.69%
 
-Number::toPercentage(0.45691, 1, [
-    'multiply' => true
-]);
+Number::toPercentage(0.45691, 1, multiply: true);
 // 45.7%
 ```
 

@@ -47,7 +47,6 @@ class NumbersTest extends TestCase
     /** @test */
     public function precision()
     {
-        $this->assertSame('1,234', Number::precision(1.234, 3, ['locale' => 'id_ID']));
         $this->assertSame('19.12', Number::precision(19.123456));
         $this->assertSame('19.123', Number::precision(19.123456, 3));
     }
@@ -80,32 +79,23 @@ class NumbersTest extends TestCase
 
     /**
      * @test
-     * @dataProvider toPercentageWithOptionsProvider
      */
-    public function toPercentageWithOptions($expected, $value, $precision, $options)
+    public function toPercentageWithOptions()
     {
-        $this->assertSame($expected, Number::toPercentage($value, $precision, $options));
+        $result = Number::toPercentage(0.456, 0, multiply: true);
+        $this->assertSame('46%', $result);
 
-        $result = Number::toPercentage(0.456, options: ['locale' => 'de-DE', 'multiply' => true]);
-        $formatResult = str_replace("\xc2\xa0", ' ', $result);
-        $this->assertSame('45,60 %', $formatResult);
+        $result = Number::toPercentage(0.456, 2, multiply: true);
+        $this->assertSame('45.60%', $result);
 
-        $result = Number::toPercentage(13, 0, ['locale' => 'fi_FI']);
-        $formatResult = str_replace("\xc2\xa0", ' ', $result);
-        $this->assertSame('13 %', $formatResult);
+        $result = Number::toPercentage(0.456, locale: 'de-DE', multiply: true);
+        $this->assertSame('45,60%', $result);
 
-        $result = Number::toPercentage(0.13, 0, ['locale' => 'fi_FI', 'multiply' => true]);
-        $formatResult = str_replace("\xc2\xa0", ' ', $result);
-        $this->assertSame('13 %', $formatResult);
-    }
+        $result = Number::toPercentage(13, 0, locale: 'fi_FI');
+        $this->assertSame('13%', $result);
 
-    /**
-     * @test
-     * @dataProvider toPercentageFormatResultProvider
-     */
-    public function toPercentageFormatResult($expected, $actual)
-    {
-        $this->assertSame($expected, $actual);
+        $result = Number::toPercentage(0.13, 0, locale: 'fi_FI', multiply: true);
+        $this->assertSame('13%', $result);
     }
 
     /**

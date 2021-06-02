@@ -109,14 +109,20 @@ class StringsTest extends TestCase
     /** @test */
     public function readTimeImage()
     {
-        $content =
-        '
-            <img src="url" alt="alternatetext">
-            <img src="dinosaur.jpg">
-            <img />
-        ';
+        $content = str_repeat('<img />', 5);
+        $actual = $this->callMethod(new Str, 'readTimeImage', [$content]) * 60;
+        // 12+11+10+9+8
+        $this->assertSame(50.0, $actual);
 
-        $this->assertSame(0.55, $this->callMethod(new Str, 'readTimeImage', [$content]));
+        $content = str_repeat('<img />', 10);
+        $actual = $this->callMethod(new Str, 'readTimeImage', [$content]) * 60;
+        // 12+11+10+9+8+7+6+5+4+3
+        $this->assertSame(75.0, $actual);
+
+        $content = str_repeat('<img />', 12);
+        $actual = $this->callMethod(new Str, 'readTimeImage', [$content]) * 60;
+        // 75 + (3+3)
+        $this->assertSame(81.0, $actual);
     }
 
     /** @test */

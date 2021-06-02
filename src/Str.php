@@ -112,11 +112,11 @@ class Str
      *
      * @return string|empty
      */
-    public function readTime(int $wpm = 265, int $imageReadTime = 12): string
+    public function readTime(int $wpm = 265): string
     {
         $content = strip_tags($this->str, '<img>');
         $wordCount = str_word_count($content);
-        $imgReadTime = $this->readTimeImage($content, $imageReadTime);
+        $imgReadTime = $this->readTimeImage($content, 12);
 
         $readTime = ($wordCount / $wpm) + $imgReadTime;
 
@@ -130,25 +130,28 @@ class Str
         return ceil($readTime).' min read';
     }
 
-    private function readTimeImage($value, $imageReadTime = 12)
+    private function readTimeImage($content, int $imgReadTime = 12)
     {
         $seconds = 0;
-        $count = $this->readTimeImageCount($value);
+        $count = $this->readTimeImageCount($content);
 
         if ($count > 10) {
-            $seconds = (($count / 2) * ($imageReadTime + 3)) + ($count - 10) * 3; // n/2(a+b) + 3 sec/image
+            $f10Count = 10;
+            $p1 = ($f10Count / 2) * (2 * $imgReadTime + (1 - $f10Count));
+            $p2 = ($count - $f10Count) * 3;
+            $seconds = $p1 + $p2;
         } else {
-            $seconds = ($count / 2) * (2 * $imageReadTime + (1 - $count)); // n/2[2a+(n-1)d]
+            $seconds = ($count / 2) * (2 * $imgReadTime + (1 - $count)); // n/2[2a+(n-1)d]
         }
 
         return $seconds / 60;
     }
 
-    private function readTimeImageCount($value)
+    private function readTimeImageCount($content)
     {
         $pattern = '/<(img)([\W\w]+?)[\/]?>/';
 
-        return preg_match_all($pattern, $value, $matches);
+        return preg_match_all($pattern, $content, $matches);
     }
 
     /**

@@ -272,7 +272,7 @@ Str::of($str)->limitWord(3, ' >>>');
 
 ### `readTime()`
 
-`readTime(int $wpm = 265, int $imageReadTime = 12): string`
+`readTime(int $wpm = 265): string`
 
 Calculate the estimated reading time in seconds for a given piece of content.
 

@@ -21,18 +21,3 @@ Identifier::isbnFormat(string $isbn): string
 Identifier::isbnFormat('123456789X');    // '1-234-56789-X'
 Identifier::isbnFormat('9781234567897'); // '978-1-234-56789-7'
 ```
-
-<br>
-
-### `UUID`
-
-```php
-use Realodix\Utils\Identifier;
-
-// generates a UUID (version 4)
-Identifier::uuid();
-
-// generates a "timestamp first" UUID that may be efficiently stored in an
-// indexed database column
-Identifier::uuidOrdered();
-```

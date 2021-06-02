@@ -2,7 +2,6 @@
 
 namespace Realodix\Utils\Test\Identifier;
 
-use Ramsey\Uuid\UuidInterface;
 use Realodix\Utils\Identifier;
 use Realodix\Utils\Test\TestCase;
 
@@ -18,12 +17,5 @@ class IdentifierTest extends TestCase
         $this->assertSame($isbn10, Identifier::isbn13to10($isbn13));
         $this->assertSame('1-338-21666-X', Identifier::isbnFormat('133821666X'));
         $this->assertSame('978-1-338-21839-8', Identifier::isbnFormat($isbn13));
-    }
-
-    /** @test */
-    public function uuid()
-    {
-        $this->assertInstanceOf(UuidInterface::class, Identifier::uuid());
-        $this->assertInstanceOf(UuidInterface::class, Identifier::uuidOrdered());
     }
 }

@@ -3,7 +3,6 @@
 namespace Realodix\Utils\Validator;
 
 use Nicebooks\Isbn\IsbnTools;
-use Ramsey\Uuid\Validator\GenericValidator;
 
 trait IdentificationsTrait
 {
@@ -163,17 +162,5 @@ trait IdentificationsTrait
         }
 
         return true;
-    }
-
-    /**
-     * Determine if a given string is a valid UUID.
-     *
-     * @param string $uuid
-     * @return bool
-     * @codeCoverageIgnore
-     */
-    public static function uuid(string $uuid): bool
-    {
-        return (new GenericValidator)->validate($uuid);
     }
 }

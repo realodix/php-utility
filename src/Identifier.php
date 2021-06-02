@@ -3,10 +3,6 @@
 namespace Realodix\Utils;
 
 use Nicebooks\Isbn\IsbnTools;
-use Ramsey\Uuid\Codec\TimestampFirstCombCodec;
-use Ramsey\Uuid\Generator\CombGenerator;
-use Ramsey\Uuid\Uuid;
-use Ramsey\Uuid\UuidFactory;
 
 class Identifier
 {
@@ -41,37 +37,5 @@ class Identifier
     public static function isbnFormat(string $isbn): string
     {
         return (new IsbnTools())->format($isbn);
-    }
-
-    /**
-     * Generate a UUID (version 4).
-     * https://uuid.ramsey.dev/en/latest/rfc4122/version4.html
-     *
-     * @return \Ramsey\Uuid\UuidInterface
-     */
-    public static function uuid()
-    {
-        return Uuid::uuid4();
-    }
-
-    /**
-     * Generate a time-ordered UUID (version 4).
-     *
-     * @return \Ramsey\Uuid\UuidInterface
-     */
-    public static function uuidOrdered()
-    {
-        $factory = new UuidFactory();
-
-        $factory->setRandomGenerator(new CombGenerator(
-            $factory->getRandomGenerator(),
-            $factory->getNumberConverter()
-        ));
-
-        $factory->setCodec(new TimestampFirstCombCodec(
-            $factory->getUuidBuilder()
-        ));
-
-        return $factory->uuid4();
     }
 }

@@ -10,6 +10,30 @@ class StringsTest extends TestCase
     use StringsTestProvider;
 
     /**
+     * Testing private/protected PHP methods using the Reflection API.
+     *
+     * @param mixed  $object
+     * @param string $method
+     * @param array  $parameters
+     * @return mixed
+     * @throws \Exception
+     */
+    private function callMethod($object, string $method, array $parameters = [])
+    {
+        try {
+            $className = get_class($object);
+            $reflection = new \ReflectionClass($className);
+        } catch (\ReflectionException $e) {
+            throw new \Exception($e->getMessage());
+        }
+
+        $method = $reflection->getMethod($method);
+        $method->setAccessible(true);
+
+        return $method->invokeArgs($object, $parameters);
+    }
+
+    /**
      * @test
      * @dataProvider charAtProvider
      */
@@ -59,12 +83,57 @@ class StringsTest extends TestCase
     /** @test */
     public function readTime()
     {
-        $faker = $this->faker;
-
         $wpm = 265;
-        $this->assertSame('less than a minute', str($faker->sentence($wpm / 3, false))->readTime($wpm));
-        $this->assertSame('1 min read', str($faker->sentence($wpm, false))->readTime($wpm));
-        $this->assertSame('3 min read', str($faker->sentence($wpm * 3, false))->readTime($wpm));
+        $this->assertSame('less than a minute', str(str_repeat('word', 3))->readTime($wpm));
+        $this->assertSame('1 min read', str(str_repeat('word ', $wpm))->readTime($wpm));
+        $this->assertSame('3 min read', str(str_repeat('word ', $wpm * 3))->readTime($wpm));
+    }
+
+    /** @test */
+    public function readTimeWithImage()
+    {
+        $faker = FakerFactory::create();
+        $wpm = 265;
+        $content =
+        '
+            <img src="url" alt="alternatetext">
+            <img src="dinosaur.jpg">
+        '.$faker->sentence($wpm * 2, false);
+
+        $this->assertSame('3 min read', str($content)->readTime($wpm));
+    }
+
+    /** @test */
+    public function readTimeImage()
+    {
+        $content = str_repeat('<img />', 5);
+        $actual = $this->callMethod(new Str, 'readTimeImage', [$content]) * 60;
+        // 12+11+10+9+8
+        $this->assertSame(50.0, $actual);
+
+        $content = str_repeat('<img />', 10);
+        $actual = $this->callMethod(new Str, 'readTimeImage', [$content]) * 60;
+        // 12+11+10+9+8+7+6+5+4+3
+        $this->assertSame(75.0, $actual);
+
+        $content = str_repeat('<img />', 12);
+        $actual = $this->callMethod(new Str, 'readTimeImage', [$content]) * 60;
+        // 75 + (3+3)
+        $this->assertSame(81.0, $actual);
+    }
+
+    /** @test */
+    public function readTimeImageCount()
+    {
+        $content =
+        '
+            <img src="url" alt="alternatetext">
+            <img src="dinosaur.jpg">
+            <img />
+            <img>
+        ';
+
+        $this->assertSame(3, $this->callMethod(new Str, 'readTimeImageCount', [$content]));
     }
 
     /**

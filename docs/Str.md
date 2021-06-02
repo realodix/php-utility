@@ -277,7 +277,7 @@ Str::of($str)->limitWord(3, ' >>>');
 Calculate the estimated reading time in seconds for a given piece of content.
 
 - **Average Read Time** — 265 Words per min
-- **Image Read Time** — 12 seconds for the first image, 11 for the second, and minus an additional second for each subsequent image. Other images counted at 3 seconds.
+- **Image Read Time** — Images add an additional 12 seconds for the first image, 11 seconds for the second image, and minus an additional second for each subsequent image, through the tenth image. Any images after the tenth image are counted at 3 seconds.
 
 ```php
 use Realodix\Utils\Str;

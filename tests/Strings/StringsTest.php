@@ -84,12 +84,10 @@ class StringsTest extends TestCase
     /** @test */
     public function readTime()
     {
-        $faker = FakerFactory::create();
-
         $wpm = 265;
-        $this->assertSame('less than a minute', str($faker->sentence($wpm / 3, false))->readTime($wpm));
-        $this->assertSame('1 min read', str($faker->sentence($wpm, false))->readTime($wpm));
-        $this->assertSame('3 min read', str($faker->sentence($wpm * 3, false))->readTime($wpm));
+        $this->assertSame('less than a minute', str(str_repeat('word', 3))->readTime($wpm));
+        $this->assertSame('1 min read', str(str_repeat('word ', $wpm))->readTime($wpm));
+        $this->assertSame('3 min read', str(str_repeat('word ', $wpm * 3))->readTime($wpm));
     }
 
     /** @test */

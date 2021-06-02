@@ -282,7 +282,7 @@ Calculate the estimated reading time in seconds for a given piece of content.
 ```php
 use Realodix\Utils\Str;
 
-$sentences = $faker->sentence(300);
+$sentences = str_repeat('word ', 300);
 
 Str::of($sentences)->readTime();    // '1 min read'
 Str::of($sentences)->readTime(100); // '3 min read'

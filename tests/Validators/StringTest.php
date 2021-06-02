@@ -11,18 +11,6 @@ class StringTest extends TestCase
 {
     use StringTestProvider;
 
-    public function testContains()
-    {
-        $this->assertTrue(Val::contains('taylor', 'ylo'));
-        $this->assertTrue(Val::contains('taylor', 'taylor'));
-        $this->assertTrue(Val::contains('taylor', ['ylo']));
-        $this->assertTrue(Val::contains('taylor', ['xxx', 'ylo']));
-        $this->assertFalse(Val::contains('taylor', 'xxx'));
-        $this->assertFalse(Val::contains('taylor', ['xxx']));
-        $this->assertFalse(Val::contains('taylor', ''));
-        $this->assertFalse(Val::contains('', ''));
-    }
-
     /** @test */
     public function containsAll()
     {
@@ -130,65 +118,5 @@ class StringTest extends TestCase
 
         $this->assertFalse(Val::range(new DateTimeImmutable('2017-04-26'), [10, null]));
         $this->assertFalse(Val::range(new DateTimeImmutable('2017-04-26'), [null, 10]));
-    }
-
-    /**
-     * @test
-     * @dataProvider startsWithValidProvider
-     */
-    public function startsWithValid($expected, $actual)
-    {
-        $this->assertTrue(Val::startsWith($expected, $actual));
-    }
-
-    /**
-     * @test
-     * @dataProvider startsWithInvalidProvider
-     */
-    public function startsWithInvalid($expected, $actual)
-    {
-        $this->assertFalse(Val::startsWith($expected, $actual));
-    }
-
-    /**
-     * Test `startsWith()` for multibyte string support
-     * @test
-     */
-    public function startsWithMultibyteString()
-    {
-        $this->assertTrue(Val::startsWith('Jönköping', 'Jö'));
-        $this->assertTrue(Val::startsWith('Malmö', 'Malmö'));
-        $this->assertFalse(Val::startsWith('Jönköping', 'Jonko'));
-        $this->assertFalse(Val::startsWith('Malmö', 'Malmo'));
-    }
-
-    /**
-     * @test
-     * @dataProvider endsWithValidProvider
-     */
-    public function endsWithValid($expected, $actual)
-    {
-        $this->assertTrue(Val::endsWith($expected, $actual));
-    }
-
-    /**
-     * @test
-     * @dataProvider endsWithInvalidProvider
-     */
-    public function endsWithInvalid($expected, $actual)
-    {
-        $this->assertFalse(Val::endsWith($expected, $actual));
-    }
-
-    /**
-     * Test `endsWith()` for multibyte string support
-     * @test
-     */
-    public function endsWithMultibyteString()
-    {
-        $this->assertTrue(Val::endsWith('Jönköping', 'öping'));
-        $this->assertTrue(Val::endsWith('Malmö', 'mö'));
-        $this->assertFalse(Val::endsWith('Jönköping', 'oping'));
-        $this->assertFalse(Val::endsWith('Malmö', 'mo'));
     }
 }

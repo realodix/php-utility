@@ -2,9 +2,9 @@
 
 namespace Realodix\Utils\Test\Identifier;
 
-use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\UuidInterface;
 use Realodix\Utils\Identifier;
+use Realodix\Utils\Test\TestCase;
 
 class IdentifierTest extends TestCase
 {

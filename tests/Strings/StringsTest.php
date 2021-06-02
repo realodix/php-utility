@@ -92,13 +92,12 @@ class StringsTest extends TestCase
     /** @test */
     public function readTimeWithImage()
     {
-        $faker = FakerFactory::create();
         $wpm = 265;
         $content =
         '
             <img src="url" alt="alternatetext">
             <img src="dinosaur.jpg">
-        '.$faker->sentence($wpm * 2, false);
+        '.$this->faker->sentence($wpm * 2, false);
 
         $this->assertSame('3 min read', str($content)->readTime($wpm));
     }

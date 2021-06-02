@@ -272,14 +272,17 @@ Str::of($str)->limitWord(3, ' >>>');
 
 ### `readTime()`
 
-`readTime(int $wpm = 265)`
+`readTime(int $wpm = 265): string`
 
-Calculate the estimated reading time in seconds for a given piece of content. Read time is based on the average reading speed of an adult (roughly 265 WPM).
+Calculate the estimated reading time in seconds for a given piece of content.
+
+- **Average Read Time** — 265 Words per min
+- **Image Read Time** — Images add an additional 12 seconds for the first image, 11 seconds for the second image, and minus an additional second for each subsequent image, through the tenth image. Any images after the tenth image are counted at three seconds.
 
 ```php
 use Realodix\Utils\Str;
 
-$sentences = $faker->sentence(300);
+$sentences = str_repeat('word ', 300);
 
 Str::of($sentences)->readTime();    // '1 min read'
 Str::of($sentences)->readTime(100); // '3 min read'

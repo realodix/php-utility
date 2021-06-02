@@ -2,7 +2,7 @@
 
 namespace Realodix\Utils\Test\Validators;
 
-use PHPUnit\Framework\TestCase;
+use Realodix\Utils\Test\TestCase;
 use Realodix\Utils\Validator as Val;
 
 class NumberTest extends TestCase

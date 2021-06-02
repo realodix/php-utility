@@ -2,8 +2,8 @@
 
 namespace Realodix\Utils\Test\Numbers;
 
-use PHPUnit\Framework\TestCase;
 use Realodix\Utils\Number\Number;
+use Realodix\Utils\Test\TestCase;
 
 class NumbersTest extends TestCase
 {

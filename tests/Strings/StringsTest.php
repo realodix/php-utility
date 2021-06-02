@@ -2,37 +2,12 @@
 
 namespace Realodix\Utils\Test\Strings;
 
-use Faker\Factory as FakerFactory;
-use PHPUnit\Framework\TestCase;
 use Realodix\Utils\Str;
+use Realodix\Utils\Test\TestCase;
 
 class StringsTest extends TestCase
 {
     use StringsTestProvider;
-
-    /**
-     * Testing private/protected PHP methods using the Reflection API.
-     *
-     * @param mixed  $object
-     * @param string $method
-     * @param array  $parameters
-     * @return mixed
-     * @throws \Exception
-     */
-    private function callMethod($object, string $method, array $parameters = [])
-    {
-        try {
-            $className = get_class($object);
-            $reflection = new \ReflectionClass($className);
-        } catch (\ReflectionException $e) {
-            throw new \Exception($e->getMessage());
-        }
-
-        $method = $reflection->getMethod($method);
-        $method->setAccessible(true);
-
-        return $method->invokeArgs($object, $parameters);
-    }
 
     /**
      * @test
@@ -93,13 +68,12 @@ class StringsTest extends TestCase
     /** @test */
     public function readTimeWithImage()
     {
-        $faker = FakerFactory::create();
         $wpm = 265;
         $content =
         '
             <img src="url" alt="alternatetext">
             <img src="dinosaur.jpg">
-        '.$faker->sentence($wpm * 2, false);
+        '.str_repeat('word ', $wpm * 2);
 
         $this->assertSame('3 min read', str($content)->readTime($wpm));
     }
@@ -108,17 +82,17 @@ class StringsTest extends TestCase
     public function readTimeImage()
     {
         $content = str_repeat('<img />', 5);
-        $actual = $this->callMethod(new Str, 'readTimeImage', [$content]) * 60;
+        $actual = $this->invokeMethod(new Str, 'readTimeImage', [$content]) * 60;
         // 12+11+10+9+8
         $this->assertSame(50.0, $actual);
 
         $content = str_repeat('<img />', 10);
-        $actual = $this->callMethod(new Str, 'readTimeImage', [$content]) * 60;
+        $actual = $this->invokeMethod(new Str, 'readTimeImage', [$content]) * 60;
         // 12+11+10+9+8+7+6+5+4+3
         $this->assertSame(75.0, $actual);
 
         $content = str_repeat('<img />', 12);
-        $actual = $this->callMethod(new Str, 'readTimeImage', [$content]) * 60;
+        $actual = $this->invokeMethod(new Str, 'readTimeImage', [$content]) * 60;
         // 75 + (3+3)
         $this->assertSame(81.0, $actual);
     }
@@ -134,7 +108,7 @@ class StringsTest extends TestCase
             <img>
         ';
 
-        $this->assertSame(3, $this->callMethod(new Str, 'readTimeImageCount', [$content]));
+        $this->assertSame(3, $this->invokeMethod(new Str, 'readTimeImageCount', [$content]));
     }
 
     /**

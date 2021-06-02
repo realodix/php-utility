@@ -2,7 +2,7 @@
 
 namespace Realodix\Utils\Test\Urls;
 
-use PHPUnit\Framework\TestCase;
+use Realodix\Utils\Test\TestCase;
 use Realodix\Utils\Url;
 
 class SanitizeTest extends TestCase

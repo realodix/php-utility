@@ -2,9 +2,8 @@
 
 namespace Realodix\Utils\Test\Strings;
 
-use Faker\Factory as FakerFactory;
-use PHPUnit\Framework\TestCase;
 use Realodix\Utils\Str;
+use Realodix\Utils\Test\TestCase;
 
 class StringsTest extends TestCase
 {
@@ -60,7 +59,7 @@ class StringsTest extends TestCase
     /** @test */
     public function readTime()
     {
-        $faker = FakerFactory::create();
+        $faker = $this->faker;
 
         $wpm = 265;
         $this->assertSame('less than a minute', str($faker->sentence($wpm / 3, false))->readTime($wpm));

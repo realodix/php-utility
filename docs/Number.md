@@ -117,7 +117,7 @@ Number::toPercentage(0.45691, 1, multiply: true);
 
 `toRoman(string $num): ?string`
 
-Converts a number into roman:
+This function only handles numbers in the range 1 through 3999. It will return null for any value outside that range.
 
 ```php
 use Realodix\Utils\Number\Number;
@@ -126,8 +126,6 @@ Number::toRoman(23);   // XXIII
 Number::toRoman(324);  // CCCXXIV
 Number::toRoman(2534); // MMDXXXIV
 ```
-
-This function only handles numbers in the range 1 through 3999. It will return null for any value outside that range.
 
 <br>
 

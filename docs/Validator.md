@@ -29,5 +29,3 @@ Need to quickly and easily verify that a variable contains for example a valid e
 - `hexRgbColor()`
 - `list()`
 - `range()`
-- `startsWith()`
-- `endsWith()`

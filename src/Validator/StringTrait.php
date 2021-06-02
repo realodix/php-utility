@@ -90,42 +90,4 @@ trait StringTrait
 
         return (! isset($range[0]) || ($value >= $range[0])) && (! isset($range[1]) || ($value <= $range[1]));
     }
-
-    /**
-     * Determine if a given string starts with a given substring.
-     *
-     * @param string          $haystack
-     * @param string|string[] $needles
-     *
-     * @return bool
-     */
-    public static function startsWith(string $haystack, $needles)
-    {
-        foreach ((array) $needles as $needle) {
-            if ($needle !== '' && substr($haystack, 0, strlen($needle)) === (string) $needle) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Determine if a given string ends with a given substring.
-     *
-     * @param string          $haystack
-     * @param string|string[] $needles
-     *
-     * @return bool
-     */
-    public static function endsWith(string $haystack, $needles)
-    {
-        foreach ((array) $needles as $needle) {
-            if (substr($haystack, -strlen($needle)) === (string) $needle) {
-                return true;
-            }
-        }
-
-        return false;
-    }
 }

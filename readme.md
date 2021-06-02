@@ -6,16 +6,6 @@
 
 Collection of various PHP utility functions.
 
-
-## WARNING
-Feel free to install and use it. But before installing it, there are a few things that you must understand:
-
-- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-- Still in alpha, We haven’t finished adding or removing everything. Breaking changes will continue to occur until our first beta.
-- Currently designed only for use in my personal projects, not public ready.
-- All kinds of issues related to breaking changes will be closed immediately.
-
-
 ## Install
 To install Realodix PHP Utility, install [Composer](https://getcomposer.org/) and issue the following command:
 

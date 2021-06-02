@@ -11,18 +11,6 @@ class StringTest extends TestCase
 {
     use StringTestProvider;
 
-    public function testContains()
-    {
-        $this->assertTrue(Val::contains('taylor', 'ylo'));
-        $this->assertTrue(Val::contains('taylor', 'taylor'));
-        $this->assertTrue(Val::contains('taylor', ['ylo']));
-        $this->assertTrue(Val::contains('taylor', ['xxx', 'ylo']));
-        $this->assertFalse(Val::contains('taylor', 'xxx'));
-        $this->assertFalse(Val::contains('taylor', ['xxx']));
-        $this->assertFalse(Val::contains('taylor', ''));
-        $this->assertFalse(Val::contains('', ''));
-    }
-
     /** @test */
     public function containsAll()
     {

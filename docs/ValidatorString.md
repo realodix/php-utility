@@ -13,28 +13,6 @@ Val::ascii('白'); // false
 
 <br>
 
-#### `contains()`
-
-Determines if the given string contains the given value (case sensitive):
-
-```php
-use Realodix\Utils\Validator as Val;
-
-Val::contains('This is my name', 'my');
-// true
-```
-
-You may also pass an array of values to determine if the given string contains any of the values:
-
-```php
-use Realodix\Utils\Validator as Val;
-
-Val::contains('This is my name', ['my', 'foo']);
-// true
-```
-
-<br>
-
 #### `containsAll()`
 
 Determines if the given string contains all array values:
@@ -44,6 +22,9 @@ use Realodix\Utils\Validator as Val;
 
 Val::containsAll('This is my name', ['my', 'name']);
 // true
+
+Val::containsAll('This is my name', ['my', 'foo']);
+// false
 ```
 
 <br>

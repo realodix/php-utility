@@ -6,7 +6,8 @@ class ReadTime
 {
     /**
      * Calculates the time some text takes the average human to read, based on Medium's
-     * read time formula.
+     * read time formula. Take the total word count of a post and translate it into
+     * minutes.
      *
      * @param int $wpm Estimated words per minute of reader
      * @return string
@@ -29,7 +30,17 @@ class ReadTime
         return ceil($readTime).' min read';
     }
 
-    private function imageReadTime($content, int $imgReadTime = 12)
+    /**
+     * Calculates the amount of reading time for an image in a post.
+     *
+     * Read time calculation to count 12 seconds for the first image, 11 for the second,
+     * and minus an additional second for each subsequent image. Any images after the
+     * tenth image are counted at three seconds.
+     *
+     * @param string $content
+     * @return float
+     */
+    private function imageReadTime(string $content, int $imgReadTime = 12): float
     {
         $seconds = 0;
         $count = $this->imageCount($content);

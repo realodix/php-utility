@@ -265,6 +265,7 @@ trait StringsTestProvider
     public function stripTagsProvider()
     {
         return [
+            ['foo bar', 'foo bar'],
             ['before', 'before[gallery]'],
             ['after', '[gallery]after'],
             ['beforeafter', 'before[gallery]after'],

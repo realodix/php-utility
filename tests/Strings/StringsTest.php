@@ -110,7 +110,7 @@ class StringsTest extends TestCase
     }
 
     /** @test */
-    public function readTimeImageCount()
+    public function imageCount()
     {
         $content =
         '
@@ -120,7 +120,7 @@ class StringsTest extends TestCase
             <img>
         ';
 
-        $this->assertSame(3, $this->invokeMethod(new ReadTime, 'readTimeImageCount', [$content]));
+        $this->assertSame(3, $this->invokeMethod(new ReadTime, 'imageCount', [$content]));
     }
 
     /**

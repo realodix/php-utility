@@ -5,11 +5,11 @@ namespace Realodix\Utils\String;
 class ReadTime
 {
     /**
-     * Calculate the estimated reading time in seconds for a given piece of content.
+     * Calculates the time some text takes the average human to read, based on Medium's
+     * read time formula.
      *
      * @param int $wpm Estimated words per minute of reader
-     *
-     * @return string|empty
+     * @return string
      */
     public function readTime(string $content, int $wpm = 265): string
     {
@@ -32,7 +32,7 @@ class ReadTime
     private function imageReadTime($content, int $imgReadTime = 12)
     {
         $seconds = 0;
-        $count = $this->readTimeImageCount($content);
+        $count = $this->imageCount($content);
 
         if ($count > 10) {
             $f10Count = 10;
@@ -40,13 +40,20 @@ class ReadTime
             $p2 = ($count - $f10Count) * 3;
             $seconds = $p1 + $p2;
         } else {
-            $seconds = ($count / 2) * (2 * $imgReadTime + (1 - $count)); // n/2[2a+(n-1)d]
+            // n/2[2a+(n-1)d]
+            $seconds = ($count / 2) * (2 * $imgReadTime + (1 - $count));
         }
 
         return $seconds / 60;
     }
 
-    private function readTimeImageCount($content)
+    /**
+     * Count the number of images.
+     *
+     * @param string $content
+     * @return int
+     */
+    private function imageCount(string $content): int
     {
         $pattern = '/<(img)([\W\w]+?)[\/]?>/';
 

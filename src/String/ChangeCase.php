@@ -2,6 +2,8 @@
 
 namespace Realodix\Utils\String;
 
+use voku\helper\UTF8;
+
 class ChangeCase
 {
     /**
@@ -49,7 +51,7 @@ class ChangeCase
      */
     public function camelCase(string $string): string
     {
-        return lcfirst($this->pascalCase($string));
+        return UTF8::lcfirst($this->pascalCase($string));
     }
 
     /**
@@ -116,7 +118,7 @@ class ChangeCase
      */
     public function pascalCase($string): string
     {
-        $value = ucwords(str_replace(['-', '_'], ' ', $this->noCase($string)));
+        $value = UTF8::ucwords(str_replace(['-', '_'], ' ', $this->noCase($string)));
 
         return str_replace(' ', '', $value);
     }
@@ -140,7 +142,7 @@ class ChangeCase
      */
     public function sentenceCase($string): string
     {
-        return ucfirst($this->noCase($string));
+        return UTF8::ucfirst($this->noCase($string));
     }
 
     /**

@@ -274,9 +274,9 @@ Str::of($str)->limitWord(3, ' >>>');
 
 `readTime(int $wpm = 265): string`
 
-Calculate the estimated reading time in seconds for a given piece of content.
+Calculates the time some text takes the average human to read, based on Medium's read time forumula.
 
-- **Average Read Time** — 265 Words per min
+- **Read Time** — Based on the average reading speed of an adult (roughly 265 WPM).
 - **Image Read Time** — Images add an additional 12 seconds for the first image, 11 seconds for the second image, and minus an additional second for each subsequent image, through the tenth image. Any images after the tenth image are counted at three seconds.
 
 ```php
@@ -290,6 +290,8 @@ Str::of($sentences)->readTime(100); // '3 min read'
 
 **References**
 - https://help.medium.com/hc/en-us/articles/214991667-Read-time
+- https://blog.medium.com/read-time-and-you-bc2048ab620c
+- https://medium.com/blogging-guide/how-is-medium-article-read-time-calculated-924420338a85
 
 <br>
 

@@ -88,10 +88,10 @@ class StringsTest extends TestCase
     }
 
     /** @test */
-    public function readTimeImage()
+    public function imageReadTime()
     {
         $className = new ReadTime;
-        $methodName = 'readTimeImage';
+        $methodName = 'imageReadTime';
 
         $content = str_repeat('<img />', 5);
         $actual = $this->invokeMethod($className, $methodName, [$content]) * 60;

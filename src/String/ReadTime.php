@@ -15,7 +15,7 @@ class ReadTime
     {
         $content = strip_tags($content, '<img>');
         $wordCount = str_word_count($content);
-        $imgReadTime = $this->readTimeImage($content, 12);
+        $imgReadTime = $this->imageReadTime($content, 12);
 
         $readTime = ($wordCount / $wpm) + $imgReadTime;
 
@@ -29,7 +29,7 @@ class ReadTime
         return ceil($readTime).' min read';
     }
 
-    private function readTimeImage($content, int $imgReadTime = 12)
+    private function imageReadTime($content, int $imgReadTime = 12)
     {
         $seconds = 0;
         $count = $this->readTimeImageCount($content);

@@ -69,13 +69,21 @@ class StringsTest extends TestCase
     public function readTimeWithImage()
     {
         $wpm = 265;
-        $content =
-        '
-            <img src="url" alt="alternatetext">
-            <img src="dinosaur.jpg">
-        '.str_repeat('word ', $wpm * 2);
 
+        $content = '<img />'.str_repeat('word ', $wpm * 2);
         $this->assertSame('3 min read', str($content)->readTime($wpm));
+
+        // https://medium.com/@dahul/inside-medium-94931f66eebd
+        $content = str_repeat('<img />', 140).
+        'Last month I spent the day at Medium’s San Francisco office. This was part of a personal project
+        called 140 Portraits. The project is a behind the scene look at a person or business documented
+        throughout one day in 140 images.
+        April 29th | 8:30am I arrived @Medium 760 Market St, San Francisco. 9th floor of the historic Phelan
+        Building.
+        A big thank you to all the fine folks at Medium. It was an honor to spend the day with you. To have a
+        look at other 140 projects: Inside NerdWallet or Gary Vaynerchuk Connect up with me on Instagram:
+        @dahul';
+        $this->assertSame('9 min read', str($content)->readTime($wpm));
     }
 
     /** @test */

@@ -11,7 +11,7 @@ class ChangeCase
      * @param array $delimiter
      * @return string
      */
-    public static function noCase($text, string $delimiter = ' ')
+    public function noCase($text, string $delimiter = ' ')
     {
         // Support camel case ("camelCase" -> "camel Case" and
         // "CAMELCase" -> "CAMEL Case").
@@ -47,22 +47,22 @@ class ChangeCase
      * @param string $text
      * @return string
      */
-    public static function camelCase($text): string
+    public function camelCase($text): string
     {
-        return lcfirst(self::pascalCase($text));
+        return lcfirst($this->pascalCase($text));
     }
 
     /**
      * Transform into a space separated string with each word capitalized.
      */
-    public static function capitalCase(string $string): string
+    public function capitalCase(string $string): string
     {
         return preg_replace_callback(
             '/^.| ./u',
             function (array $matches) {
                 return mb_strtoupper($matches[0]);
             },
-            self::noCase($string)
+            $this->noCase($string)
         );
     }
 
@@ -72,9 +72,9 @@ class ChangeCase
      * @param string $text
      * @return string
      */
-    public static function constantCase($text): string
+    public function constantCase($text): string
     {
-        return mb_strtoupper(self::snakeCase($text));
+        return mb_strtoupper($this->snakeCase($text));
     }
 
     /**
@@ -84,20 +84,20 @@ class ChangeCase
      */
     public function dotCase(string $string): string
     {
-        return self::noCase($string, '.');
+        return $this->noCase($string, '.');
     }
 
     /**
      * Transform into a dash separated string of capitalized words.
      */
-    public static function headerCase(string $string): string
+    public function headerCase(string $string): string
     {
         return preg_replace_callback(
             '/^.|-./u',
             function (array $matches) {
                 return mb_strtoupper($matches[0]);
             },
-            self::noCase($string, '-')
+            $this->noCase($string, '-')
         );
     }
 
@@ -107,9 +107,9 @@ class ChangeCase
      * @param string $text
      * @return string
      */
-    public static function pascalCase($text): string
+    public function pascalCase($text): string
     {
-        $value = ucwords(str_replace(['-', '_'], ' ', self::noCase($text)));
+        $value = ucwords(str_replace(['-', '_'], ' ', $this->noCase($text)));
 
         return str_replace(' ', '', $value);
     }
@@ -120,9 +120,9 @@ class ChangeCase
      * @param string $text
      * @return string
      */
-    public static function pathCase($text): string
+    public function pathCase($text): string
     {
-        return self::noCase($text, '/');
+        return $this->noCase($text, '/');
     }
 
     /**
@@ -131,9 +131,9 @@ class ChangeCase
      * @param string $text
      * @return string
      */
-    public static function sentenceCase($text): string
+    public function sentenceCase($text): string
     {
-        return ucfirst(self::noCase($text));
+        return ucfirst($this->noCase($text));
     }
 
     /**
@@ -142,9 +142,9 @@ class ChangeCase
      * @param string $text
      * @return string
      */
-    public static function snakeCase($text): string
+    public function snakeCase($text): string
     {
-        return self::noCase($text, '_');
+        return $this->noCase($text, '_');
     }
 
     /**
@@ -153,9 +153,9 @@ class ChangeCase
      * @param string $text
      * @return string
      */
-    public static function spinalCase($text): string
+    public function spinalCase($text): string
     {
-        return self::noCase($text, '-');
+        return $this->noCase($text, '-');
     }
 
     /**
@@ -165,7 +165,7 @@ class ChangeCase
      * @param string $text
      * @return string
      */
-    public static function swapCase($text): string
+    public function swapCase($text): string
     {
         if ($text === '') {
             return '';
@@ -184,7 +184,7 @@ class ChangeCase
      * @param string $string
      * @return string
      */
-    public static function titleCase(string $string): string
+    public function titleCase(string $string): string
     {
         $smallWords = '/^(a(nd?|s|t)?|b(ut|y)|en|for|i[fn]|o[fnr]|only|over|tha[tn]|t(he|o)|up|upon|vs?\.?|via)[ \-]/i';
 

@@ -3,6 +3,7 @@
 namespace Realodix\Utils\Test\Strings;
 
 use Realodix\Utils\Str;
+use Realodix\Utils\String\ReadTime;
 use Realodix\Utils\Test\TestCase;
 
 class StringsTest extends TestCase
@@ -89,18 +90,21 @@ class StringsTest extends TestCase
     /** @test */
     public function readTimeImage()
     {
+        $className = new ReadTime;
+        $methodName = 'readTimeImage';
+
         $content = str_repeat('<img />', 5);
-        $actual = $this->invokeMethod(new Str, 'readTimeImage', [$content]) * 60;
+        $actual = $this->invokeMethod($className, $methodName, [$content]) * 60;
         // 12+11+10+9+8
         $this->assertSame(50.0, $actual);
 
         $content = str_repeat('<img />', 10);
-        $actual = $this->invokeMethod(new Str, 'readTimeImage', [$content]) * 60;
+        $actual = $this->invokeMethod($className, $methodName, [$content]) * 60;
         // 12+11+10+9+8+7+6+5+4+3
         $this->assertSame(75.0, $actual);
 
         $content = str_repeat('<img />', 12);
-        $actual = $this->invokeMethod(new Str, 'readTimeImage', [$content]) * 60;
+        $actual = $this->invokeMethod($className, $methodName, [$content]) * 60;
         // 75 + (3+3)
         $this->assertSame(81.0, $actual);
     }
@@ -116,7 +120,7 @@ class StringsTest extends TestCase
             <img>
         ';
 
-        $this->assertSame(3, $this->invokeMethod(new Str, 'readTimeImageCount', [$content]));
+        $this->assertSame(3, $this->invokeMethod(new ReadTime, 'readTimeImageCount', [$content]));
     }
 
     /**

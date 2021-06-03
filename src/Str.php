@@ -254,6 +254,9 @@ class Str
      * CHANGE CASE
      * -----------------------------------------------------------------------------------
      */
+
+    // @codeCoverageIgnoreStart
+
     public static function noCase($string, $delimiter = ' ')
     {
         return (new ChangeCase)->noCase($string, $delimiter);
@@ -318,4 +321,6 @@ class Str
     {
         return (new ChangeCase)->titleCase($string);
     }
+
+    // @codeCoverageIgnoreEnd
 }

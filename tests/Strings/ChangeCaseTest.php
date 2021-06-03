@@ -2,7 +2,7 @@
 
 namespace Realodix\Utils\Test\Strings;
 
-use Realodix\Utils\Str;
+use Realodix\Utils\String\ChangeCase;
 use Realodix\Utils\Test\TestCase;
 
 class ChangeCaseTest extends TestCase
@@ -15,14 +15,14 @@ class ChangeCaseTest extends TestCase
      */
     public function noCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::noCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->noCase($actual));
     }
 
     /** @test */
     public function noCaseWithOpt()
     {
-        $this->assertSame('camel#case', Str::noCase('camelCase', '#'));
-        $this->assertSame('camel#case', Str::noCase('#camel Case#', '#'));
+        $this->assertSame('camel#case', (new ChangeCase)->noCase('camelCase', '#'));
+        $this->assertSame('camel#case', (new ChangeCase)->noCase('#camel Case#', '#'));
     }
 
     /**
@@ -31,7 +31,7 @@ class ChangeCaseTest extends TestCase
      */
     public function camelCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::camelCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->camelCase($actual));
     }
 
     /**
@@ -40,7 +40,7 @@ class ChangeCaseTest extends TestCase
      */
     public function capitalCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::capitalCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->capitalCase($actual));
     }
 
     /**
@@ -49,7 +49,7 @@ class ChangeCaseTest extends TestCase
      */
     public function constantCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::constantCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->constantCase($actual));
     }
 
     /**
@@ -58,7 +58,7 @@ class ChangeCaseTest extends TestCase
      */
     public function dotCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::dotCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->dotCase($actual));
     }
 
     /**
@@ -67,7 +67,7 @@ class ChangeCaseTest extends TestCase
      */
     public function headerCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::headerCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->headerCase($actual));
     }
 
     /**
@@ -76,7 +76,7 @@ class ChangeCaseTest extends TestCase
      */
     public function pascalCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::pascalCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->pascalCase($actual));
     }
 
     /**
@@ -85,7 +85,7 @@ class ChangeCaseTest extends TestCase
      */
     public function pathCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::pathCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->pathCase($actual));
     }
 
     /**
@@ -94,7 +94,7 @@ class ChangeCaseTest extends TestCase
      */
     public function sentenceCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::sentenceCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->sentenceCase($actual));
     }
 
     /**
@@ -103,7 +103,7 @@ class ChangeCaseTest extends TestCase
      */
     public function snakeCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::snakeCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->snakeCase($actual));
     }
 
     /**
@@ -112,7 +112,7 @@ class ChangeCaseTest extends TestCase
      */
     public function spinalCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::spinalCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->spinalCase($actual));
     }
 
     /**
@@ -121,7 +121,7 @@ class ChangeCaseTest extends TestCase
      */
     public function swapCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::swapCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->swapCase($actual));
     }
 
     /**
@@ -130,6 +130,6 @@ class ChangeCaseTest extends TestCase
      */
     public function titleCase($actual, $expected)
     {
-        $this->assertSame($expected, Str::titleCase($actual));
+        $this->assertSame($expected, (new ChangeCase)->titleCase($actual));
     }
 }

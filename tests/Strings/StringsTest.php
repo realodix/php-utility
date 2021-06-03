@@ -222,7 +222,7 @@ class StringsTest extends TestCase
      */
     public function dotCase($expected, $actual)
     {
-        $this->assertSame($expected, Str::dotCase($actual));
+        $this->assertSame($expected, Str::of($actual)->dotCase());
     }
 
     /**

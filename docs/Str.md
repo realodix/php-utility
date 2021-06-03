@@ -274,7 +274,7 @@ Str::of($str)->limitWord(3, ' >>>');
 
 `readTime(int $wpm = 265): string`
 
-Calculates the time some text takes the average human to read, based on Medium's read time forumula.
+Calculates the time some text takes the average human to read, based on Medium's read time formula.
 
 - **Read Time** — Based on the average reading speed of an adult (roughly 265 WPM).
 - **Image Read Time** — Images add an additional 12 seconds for the first image, 11 seconds for the second image, and minus an additional second for each subsequent image, through the tenth image. Any images after the tenth image are counted at three seconds.

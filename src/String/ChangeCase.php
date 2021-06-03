@@ -77,7 +77,7 @@ class ChangeCase
      * @param string $string
      * @return string
      */
-    public function constantCase($string): string
+    public function constantCase(string $string): string
     {
         return mb_strtoupper($this->snakeCase($string));
     }
@@ -116,7 +116,7 @@ class ChangeCase
      * @param string $string
      * @return string
      */
-    public function pascalCase($string): string
+    public function pascalCase(string $string): string
     {
         $value = UTF8::ucwords(str_replace(['-', '_'], ' ', $this->noCase($string)));
 
@@ -140,7 +140,7 @@ class ChangeCase
      * @param string $string
      * @return string
      */
-    public function sentenceCase($string): string
+    public function sentenceCase(string $string): string
     {
         return UTF8::ucfirst($this->noCase($string));
     }
@@ -151,7 +151,7 @@ class ChangeCase
      * @param string $string
      * @return string
      */
-    public function snakeCase($string): string
+    public function snakeCase(string $string): string
     {
         return $this->noCase($string, '_');
     }
@@ -162,7 +162,7 @@ class ChangeCase
      * @param string $string
      * @return string
      */
-    public function spinalCase($string): string
+    public function spinalCase(string $string): string
     {
         return $this->noCase($string, '-');
     }
@@ -174,7 +174,7 @@ class ChangeCase
      * @param string $string
      * @return string
      */
-    public function swapCase($string): string
+    public function swapCase(string $string): string
     {
         if ($string === '') {
             return '';

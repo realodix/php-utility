@@ -6,15 +6,6 @@
 
 Collection of various PHP utility functions.
 
-## Install
-To install Realodix PHP Utility, install [Composer](https://getcomposer.org/) and issue the following command:
-
-```sh
-composer require realodix/php-utility
-```
-
-
-## Introduction
 In package realodix/php-utility you will find a set of useful classes for everyday use:
 
 - [Identifier](/docs/Identifier.md)
@@ -23,6 +14,16 @@ In package realodix/php-utility you will find a set of useful classes for everyd
 - [Url](/docs/Url.md) - Deal with URL's in your applications.
 - [Validator](/docs/Validator.md)
 
+
+## Installation
+You can install the package via composer:
+
+```sh
+composer require realodix/php-utility
+
+// Dev-build
+composer require realodix/php-utility 1.x-dev
+```
 
 ## Testing
 From the projects root folder run `./vendor/bin/phpunit` (VSCode Task `Run test`).

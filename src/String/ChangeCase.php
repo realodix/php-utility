@@ -7,11 +7,11 @@ class ChangeCase
     /**
      * Transform into a lower cased string with spaces between words.
      *
-     * @param mixed $text
+     * @param mixed $value
      * @param array $delimiter
      * @return string
      */
-    public function noCase($text, string $delimiter = ' ')
+    public function noCase($value, string $delimiter = ' '): string
     {
         // Support camel case ("camelCase" -> "camel Case" and
         // "CAMELCase" -> "CAMEL Case").
@@ -21,7 +21,7 @@ class ChangeCase
 
         $result = str(mb_strtolower(
             preg_replace($stripRegexp, $delimiter,
-                preg_replace($splitRegexp, '$1 $2', $text)
+                preg_replace($splitRegexp, '$1 $2', $value)
             )
         ));
 
@@ -44,16 +44,19 @@ class ChangeCase
     /**
      * Transform into a string with the separator denoted by the next word capitalized.
      *
-     * @param string $text
+     * @param string $string
      * @return string
      */
-    public function camelCase($text): string
+    public function camelCase(string $string): string
     {
-        return lcfirst($this->pascalCase($text));
+        return lcfirst($this->pascalCase($string));
     }
 
     /**
      * Transform into a space separated string with each word capitalized.
+     *
+     * @param string $string
+     * @return string
      */
     public function capitalCase(string $string): string
     {
@@ -69,17 +72,18 @@ class ChangeCase
     /**
      * Transform into upper case string with an underscore between words.
      *
-     * @param string $text
+     * @param string $string
      * @return string
      */
-    public function constantCase($text): string
+    public function constantCase($string): string
     {
-        return mb_strtoupper($this->snakeCase($text));
+        return mb_strtoupper($this->snakeCase($string));
     }
 
     /**
      * Transform into a lower case string with a period between words.
      *
+     * @param string $string
      * @return string
      */
     public function dotCase(string $string): string
@@ -89,6 +93,9 @@ class ChangeCase
 
     /**
      * Transform into a dash separated string of capitalized words.
+     *
+     * @param string $string
+     * @return string
      */
     public function headerCase(string $string): string
     {
@@ -104,12 +111,12 @@ class ChangeCase
     /**
      * Transform into a string of capitalized words without separators.
      *
-     * @param string $text
+     * @param string $string
      * @return string
      */
-    public function pascalCase($text): string
+    public function pascalCase($string): string
     {
-        $value = ucwords(str_replace(['-', '_'], ' ', $this->noCase($text)));
+        $value = ucwords(str_replace(['-', '_'], ' ', $this->noCase($string)));
 
         return str_replace(' ', '', $value);
     }
@@ -117,61 +124,61 @@ class ChangeCase
     /**
      * Transform into a lower case string with slashes between words.
      *
-     * @param string $text
+     * @param string $string
      * @return string
      */
-    public function pathCase($text): string
+    public function pathCase(string $string): string
     {
-        return $this->noCase($text, '/');
+        return $this->noCase($string, '/');
     }
 
     /**
      * Transform into a lower case with spaces between words, then capitalize the string.
      *
-     * @param string $text
+     * @param string $string
      * @return string
      */
-    public function sentenceCase($text): string
+    public function sentenceCase($string): string
     {
-        return ucfirst($this->noCase($text));
+        return ucfirst($this->noCase($string));
     }
 
     /**
      * Transform into a lower case string with underscores between words.
      *
-     * @param string $text
+     * @param string $string
      * @return string
      */
-    public function snakeCase($text): string
+    public function snakeCase($string): string
     {
-        return $this->noCase($text, '_');
+        return $this->noCase($string, '_');
     }
 
     /**
      * Transform into a lower cased string with dashes between words.
      *
-     * @param string $text
+     * @param string $string
      * @return string
      */
-    public function spinalCase($text): string
+    public function spinalCase($string): string
     {
-        return $this->noCase($text, '-');
+        return $this->noCase($string, '-');
     }
 
     /**
      * Transform a string by swapping every character from upper to lower case, or lower
      * to upper case.
      *
-     * @param string $text
+     * @param string $string
      * @return string
      */
-    public function swapCase($text): string
+    public function swapCase($string): string
     {
-        if ($text === '') {
+        if ($string === '') {
             return '';
         }
 
-        return (string) (mb_strtolower($text) ^ mb_strtoupper($text) ^ $text);
+        return (string) (mb_strtolower($string) ^ mb_strtoupper($string) ^ $string);
     }
 
     /**

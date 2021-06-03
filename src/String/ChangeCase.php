@@ -186,6 +186,10 @@ class ChangeCase
     /**
      * Transform a string into title case following English rules.
      *
+     * Reference
+     * - https://github.com/Kroc/PHPtitleCase
+     * - https://github.com/blakeembrey/change-case (packages/title-case)
+     *
      * @param string $string
      * @return string
      */

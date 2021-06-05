@@ -2,7 +2,7 @@
 
 namespace Realodix\Utils;
 
-use Realodix\Utils\String\ChangeCase;
+use Realodix\ChangeCase\ChangeCase;
 use Realodix\Utils\String\ReadTime;
 use voku\helper\ASCII;
 

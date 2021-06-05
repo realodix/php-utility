@@ -16,6 +16,7 @@
     "require": {
         "php": "^8.0",
         "nicebooks/isbn": "^0.2.87",
+        "realodix/change-case": "^1.0",
         "spatie/url": "^2.0",
         "voku/portable-utf8": "^5.4"
     },

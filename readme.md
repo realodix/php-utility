@@ -2,7 +2,7 @@
 
 ![PHPVersion](https://img.shields.io/badge/PHP-8-777BB4.svg?style=flat-square)
 [![Tests](https://github.com/realodix/php-utility/actions/workflows/tests.yml/badge.svg)](https://github.com/realodix/php-utility/actions/workflows/tests.yml)
-[![GitHub license](https://img.shields.io/github/license/realodix/php-utility)](https://github.com/realodix/php-utility/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/realodix/php-utility)](/LICENSE)
 
 Collection of various PHP utility functions.
 

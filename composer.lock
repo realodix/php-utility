@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7566fd23ec935ab149b834e3c7d5ad74",
+    "content-hash": "1ceb8efe778a9e820c3b114e806009dc",
     "packages": [
         {
             "name": "nicebooks/isbn",

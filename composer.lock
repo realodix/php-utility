@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c66ac915533776f2f9fb757147cd5c90",
+    "content-hash": "d36d3f158ff96250ec28e8cc09394bc0",
     "packages": [
         {
             "name": "nicebooks/isbn",
@@ -2601,16 +2601,16 @@
         },
         {
             "name": "realodix/php-cs-fixer-config",
-            "version": "v1.0.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/realodix/PHP-CS-Fixer-Config.git",
-                "reference": "ea841283f2bd57cd438e28b6b4805884c8948283"
+                "reference": "961c3b1bee10094bb1b19793f02c9c3c868f54c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/realodix/PHP-CS-Fixer-Config/zipball/ea841283f2bd57cd438e28b6b4805884c8948283",
-                "reference": "ea841283f2bd57cd438e28b6b4805884c8948283",
+                "url": "https://api.github.com/repos/realodix/PHP-CS-Fixer-Config/zipball/961c3b1bee10094bb1b19793f02c9c3c868f54c8",
+                "reference": "961c3b1bee10094bb1b19793f02c9c3c868f54c8",
                 "shasum": ""
             },
             "require": {
@@ -2623,7 +2623,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.x-dev"
+                    "dev-main": "2.x-dev"
                 }
             },
             "autoload": {
@@ -2647,7 +2647,7 @@
                 "issues": "https://github.com/realodix/php-cs-fixer-config/issues",
                 "source": "https://github.com/realodix/php-cs-fixer-config"
             },
-            "time": "2021-06-06T03:19:30+00:00"
+            "time": "2021-06-06T11:29:47+00:00"
         },
         {
             "name": "sebastian/cli-parser",

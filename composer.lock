@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "04d749a4bc13fcd291657a09ff89b435",
+    "content-hash": "c66ac915533776f2f9fb757147cd5c90",
     "packages": [
         {
             "name": "nicebooks/isbn",
@@ -2598,6 +2598,56 @@
                 "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
             "time": "2021-05-03T11:20:27+00:00"
+        },
+        {
+            "name": "realodix/php-cs-fixer-config",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/realodix/PHP-CS-Fixer-Config.git",
+                "reference": "ea841283f2bd57cd438e28b6b4805884c8948283"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/realodix/PHP-CS-Fixer-Config/zipball/ea841283f2bd57cd438e28b6b4805884c8948283",
+                "reference": "ea841283f2bd57cd438e28b6b4805884c8948283",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "kubawerlos/php-cs-fixer-custom-fixers": "^2.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Realodix\\PhpCsFixerConfig\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Budi Hermawan",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
+            "homepage": "https://github.com/realodix/php-cs-fixer-config",
+            "support": {
+                "issues": "https://github.com/realodix/php-cs-fixer-config/issues",
+                "source": "https://github.com/realodix/php-cs-fixer-config"
+            },
+            "time": "2021-06-06T03:19:30+00:00"
         },
         {
             "name": "sebastian/cli-parser",

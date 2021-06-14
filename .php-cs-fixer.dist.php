@@ -1,9 +1,6 @@
 <?php
 
-use Realodix\PhpCsFixerConfig\Factory;
-use Realodix\PhpCsFixerConfig\RuleSet;
+use Realodix\CsConfig\Factory;
+use Realodix\CsConfig\RuleSet;
 
-$config = Factory::fromRuleSet(new RuleSet\Realodix());
-$config->getFinder()->in(__DIR__);
-
-return $config;
+return Factory::fromRuleSet(new RuleSet\RealodixStrict());

@@ -13,6 +13,7 @@ class Url
      * @param bool   $scheme Show or remove URL schemes.
      * @param int    $limit  Length string will be truncated to, including
      *                       suffix.
+     *
      * @return string
      */
     public static function display(string $url, bool $scheme = true, int $limit = null)
@@ -60,6 +61,7 @@ class Url
      * Remove http://, www., and slashes from the URL.
      *
      * @param string $url
+     *
      * @return mixed
      */
     public static function sanitize($url)

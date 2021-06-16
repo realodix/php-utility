@@ -3,7 +3,7 @@
 namespace Realodix\Utils;
 
 use Realodix\ChangeCase\ChangeCase;
-use Realodix\Utils\String\ReadTime;
+use Realodix\ReadTime\ReadTime;
 use voku\helper\ASCII;
 
 class Str
@@ -33,7 +33,7 @@ class Str
     }
 
     /**
-     *
+     * @param mixed $str
      */
     public static function of($str = ''): self
     {
@@ -111,13 +111,15 @@ class Str
     /**
      * Calculate the estimated reading time in seconds for a given piece of content.
      *
-     * @param int $wpm Estimated words per minute of reader
+     * @param int $wordSpeed
+     * @param int $imageTime
+     * @param int $cjkSpeed
      *
-     * @return string|empty
+     * @return \Realodix\ReadTime\ReadTime
      */
-    public function readTime(int $wpm = 265): string
+    public function readTime(int $wordSpeed = 265, int $imageTime = 12, int $cjkSpeed = 500)
     {
-        return (new ReadTime)->readTime($this->str, $wpm);
+        return new ReadTime($this->str, $wordSpeed, $imageTime, $cjkSpeed);
     }
 
     /**
@@ -192,11 +194,12 @@ class Str
         }
 
         $pattern = '|[[\/\!]*?[^\[\]]*?]|si';
-        $content = preg_replace("/$pattern/", '', $content);
+        $content = preg_replace("/${pattern}/", '', $content);
 
         return $content;
     }
 
+    // @codeCoverageIgnoreStart
     /**
      * Transliterate a UTF-8 value to ASCII.
      *
@@ -205,7 +208,6 @@ class Str
      *                                  characters.
      *
      * @return string
-     * @codeCoverageIgnore
      */
     public function toAscii(string $language = 'en', bool $removeUnsupported = true)
     {
@@ -213,4 +215,65 @@ class Str
 
         return ASCII::to_ascii($str, $language, $removeUnsupported);
     }
+
+    public function noCase()
+    {
+        return (new ChangeCase)->noCase($this->str);
+    }
+
+    public function camelCase()
+    {
+        return (new ChangeCase)->camelCase($this->str);
+    }
+
+    public function capitalCase()
+    {
+        return (new ChangeCase)->capitalCase($this->str);
+    }
+
+    public function constantCase()
+    {
+        return (new ChangeCase)->constantCase($this->str);
+    }
+
+    public function dotCase()
+    {
+        return (new ChangeCase)->dotCase($this->str);
+    }
+
+    public function headerCase()
+    {
+        return (new ChangeCase)->headerCase($this->str);
+    }
+
+    public function pascalCase()
+    {
+        return (new ChangeCase)->pascalCase($this->str);
+    }
+
+    public function pathCase()
+    {
+        return (new ChangeCase)->pathCase($this->str);
+    }
+
+    public function sentenceCase()
+    {
+        return (new ChangeCase)->sentenceCase($this->str);
+    }
+
+    public function snakeCase()
+    {
+        return (new ChangeCase)->snakeCase($this->str);
+    }
+
+    public function spinalCase()
+    {
+        return (new ChangeCase)->spinalCase($this->str);
+    }
+
+    public function swapCase()
+    {
+        return (new ChangeCase)->swapCase($this->str);
+    }
+    // @codeCoverageIgnoreEnd
 }

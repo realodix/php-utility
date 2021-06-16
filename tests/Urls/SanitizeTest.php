@@ -10,6 +10,9 @@ class SanitizeTest extends TestCase
     /**
      * @test
      * @dataProvider sanitizeProvider
+     *
+     * @param mixed $expected
+     * @param mixed $actual
      */
     public function sanitize($expected, $actual)
     {

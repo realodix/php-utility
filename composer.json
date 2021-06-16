@@ -14,8 +14,10 @@
         }
     ],
     "require": {
-        "php": "^7.2|^8.0",
+        "php": "^7.4|^8.0",
         "nicebooks/isbn": "^0.2.91",
+        "realodix/change-case": "^2.1",
+        "realodix/readtime": "^1.0",
         "spatie/url": "^1.0|^2.0",
         "symfony/polyfill-php74": "^1.23",
         "symfony/polyfill-php80": "^1.23",
@@ -37,7 +39,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "1.x-dev"
+            "dev-main": "2.x-dev"
         }
     },
     "autoload-dev": {

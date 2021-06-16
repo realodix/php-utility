@@ -12,6 +12,9 @@ class NumberTest extends TestCase
     /**
      * @test
      * @dataProvider divisibleByProvider
+     *
+     * @param mixed $value1
+     * @param mixed $value2
      */
     public function divisibleBy($value1, $value2)
     {
@@ -21,6 +24,9 @@ class NumberTest extends TestCase
     /**
      * @test
      * @dataProvider divisibleByInvalidProvider
+     *
+     * @param mixed $value1
+     * @param mixed $value2
      */
     public function divisibleByInvalid($value1, $value2)
     {

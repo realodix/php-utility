@@ -12,6 +12,8 @@ class InternetTest extends TestCase
     /**
      * @test
      * @dataProvider urlValidProvider
+     *
+     * @param mixed $url
      */
     public function url($url)
     {
@@ -21,6 +23,8 @@ class InternetTest extends TestCase
     /**
      * @test
      * @dataProvider urlInvalidProvider
+     *
+     * @param mixed $url
      */
     public function urlInvalid($url)
     {

@@ -10,6 +10,7 @@ trait StringTrait
      * Checks if a string is 7 bit ASCII.
      *
      * @param string $str
+     *
      * @return bool
      * @codeCoverageIgnore
      */
@@ -40,6 +41,8 @@ trait StringTrait
     /**
      * Validates weather the input is a hex RGB color or not.
      *
+     * @param mixed $input
+     *
      * @return string
      */
     public static function hexRgbColor($input)
@@ -52,6 +55,7 @@ trait StringTrait
      * a.k.a list.
      *
      * @param mixed $value
+     *
      * @return bool
      */
     public static function list($value): bool

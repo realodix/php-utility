@@ -8,6 +8,7 @@ trait InternetTrait
      * Validates that a value is a valid URL string.
      *
      * @param string $value
+     *
      * @return bool
      */
     public static function url(string $value): bool

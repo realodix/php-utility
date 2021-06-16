@@ -2,7 +2,7 @@
 
 namespace Realodix\Utils\Test\Validators;
 
-use PHPUnit\Framework\TestCase;
+use Realodix\Utils\Test\TestCase;
 use Realodix\Utils\Validator as Val;
 
 class NumberTest extends TestCase
@@ -32,6 +32,7 @@ class NumberTest extends TestCase
     {
         $this->assertTrue(Val::fibonacci(1));
         $this->assertTrue(Val::fibonacci(34));
+        $this->assertFalse(Val::fibonacci('is_not_numeric'));
     }
 
     /** @test */

@@ -3,6 +3,7 @@ URL
 
 A simple static class to deal with URL's in your applications.
 
+
 <br>
 
 ### `Url::display()`

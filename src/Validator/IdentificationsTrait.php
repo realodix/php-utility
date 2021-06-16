@@ -3,7 +3,6 @@
 namespace Realodix\Utils\Validator;
 
 use Nicebooks\Isbn\IsbnTools;
-use Ramsey\Uuid\Validator\GenericValidator;
 
 trait IdentificationsTrait
 {
@@ -170,10 +169,17 @@ trait IdentificationsTrait
      *
      * @param string $uuid
      * @return bool
-     * @codeCoverageIgnore
      */
     public static function uuid(string $uuid): bool
     {
-        return (new GenericValidator)->validate($uuid);
+        // The nil UUID is a special form of UUID that is specified to have all 128 bits
+        // set to zero. http://tools.ietf.org/html/rfc4122#section-4.1.7
+        $nil = '00000000-0000-0000-0000-000000000000';
+
+        $validPattern = '\A[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}\z';
+
+        $uuid = str_replace(['urn:', 'uuid:', 'URN:', 'UUID:', '{', '}'], '', $uuid);
+
+        return $uuid === $nil || preg_match('/'.$validPattern.'/Dms', $uuid);
     }
 }

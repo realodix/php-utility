@@ -25,10 +25,7 @@ Need to quickly and easily verify that a variable contains for example a valid e
 
 ### [String](/docs/ValidatorString.md)
 - `ascii()`
-- `contains()`
 - `containsAll()`
 - `hexRgbColor()`
 - `list()`
 - `range()`
-- `startsWith()`
-- `endsWith()`

@@ -1,5 +1,6 @@
 VALIDATOR INTERNET
 ---
+
 #### `url()`
 
 Validates that a value is a valid URL string.

@@ -14,17 +14,18 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "nicebooks/isbn": "^0.2.87",
-        "ramsey/uuid": "^4.1",
-        "spatie/url": "^2.0",
+        "php": "^7.2|^8.0",
+        "nicebooks/isbn": "^0.2.91",
+        "spatie/url": "^1.0|^2.0",
+        "symfony/polyfill-php74": "^1.23",
+        "symfony/polyfill-php80": "^1.23",
         "voku/portable-utf8": "^5.4"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.0",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^2.4",
+        "fakerphp/faker": "^1.14",
         "phpstan/phpstan": "^0.12.88",
-        "phpunit/phpunit": "10.0.x-dev"
+        "phpunit/phpunit": "10.0.x-dev",
+        "realodix/php-cs-fixer-config": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -33,6 +34,11 @@
         "files": [
             "src/Helper.php"
         ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
     },
     "autoload-dev": {
         "psr-4": {

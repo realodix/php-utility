@@ -94,7 +94,7 @@ Determines if the given string is a valid UUID:
 use Realodix\Utils\Validator as Val;
 
 $uuid = 'a0a2a2d2-0b87-4a18-83f2-2529882be2de';
-$isUuid = Str::uuid($uuid);    // true
+$isUuid = Val::uuid($uuid);    // true
 
-$isUuid = Str::uuid('qwerty'); // false
+$isUuid = Val::uuid('qwerty'); // false
 ```

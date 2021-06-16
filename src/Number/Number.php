@@ -2,38 +2,8 @@
 
 namespace Realodix\Utils\Number;
 
-use NumberFormatter;
-
 class Number
 {
-    /**
-     * Default locale.
-     */
-    public const DEFAULT_LOCALE = 'en_US';
-
-    /**
-     * Format type to format as currency.
-     */
-    public const FORMAT_CURRENCY = 'currency';
-
-    /**
-     * Format type to format as currency, accounting style (negative numbers in
-     * parentheses).
-     */
-    public const FORMAT_CURRENCY_ACCOUNTING = 'currency_accounting';
-
-    /**
-     * ICU Constant for accounting format; not yet widely supported by INTL library. This
-     * will be able to go away once minimum PHP requirement is 7.4.1 or higher.
-     * See UNUM_CURRENCY_ACCOUNTING in https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/unum_8h.html
-     */
-    public const CURRENCY_ACCOUNTING = 12;
-
-    /**
-     * A list of number formatters indexed by locale and type.
-     */
-    protected static $_formatters = [];
-
     /**
      * Convert alphabetic characters to ordinals.
      *
@@ -48,7 +18,6 @@ class Number
         foreach ($chars as $char) {
             if (ctype_alpha($char)) {
                 $bigInt .= (ord($char) - 55);
-
                 continue;
             }
 
@@ -73,7 +42,6 @@ class Number
         foreach ($chars as $char) {
             if (ctype_upper($char)) {
                 $bigInt .= (ord($char) - 55);
-
                 continue;
             }
 
@@ -98,7 +66,6 @@ class Number
         foreach ($chars as $char) {
             if (ctype_lower($char)) {
                 $bigInt .= (ord($char) - 55);
-
                 continue;
             }
 
@@ -110,55 +77,6 @@ class Number
     }
 
     /**
-     * Formats a number into the correct locale format
-     *
-     * @param float|string $value   A floating point number.
-     * @param array        $options An array with options.
-     *
-     * @return string Formatted number
-     */
-    public static function format($value, array $options = []): string
-    {
-        $formatter = self::formatter($options);
-        $options += ['before' => '', 'after' => ''];
-
-        return $options['before'].$formatter->format((float) $value).$options['after'];
-    }
-
-    /**
-     * Formats a number into the correct locale format to show deltas (signed differences
-     * in value).
-     *
-     * @param float|string $value   A floating point number
-     * @param array        $options Options list.
-     *
-     * @return string formatted delta
-     */
-    public static function formatDelta($value, array $options = []): string
-    {
-        $options += ['places' => 0];
-        $value = number_format((float) $value, $options['places'], '.', '');
-        $sign = $value > 0 ? '+' : '';
-        $options['before'] = isset($options['before']) ? $options['before'].$sign : $sign;
-
-        return self::format($value, $options);
-    }
-
-    /**
-     * Returns a formatted integer as an ordinal number string (e.g. 1st, 2nd, 3rd, 4th,
-     * [...]). For all other options see formatter().
-     *
-     * @param int|float $value   An integer
-     * @param array     $options An array with options.
-     *
-     * @return string
-     */
-    public static function ordinal($value, array $options = []): string
-    {
-        return self::formatter(['type' => NumberFormatter::ORDINAL] + $options)->format($value);
-    }
-
-    /**
      * Formats a number with a level of precision.
      *
      * Options:
@@ -166,61 +84,16 @@ class Number
      *
      * @param float|string $value     A floating point number.
      * @param int          $precision The precision of the returned number.
-     * @param array        $options   Additional options
      *
      * @return string Formatted float.
      */
-    public static function precision($value, int $precision = 2, array $options = []): string
+    public static function precision($value, int $precision = 2, string $locale = 'en_US'): string
     {
-        $formatter = self::formatter(['precision' => $precision, 'places' => $precision] + $options);
+        $a = new \NumberFormatter($locale, \NumberFormatter::DECIMAL);
+        $a->setAttribute(\NumberFormatter::MIN_FRACTION_DIGITS, $precision);
+        $a->setAttribute(\NumberFormatter::MAX_FRACTION_DIGITS, $precision);
 
-        return $formatter->format($value);
-    }
-
-    /**
-     * Converts numbers to a more readable representation when dealing with very large
-     * numbers (in the thousands or above), up to the quadrillions, because you won't
-     * often deal with numbers larger than that.
-     *
-     * It uses the "short form" numbering system as this is most commonly used within
-     * most English-speaking countries today.
-     *
-     * @see https://simple.wikipedia.org/wiki/Names_for_large_numbers
-     *
-     * @param string $num
-     * @param int    $precision
-     *
-     * @return bool|string
-     */
-    public static function toAmount($num, int $precision = 0)
-    {
-        // Strip any formatting & ensure numeric input
-        try {
-            $num = 0 + str_replace(',', '', $num);
-        } catch (\ErrorException $ee) {
-            return false;
-        }
-
-        $suffix = '';
-
-        if ($num > 1000000000000000) {
-            $suffix = 'quadrillion';
-            $num = round(($num / 1000000000000000), $precision);
-        } elseif ($num > 1000000000000) {
-            $suffix = 'trillion';
-            $num = round(($num / 1000000000000), $precision);
-        } elseif ($num > 1000000000) {
-            $suffix = 'billion';
-            $num = round(($num / 1000000000), $precision);
-        } elseif ($num > 1000000) {
-            $suffix = 'million';
-            $num = round(($num / 1000000), $precision);
-        } elseif ($num > 1000) {
-            $suffix = 'thousand';
-            $num = round(($num / 1000), $precision);
-        }
-
-        return self::format($num, ['precision' => $precision, 'after' => ' '.$suffix]);
+        return $a->format($value);
     }
 
     /**
@@ -278,19 +151,16 @@ class Number
      *
      * @param float|string $value     A floating point number
      * @param int          $precision The precision of the returned number
-     * @param array        $options   Options
      *
      * @return string Percentage string
      */
-    public static function toPercentage($value, int $precision = 2, array $options = []): string
+    public static function toPercentage($value, int $precision = 2, bool $multiply = false, string $locale = 'en_US'): string
     {
-        $options += ['multiply' => false, 'type' => NumberFormatter::PERCENT];
-
-        if (! $options['multiply']) {
-            $value /= 100;
+        if ($multiply) {
+            $value *= 100;
         }
 
-        return self::precision($value, $precision, $options);
+        return self::precision($value, $precision, $locale).'%';
     }
 
     /**
@@ -400,98 +270,6 @@ class Number
         }
 
         return round($simpleSize, $precision).' '.$units[$i];
-    }
-
-    /**
-     * Returns a formatter object that can be reused for similar formatting task under the
-     * same locale and options. This is often a speedier alternative to using other
-     * methods in this class as only one formatter object needs to be constructed.
-     *
-     * ### Options
-     * - `locale`:      The locale name to use for formatting the number, e.g. fr_FR
-     * - `type`:        The formatter type to construct, set it to `currency` if you need
-     *                  to format numbers representing money or a NumberFormatter constant.
-     * - `places`:      Number of decimal places to use. e.g. 2
-     * - `precision`:   Maximum Number of decimal places to use, e.g. 2
-     * - `pattern`:     An ICU number pattern to use for formatting the number. e.g #,##0.00
-     * - `useIntlCode`: Whether or not to replace the currency symbol with the international
-     *                  currency code.
-     *
-     * @param array $options An array with options.
-     * @return \NumberFormatter The configured formatter instance
-     */
-    public static function formatter(array $options = []): NumberFormatter
-    {
-        $locale = $options['locale'] ?? self::DEFAULT_LOCALE;
-
-        $type = NumberFormatter::DECIMAL;
-        if (! empty($options['type'])) {
-            $type = $options['type'];
-            if ($options['type'] === self::FORMAT_CURRENCY) {
-                $type = NumberFormatter::CURRENCY;
-            } elseif ($options['type'] === self::FORMAT_CURRENCY_ACCOUNTING) {
-                if (defined('NumberFormatter::CURRENCY_ACCOUNTING')) {
-                    $type = NumberFormatter::CURRENCY_ACCOUNTING;
-                } else {
-                    $type = self::CURRENCY_ACCOUNTING;
-                }
-            }
-        }
-
-        if (! isset(self::$_formatters[$locale][$type])) {
-            self::$_formatters[$locale][$type] = new NumberFormatter($locale, $type);
-        }
-
-        // \NumberFormatter $formatter
-        $formatter = self::$_formatters[$locale][$type];
-
-        $options = array_intersect_key($options, [
-            'places'      => null,
-            'precision'   => null,
-            'pattern'     => null,
-            'useIntlCode' => null,
-        ]);
-        if (empty($options)) {
-            return $formatter;
-        }
-
-        $formatter = clone $formatter;
-
-        return self::_setAttributes($formatter, $options);
-    }
-
-    /**
-     * Set formatter attributes.
-     *
-     * @param \NumberFormatter $formatter Number formatter instance.
-     * @param array            $options   See Number::formatter() for possible options.
-     *
-     * @return \NumberFormatter
-     */
-    protected static function _setAttributes(NumberFormatter $formatter, array $options = []): NumberFormatter
-    {
-        if (isset($options['places'])) {
-            $formatter->setAttribute(NumberFormatter::MIN_FRACTION_DIGITS, $options['places']);
-        }
-
-        if (isset($options['precision'])) {
-            $formatter->setAttribute(NumberFormatter::MAX_FRACTION_DIGITS, $options['precision']);
-        }
-
-        if (! empty($options['pattern'])) {
-            $formatter->setPattern($options['pattern']);
-        }
-
-        if (! empty($options['useIntlCode'])) {
-            // One of the odd things about ICU is that the currency marker in patterns is
-            // denoted with ¤, whereas the international code is marked with ¤¤, in order
-            // to use the code we need to simply duplicate the character wherever it
-            // appears in the pattern.
-            $pattern = trim(str_replace('¤', '¤¤ ', $formatter->getPattern()));
-            $formatter->setPattern($pattern);
-        }
-
-        return $formatter;
     }
 
     /**

@@ -2,8 +2,8 @@
 
 namespace Realodix\Utils\Test\Numbers;
 
-use PHPUnit\Framework\TestCase;
 use Realodix\Utils\Number\Iban;
+use Realodix\Utils\Test\TestCase;
 
 class IbanTest extends TestCase
 {

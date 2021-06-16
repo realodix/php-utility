@@ -2,7 +2,7 @@
 
 namespace Realodix\Utils\Test\Validators;
 
-use PHPUnit\Framework\TestCase;
+use Realodix\Utils\Test\TestCase;
 use Realodix\Utils\Validator as Val;
 
 class IdentificationsTest extends TestCase
@@ -120,5 +120,25 @@ class IdentificationsTest extends TestCase
     public function luhnInvalid($value)
     {
         $this->assertFalse(Val::luhn($value));
+    }
+
+    /**
+     * @test
+     * @dataProvider uuidProvider
+     */
+    public function uuid(string $value, bool $expected): void
+    {
+        $variations = [];
+        $variations[] = $value;
+        $variations[] = 'urn:uuid:'.$value;
+        $variations[] = '{'.$value.'}';
+
+        foreach ($variations as $variation) {
+            $variations[] = strtoupper($variation);
+        }
+
+        foreach ($variations as $variation) {
+            $this->assertSame($expected, Val::uuid($variation));
+        }
     }
 }

@@ -13,28 +13,6 @@ Val::ascii('白'); // false
 
 <br>
 
-#### `contains()`
-
-Determines if the given string contains the given value (case sensitive):
-
-```php
-use Realodix\Utils\Validator as Val;
-
-Val::contains('This is my name', 'my');
-// true
-```
-
-You may also pass an array of values to determine if the given string contains any of the values:
-
-```php
-use Realodix\Utils\Validator as Val;
-
-Val::contains('This is my name', ['my', 'foo']);
-// true
-```
-
-<br>
-
 #### `containsAll()`
 
 Determines if the given string contains all array values:
@@ -44,6 +22,9 @@ use Realodix\Utils\Validator as Val;
 
 Val::containsAll('This is my name', ['my', 'name']);
 // true
+
+Val::containsAll('This is my name', ['my', 'foo']);
+// false
 ```
 
 <br>
@@ -89,42 +70,4 @@ Val::range(5, [0, 5]);     // true
 Val::range(23, [null, 5]); // false
 Val::range(23, [5]);       // true
 Val::range(1, [5]);        // false
-```
-
-<br>
-
-#### `startsWith()`
-
-Determines if the given string begins with the given value:
-
-```php
-use Realodix\Utils\Validator as Val;
-
-Val::startsWith('This is my name', 'This');
-// true
-```
-
-<br>
-
-#### `endsWith()`
-
-Determines if the given string ends with the given value:
-
-```php
-use Realodix\Utils\Validator as Val;
-
-Val::endsWith('This is my name', 'name');
-// true
-```
-
-You may also pass an array of values to determine if the given string ends with any of the given values:
-
-```php
-use Realodix\Utils\Validator as Val;
-
-Val::endsWith('This is my name', ['name', 'foo']);
-// true
-
-Val::endsWith('This is my name', ['this', 'foo']);
-// false
 ```

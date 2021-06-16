@@ -2,6 +2,7 @@
 
 namespace Realodix\Utils;
 
+use Realodix\ChangeCase\ChangeCase;
 use Realodix\ReadTime\ReadTime;
 use voku\helper\ASCII;
 
@@ -198,6 +199,7 @@ class Str
         return $content;
     }
 
+    // @codeCoverageIgnoreStart
     /**
      * Transliterate a UTF-8 value to ASCII.
      *
@@ -206,7 +208,6 @@ class Str
      *                                  characters.
      *
      * @return string
-     * @codeCoverageIgnore
      */
     public function toAscii(string $language = 'en', bool $removeUnsupported = true)
     {
@@ -214,4 +215,65 @@ class Str
 
         return ASCII::to_ascii($str, $language, $removeUnsupported);
     }
+
+    public function noCase()
+    {
+        return (new ChangeCase)->noCase($this->str);
+    }
+
+    public function camelCase()
+    {
+        return (new ChangeCase)->camelCase($this->str);
+    }
+
+    public function capitalCase()
+    {
+        return (new ChangeCase)->capitalCase($this->str);
+    }
+
+    public function constantCase()
+    {
+        return (new ChangeCase)->constantCase($this->str);
+    }
+
+    public function dotCase()
+    {
+        return (new ChangeCase)->dotCase($this->str);
+    }
+
+    public function headerCase()
+    {
+        return (new ChangeCase)->headerCase($this->str);
+    }
+
+    public function pascalCase()
+    {
+        return (new ChangeCase)->pascalCase($this->str);
+    }
+
+    public function pathCase()
+    {
+        return (new ChangeCase)->pathCase($this->str);
+    }
+
+    public function sentenceCase()
+    {
+        return (new ChangeCase)->sentenceCase($this->str);
+    }
+
+    public function snakeCase()
+    {
+        return (new ChangeCase)->snakeCase($this->str);
+    }
+
+    public function spinalCase()
+    {
+        return (new ChangeCase)->spinalCase($this->str);
+    }
+
+    public function swapCase()
+    {
+        return (new ChangeCase)->swapCase($this->str);
+    }
+    // @codeCoverageIgnoreEnd
 }

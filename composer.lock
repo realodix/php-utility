@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40068378ccff1992755a278d1d715dfe",
+    "content-hash": "8281040387b18d53e641dbdda5d8c8a7",
     "packages": [
         {
             "name": "nicebooks/isbn",
@@ -3293,16 +3293,16 @@
         },
         {
             "name": "realodix/php-cs-fixer-config",
-            "version": "dev-main",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/realodix/PHP-CS-Fixer-Config.git",
-                "reference": "44cff3fd6514910a9572c1a5a68571df2a6620e5"
+                "reference": "e791053f4652541b4b4f9d8a89a539d95f881d04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/realodix/PHP-CS-Fixer-Config/zipball/44cff3fd6514910a9572c1a5a68571df2a6620e5",
-                "reference": "44cff3fd6514910a9572c1a5a68571df2a6620e5",
+                "url": "https://api.github.com/repos/realodix/PHP-CS-Fixer-Config/zipball/e791053f4652541b4b4f9d8a89a539d95f881d04",
+                "reference": "e791053f4652541b4b4f9d8a89a539d95f881d04",
                 "shasum": ""
             },
             "require": {
@@ -3341,7 +3341,7 @@
                 "issues": "https://github.com/realodix/php-cs-fixer-config/issues",
                 "source": "https://github.com/realodix/php-cs-fixer-config"
             },
-            "time": "2021-06-15T08:30:31+00:00"
+            "time": "2021-06-16T06:46:09+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -5781,9 +5781,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "realodix/php-cs-fixer-config": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

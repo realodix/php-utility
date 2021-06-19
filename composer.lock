@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c5c4ba5aacc68dadfe8a3d578d0f09d",
+    "content-hash": "e91598aaf46f18cfc2db43427c619212",
     "packages": [
         {
             "name": "nicebooks/isbn",
@@ -106,62 +106,6 @@
                 "source": "https://github.com/php-fig/http-message/tree/master"
             },
             "time": "2016-08-06T14:39:51+00:00"
-        },
-        {
-            "name": "realodix/change-case",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/realodix/change-case.git",
-                "reference": "f28575605e0f3c1d86f7740c638d8b5f3c4edb90"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/realodix/change-case/zipball/f28575605e0f3c1d86f7740c638d8b5f3c4edb90",
-                "reference": "f28575605e0f3c1d86f7740c638d8b5f3c4edb90",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3|^8.0",
-                "voku/portable-utf8": "^5.4"
-            },
-            "require-dev": {
-                "fakerphp/faker": "^1.14",
-                "phpunit/phpunit": "^9",
-                "realodix/php-cs-fixer-config": "^3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Realodix\\ChangeCase\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Budi Hermawan",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Convert strings between camelCase, PascalCase, Capital Case, snake_case and more.",
-            "homepage": "https://github.com/realodix/change-case",
-            "keywords": [
-                "camel-case",
-                "change-case",
-                "constant-case",
-                "lowercase",
-                "pascal-case",
-                "snake-case",
-                "uppercase"
-            ],
-            "support": {
-                "issues": "https://github.com/realodix/change-case/issues",
-                "source": "https://github.com/realodix/change-case/tree/v2.0.0"
-            },
-            "time": "2021-06-19T04:17:12+00:00"
         },
         {
             "name": "spatie/macroable",

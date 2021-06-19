@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b557e4e5559407929fd5d25b6d0fb49",
+    "content-hash": "52a724585f75468f8a7ec4671063974e",
     "packages": [
         {
             "name": "nicebooks/isbn",
@@ -3387,16 +3387,16 @@
         },
         {
             "name": "realodix/php-cs-fixer-config",
-            "version": "v3.0.5",
+            "version": "v3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/realodix/PHP-CS-Fixer-Config.git",
-                "reference": "08ce59a0c83806cba87948cf036fc78774991166"
+                "reference": "ed39b459e2d2b3c69e900c46f2e07f9510594ca1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/realodix/PHP-CS-Fixer-Config/zipball/08ce59a0c83806cba87948cf036fc78774991166",
-                "reference": "08ce59a0c83806cba87948cf036fc78774991166",
+                "url": "https://api.github.com/repos/realodix/PHP-CS-Fixer-Config/zipball/ed39b459e2d2b3c69e900c46f2e07f9510594ca1",
+                "reference": "ed39b459e2d2b3c69e900c46f2e07f9510594ca1",
                 "shasum": ""
             },
             "require": {
@@ -3405,11 +3405,11 @@
                 "kubawerlos/php-cs-fixer-custom-fixers": "^2.5",
                 "matt-allan/laravel-code-style": "dev-main",
                 "pedrotroller/php-cs-custom-fixer": "^2.25",
-                "php": "^7.1 || ^8.0",
-                "symfony/polyfill-php73": "^1.23"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+                "phpcompatibility/php-compatibility": "^9.3"
             },
             "type": "library",
             "extra": {
@@ -3438,7 +3438,7 @@
                 "issues": "https://github.com/realodix/php-cs-fixer-config/issues",
                 "source": "https://github.com/realodix/php-cs-fixer-config"
             },
-            "time": "2021-06-19T06:55:47+00:00"
+            "time": "2021-06-19T07:14:15+00:00"
         },
         {
             "name": "sebastian/cli-parser",

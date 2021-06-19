@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "396f8a8ace70e11ca3a4678776134fc3",
+    "content-hash": "85a3e419763ea015d1589c489b632eef",
     "packages": [
         {
             "name": "nicebooks/isbn",
@@ -95,19 +95,19 @@
         },
         {
             "name": "spatie/macroable",
-            "version": "2.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/macroable.git",
-                "reference": "ec2c320f932e730607aff8052c44183cf3ecb072"
+                "reference": "7a99549fc001c925714b329220dea680c04bfa48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/macroable/zipball/ec2c320f932e730607aff8052c44183cf3ecb072",
-                "reference": "ec2c320f932e730607aff8052c44183cf3ecb072"
+                "url": "https://api.github.com/repos/spatie/macroable/zipball/7a99549fc001c925714b329220dea680c04bfa48",
+                "reference": "7a99549fc001c925714b329220dea680c04bfa48"
             },
             "require": {
-                "php": "^8.0"
+                "php": "^7.2|^8.0"
             },
             "type": "library",
             "autoload": {
@@ -122,21 +122,21 @@
         },
         {
             "name": "spatie/url",
-            "version": "2.0.0",
+            "version": "1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/url.git",
-                "reference": "8d996c2e69a02683908d12b439b96c60268ed085"
+                "reference": "3633de58e0709ea98cecceff61ee51caf1fde7e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/url/zipball/8d996c2e69a02683908d12b439b96c60268ed085",
-                "reference": "8d996c2e69a02683908d12b439b96c60268ed085"
+                "url": "https://api.github.com/repos/spatie/url/zipball/3633de58e0709ea98cecceff61ee51caf1fde7e3",
+                "reference": "3633de58e0709ea98cecceff61ee51caf1fde7e3"
             },
             "require": {
-                "php": "^8.0",
+                "php": "^7.2|^8.0",
                 "psr/http-message": "^1.0",
-                "spatie/macroable": "^2.0"
+                "spatie/macroable": "^1.0.1"
             },
             "type": "library",
             "autoload": {

@@ -207,9 +207,9 @@ class Str
      * @return string
      * @codeCoverageIgnore
      */
-    public static function toAscii(string $language = 'en', bool $removeUnsupported = true)
+    public function toAscii(string $language = 'en', bool $removeUnsupported = true)
     {
-        $str = this->str;
+        $str = $this->str;
 
         return ASCII::to_ascii($str, $language, $removeUnsupported);
     }

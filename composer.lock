@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6838ddf092c076875af33084c197f6a5",
+    "content-hash": "396f8a8ace70e11ca3a4678776134fc3",
     "packages": [
         {
             "name": "nicebooks/isbn",
@@ -67,32 +67,30 @@
         },
         {
             "name": "realodix/change-case",
-            "version": "v1.0.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/realodix/change-case.git",
-                "reference": "419b88875db9044acca5a7a1a968c8efe70255f4"
+                "reference": "f28575605e0f3c1d86f7740c638d8b5f3c4edb90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/realodix/change-case/zipball/419b88875db9044acca5a7a1a968c8efe70255f4",
-                "reference": "419b88875db9044acca5a7a1a968c8efe70255f4"
+                "url": "https://api.github.com/repos/realodix/change-case/zipball/f28575605e0f3c1d86f7740c638d8b5f3c4edb90",
+                "reference": "f28575605e0f3c1d86f7740c638d8b5f3c4edb90"
             },
             "require": {
-                "php": "^8.0",
+                "php": "^7.3|^8.0",
                 "voku/portable-utf8": "^5.4"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "1.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Realodix\\ChangeCase\\": "src"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "description": "Convert strings between camelCase, PascalCase, Capital Case, snake_case and more."
         },
         {

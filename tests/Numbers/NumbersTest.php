@@ -77,13 +77,13 @@ class NumbersTest extends TestCase
     /** @test */
     public function toPercentageWithOptions()
     {
-        $result = Number::toPercentage(0.456, 0, multiply: true);
+        $result = Number::toPercentage(0.456, 0, true);
         $this->assertSame('46%', $result);
 
-        $result = Number::toPercentage(0.456, 2, multiply: true);
+        $result = Number::toPercentage(0.456, 2, true);
         $this->assertSame('45.60%', $result);
 
-        $result = Number::toPercentage(45.6, locale: 'de-DE');
+        $result = Number::toPercentage(45.6, 2, false, 'de-DE');
         $this->assertSame('45,60%', $result);
     }
 

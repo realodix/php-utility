@@ -8,6 +8,8 @@ use voku\helper\ASCII;
 
 class Str
 {
+    protected $str = '';
+
     /**
      * Initializes a string object and assigns str properties to the supplied values. $str
      * is cast to a string prior to assignment.
@@ -15,9 +17,8 @@ class Str
      * @param mixed $str [optional] Value to modify, after being cast to string.
      *                   Default: ''
      */
-    public function __construct(
-        protected $str = ''
-    ) {
+    public function __construct(string $str)
+    {
         $this->str = (string) $str;
     }
 
@@ -206,85 +207,10 @@ class Str
      * @return string
      * @codeCoverageIgnore
      */
-    public static function toAscii(string $language = 'en', bool $removeUnsupported = true)
+    public function toAscii(string $language = 'en', bool $removeUnsupported = true)
     {
-        $str = this->str;
+        $str = $this->str;
 
         return ASCII::to_ascii($str, $language, $removeUnsupported);
     }
-
-    /**
-     * -----------------------------------------------------------------------------------
-     * CHANGE CASE
-     * -----------------------------------------------------------------------------------
-     */
-
-    // @codeCoverageIgnoreStart
-
-    public static function noCase($string, $delimiter = ' ')
-    {
-        return (new ChangeCase)->noCase($string, $delimiter);
-    }
-
-    public static function camelCase($string)
-    {
-        return (new ChangeCase)->camelCase($string);
-    }
-
-    public static function capitalCase($string)
-    {
-        return (new ChangeCase)->capitalCase($string);
-    }
-
-    public static function constantCase($string)
-    {
-        return (new ChangeCase)->constantCase($string);
-    }
-
-    public static function dotCase($string)
-    {
-        return (new ChangeCase)->dotCase($string);
-    }
-
-    public static function headerCase($string)
-    {
-        return (new ChangeCase)->headerCase($string);
-    }
-
-    public static function pascalCase($string)
-    {
-        return (new ChangeCase)->pascalCase($string);
-    }
-
-    public static function pathCase($string)
-    {
-        return (new ChangeCase)->pathCase($string);
-    }
-
-    public static function sentenceCase($string)
-    {
-        return (new ChangeCase)->sentenceCase($string);
-    }
-
-    public static function snakeCase($string)
-    {
-        return (new ChangeCase)->snakeCase($string);
-    }
-
-    public static function spinalCase($string)
-    {
-        return (new ChangeCase)->spinalCase($string);
-    }
-
-    public static function swapCase($string)
-    {
-        return (new ChangeCase)->swapCase($string);
-    }
-
-    public static function titleCase($string)
-    {
-        return (new ChangeCase)->titleCase($string);
-    }
-
-    // @codeCoverageIgnoreEnd
 }

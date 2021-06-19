@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1bff4c75075daf4435dac47ea8fd6bb",
+    "content-hash": "6838ddf092c076875af33084c197f6a5",
     "packages": [
         {
             "name": "nicebooks/isbn",
-            "version": "0.2.91",
+            "version": "0.2.92",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicebooks-com/isbn.git",
-                "reference": "d03c4d7f50770a0f362a695668c57b58a78c63d0"
+                "reference": "b4a76f35b5021786527311c6e1de554891fe0c5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicebooks-com/isbn/zipball/d03c4d7f50770a0f362a695668c57b58a78c63d0",
-                "reference": "d03c4d7f50770a0f362a695668c57b58a78c63d0"
+                "url": "https://api.github.com/repos/nicebooks-com/isbn/zipball/b4a76f35b5021786527311c6e1de554891fe0c5d",
+                "reference": "b4a76f35b5021786527311c6e1de554891fe0c5d"
             },
             "require": {
                 "php": "^7.1 || ^8.0"
@@ -1357,16 +1357,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.89",
+            "version": "0.12.90",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "54c0f5a6c30511b77128d58b6369f718df250542"
+                "reference": "f0e4b56630fc3d4eb5be86606d07212ac212ede4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/54c0f5a6c30511b77128d58b6369f718df250542",
-                "reference": "54c0f5a6c30511b77128d58b6369f718df250542"
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f0e4b56630fc3d4eb5be86606d07212ac212ede4",
+                "reference": "f0e4b56630fc3d4eb5be86606d07212ac212ede4"
             },
             "require": {
                 "php": "^7.1|^8.0"
@@ -1785,16 +1785,16 @@
         },
         {
             "name": "realodix/php-cs-fixer-config",
-            "version": "v3.0.3",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/realodix/PHP-CS-Fixer-Config.git",
-                "reference": "fa42a0bc2404a2da1c71b1873d00bf58b1e5c037"
+                "reference": "2b75abbfeb04e9ca4d321657bbfbe85e318c6888"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/realodix/PHP-CS-Fixer-Config/zipball/fa42a0bc2404a2da1c71b1873d00bf58b1e5c037",
-                "reference": "fa42a0bc2404a2da1c71b1873d00bf58b1e5c037"
+                "url": "https://api.github.com/repos/realodix/PHP-CS-Fixer-Config/zipball/2b75abbfeb04e9ca4d321657bbfbe85e318c6888",
+                "reference": "2b75abbfeb04e9ca4d321657bbfbe85e318c6888"
             },
             "require": {
                 "drupol/phpcsfixer-configs-drupal": "^2.0",
@@ -1802,7 +1802,7 @@
                 "kubawerlos/php-cs-fixer-custom-fixers": "^2.5",
                 "matt-allan/laravel-code-style": "dev-main",
                 "pedrotroller/php-cs-custom-fixer": "^2.25",
-                "php": "^7.4 || ^8.0"
+                "php": "^7.3 || ^8.0"
             },
             "type": "library",
             "extra": {
@@ -3025,7 +3025,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0"
+        "php": "^7.3|^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"

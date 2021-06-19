@@ -8,6 +8,8 @@ use voku\helper\ASCII;
 
 class Str
 {
+    protected $str = '';
+
     /**
      * Initializes a string object and assigns str properties to the supplied values. $str
      * is cast to a string prior to assignment.
@@ -15,9 +17,8 @@ class Str
      * @param mixed $str [optional] Value to modify, after being cast to string.
      *                   Default: ''
      */
-    public function __construct(
-        protected $str = ''
-    ) {
+    public function __construct(string $str)
+    {
         $this->str = (string) $str;
     }
 

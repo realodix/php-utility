@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.2|^8.0",
         "nicebooks/isbn": "^0.2.91",
         "spatie/url": "^1.0|^2.0",
         "symfony/polyfill-php74": "^1.23",

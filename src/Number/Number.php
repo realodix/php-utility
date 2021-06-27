@@ -8,6 +8,7 @@ class Number
      * Convert alphabetic characters to ordinals.
      *
      * @param string $value
+     *
      * @return string
      */
     public static function charToInt(string $value): string
@@ -32,6 +33,7 @@ class Number
      * Convert uppercase characters to ordinals.
      *
      * @param string $value
+     *
      * @return string
      */
     public static function charUpperToInt(string $value): string
@@ -56,6 +58,7 @@ class Number
      * Convert uppercase characters to ordinals.
      *
      * @param string $value
+     *
      * @return string
      */
     public static function charLowerToInt(string $value): string
@@ -84,6 +87,7 @@ class Number
      *
      * @param float|string $value     A floating point number.
      * @param int          $precision The precision of the returned number.
+     * @param string       $locale
      *
      * @return string Formatted float.
      */
@@ -102,6 +106,7 @@ class Number
      * Based on: ({@link https://gist.github.com/RadGH/84edff0cc81e6326029c}).
      *
      * @param int $n
+     *
      * @return int|string
      */
     public static function toAmountShort(int $n)
@@ -151,6 +156,8 @@ class Number
      *
      * @param float|string $value     A floating point number
      * @param int          $precision The precision of the returned number
+     * @param bool         $multiply
+     * @param string       $locale
      *
      * @return string Percentage string
      */
@@ -276,6 +283,7 @@ class Number
      * Calculates the MOD-97-10 of the passed number as specified in ISO7064.
      *
      * @param string $bigInt
+     *
      * @return int
      */
     public static function mod97(string $bigInt): int

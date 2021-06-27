@@ -44,6 +44,9 @@ class NumbersTest extends TestCase
     /**
      * @test
      * @dataProvider toAmountShortProvider
+     *
+     * @param mixed $expected
+     * @param mixed $actual
      */
     public function toAmountShort($expected, $actual)
     {
@@ -68,6 +71,10 @@ class NumbersTest extends TestCase
     /**
      * @test
      * @dataProvider toPercentageWithPrecisionProvider
+     *
+     * @param mixed $expected
+     * @param mixed $value
+     * @param mixed $precision
      */
     public function toPercentageWithPrecision($expected, $value, $precision)
     {
@@ -90,6 +97,9 @@ class NumbersTest extends TestCase
     /**
      * @test
      * @dataProvider toRomanProvider
+     *
+     * @param mixed $expected
+     * @param mixed $actual
      */
     public function toRoman($expected, $actual)
     {
@@ -99,6 +109,9 @@ class NumbersTest extends TestCase
     /**
      * @test
      * @dataProvider toSizeProvider
+     *
+     * @param mixed $expected
+     * @param mixed $actual
      */
     public function toSize($expected, $actual)
     {

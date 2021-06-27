@@ -22,6 +22,8 @@ class StringTest extends TestCase
     /**
      * @test
      * @dataProvider hexRgbColorValidProvider
+     *
+     * @param mixed $value
      */
     public function hexRgbColor($value)
     {
@@ -31,6 +33,8 @@ class StringTest extends TestCase
     /**
      * @test
      * @dataProvider hexRgbColorInvalidProvider
+     *
+     * @param mixed $value
      */
     public function hexRgbColorInvalid($value)
     {

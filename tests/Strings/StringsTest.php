@@ -12,6 +12,10 @@ class StringsTest extends TestCase
     /**
      * @test
      * @dataProvider charAtProvider
+     *
+     * @param mixed $expected
+     * @param mixed $value1
+     * @param mixed $value2
      */
     public function charAt($expected, $value1, $value2)
     {
@@ -59,6 +63,9 @@ class StringsTest extends TestCase
     /**
      * @test
      * @dataProvider removeNonAlphaProvider
+     *
+     * @param mixed $expected
+     * @param mixed $value
      */
     public function removeNonAlpha($expected, $value)
     {
@@ -68,6 +75,9 @@ class StringsTest extends TestCase
     /**
      * @test
      * @dataProvider removeNonAlphaNumProvider
+     *
+     * @param mixed $expected
+     * @param mixed $value
      */
     public function removeNonAlphaNum($expected, $value)
     {
@@ -77,6 +87,9 @@ class StringsTest extends TestCase
     /**
      * @test
      * @dataProvider removeNonNumericProvider
+     *
+     * @param mixed $expected
+     * @param mixed $value
      */
     public function removeNonNumeric($expected, $value)
     {
@@ -86,6 +99,9 @@ class StringsTest extends TestCase
     /**
      * @test
      * @dataProvider stripTagsProvider
+     *
+     * @param mixed $expected
+     * @param mixed $value
      */
     public function stripTags($expected, $value)
     {
@@ -95,6 +111,10 @@ class StringsTest extends TestCase
     /**
      * @test
      * @dataProvider sliceProvider
+     *
+     * @param mixed $expected
+     * @param mixed $value1
+     * @param mixed $value2
      */
     public function slice($expected, $value1, $value2)
     {
@@ -104,6 +124,11 @@ class StringsTest extends TestCase
     /**
      * @test
      * @dataProvider sliceProvider2
+     *
+     * @param mixed $expected
+     * @param mixed $value1
+     * @param mixed $value2
+     * @param mixed $value3
      */
     public function slice2($expected, $value1, $value2, $value3)
     {

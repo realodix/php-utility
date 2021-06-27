@@ -2,7 +2,6 @@
 
 namespace Realodix\Utils;
 
-use Realodix\ChangeCase\ChangeCase;
 use Realodix\Utils\String\ReadTime;
 use voku\helper\ASCII;
 
@@ -33,7 +32,7 @@ class Str
     }
 
     /**
-     *
+     * @param mixed $str
      */
     public static function of($str = ''): self
     {
@@ -192,7 +191,7 @@ class Str
         }
 
         $pattern = '|[[\/\!]*?[^\[\]]*?]|si';
-        $content = preg_replace("/$pattern/", '', $content);
+        $content = preg_replace("/${pattern}/", '', $content);
 
         return $content;
     }

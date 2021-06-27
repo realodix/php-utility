@@ -12,6 +12,8 @@ class IbanTest extends TestCase
     /**
      * @test
      * @dataProvider verifyProvider
+     *
+     * @param mixed $value
      */
     public function verify($value)
     {
@@ -21,6 +23,8 @@ class IbanTest extends TestCase
     /**
      * @test
      * @dataProvider verifyWithInvalidFormatProvider
+     *
+     * @param mixed $value
      */
     public function verifyWithInvalidFormat($value)
     {
@@ -30,6 +34,8 @@ class IbanTest extends TestCase
     /**
      * @test
      * @dataProvider verifyWithValidFormatButIncorrectChecksumProvider
+     *
+     * @param mixed $value
      */
     public function verifyWithValidFormatButIncorrectChecksum($value)
     {
@@ -39,6 +45,8 @@ class IbanTest extends TestCase
     /**
      * @test
      * @dataProvider verifyWithUnsupportedCountryCodeProvider
+     *
+     * @param mixed $unsupportedCountryCode
      */
     public function verifyWithUnsupportedCountryCode($unsupportedCountryCode)
     {
@@ -48,6 +56,8 @@ class IbanTest extends TestCase
     /**
      * @test
      * @dataProvider verifyWithInvalidCountryCodeProvider
+     *
+     * @param mixed $invalidCountryCode
      */
     public function verifyWithInvalidCountryCode($invalidCountryCode)
     {
@@ -57,6 +67,9 @@ class IbanTest extends TestCase
     /**
      * @test
      * @dataProvider toHumanFormatProvider
+     *
+     * @param mixed $expected
+     * @param mixed $actual
      */
     public function toHumanFormat($expected, $actual)
     {
@@ -66,6 +79,9 @@ class IbanTest extends TestCase
     /**
      * @test
      * @dataProvider toObfuscatedFormatProvider
+     *
+     * @param mixed $expected
+     * @param mixed $actual
      */
     public function toObfuscatedFormat($expected, $actual)
     {
@@ -75,6 +91,9 @@ class IbanTest extends TestCase
     /**
      * @test
      * @dataProvider toMachineFormatProvider
+     *
+     * @param mixed $expected
+     * @param mixed $actual
      */
     public function toMachineFormat($expected, $actual)
     {
@@ -84,6 +103,9 @@ class IbanTest extends TestCase
     /**
      * @test
      * @dataProvider getBbanProvider
+     *
+     * @param mixed $expected
+     * @param mixed $actual
      */
     public function getBban($expected, $actual)
     {

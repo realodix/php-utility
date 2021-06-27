@@ -40,6 +40,7 @@ trait IdentificationsTrait
      * ISBN-10 or a valid ISBN-13.
      *
      * @param string $value
+     *
      * @return bool
      */
     public static function isbn(string $value): bool
@@ -68,6 +69,7 @@ trait IdentificationsTrait
      *
      * @param string $value
      * @param bool   $caseSensitive
+     *
      * @return bool
      */
     public static function issn($value, bool $caseSensitive = false): bool
@@ -129,6 +131,7 @@ trait IdentificationsTrait
      * Validates that a value is a valid LUHN.
      *
      * @param string $value
+     *
      * @return bool
      */
     public static function luhn($value): bool
@@ -168,6 +171,7 @@ trait IdentificationsTrait
      * Determine if a given string is a valid UUID.
      *
      * @param string $uuid
+     *
      * @return bool
      */
     public static function uuid(string $uuid): bool

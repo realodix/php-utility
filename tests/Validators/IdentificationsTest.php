@@ -12,6 +12,9 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider creditCardProvider
+     *
+     * @param mixed $creditCard
+     * @param mixed $cardNumber
      */
     public function creditCard($creditCard, $cardNumber)
     {
@@ -21,6 +24,9 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider creditCardInvalidProvider
+     *
+     * @param mixed $creditCard
+     * @param mixed $cardNumber
      */
     public function creditCardInvalid($creditCard, $cardNumber)
     {
@@ -30,6 +36,8 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider isbn10Provider
+     *
+     * @param mixed $value
      */
     public function isbn($value)
     {
@@ -39,6 +47,8 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider isbn10InvalidProvider
+     *
+     * @param mixed $value
      */
     public function isbnInvalid($value)
     {
@@ -48,6 +58,8 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider isbn13Provider
+     *
+     * @param mixed $value
      */
     public function isbn13($value)
     {
@@ -57,6 +69,8 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider isbn13InvalidProvider
+     *
+     * @param mixed $value
      */
     public function isbn13Invalid($value)
     {
@@ -80,6 +94,8 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider issnProvider
+     *
+     * @param mixed $value
      */
     public function issn($value)
     {
@@ -89,6 +105,8 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider issnInvalidProvider
+     *
+     * @param mixed $value
      */
     public function issnInvalid($value)
     {
@@ -98,6 +116,9 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider issnInvalidWithOptionsProvider
+     *
+     * @param mixed $value
+     * @param mixed $options
      */
     public function issnInvalidWithOptions($value, $options)
     {
@@ -107,6 +128,8 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider luhnProvider
+     *
+     * @param mixed $value
      */
     public function luhn($value)
     {
@@ -116,6 +139,8 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider luhnInvalidProvider
+     *
+     * @param mixed $value
      */
     public function luhnInvalid($value)
     {
@@ -125,6 +150,9 @@ class IdentificationsTest extends TestCase
     /**
      * @test
      * @dataProvider uuidProvider
+     *
+     * @param string $value
+     * @param bool   $expected
      */
     public function uuid(string $value, bool $expected): void
     {

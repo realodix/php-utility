@@ -166,6 +166,7 @@ class Iban
      * http://www.europeanpaymentscouncil.eu/knowledge_bank_download.cfm?file=ECBS%20standard%20implementation%20guidelines%20SIG203V3.2.pdf
      *
      * @param string $iban
+     *
      * @return string
      */
     public static function toHumanFormat($iban)
@@ -182,6 +183,7 @@ class Iban
      * present, and remove non basic roman letter / digit characters
      *
      * @param string $iban
+     *
      * @return string
      */
     public static function toMachineFormat($iban)
@@ -215,6 +217,8 @@ class Iban
      * to a user, such as the date last used or the date added to their account,
      * in order to better facilitate unambiguous relative identification.
      *
+     * @param mixed $iban
+     *
      * @return string
      */
     public static function toObfuscatedFormat($iban)
@@ -235,6 +239,7 @@ class Iban
      * Get the BBAN part from an IBAN
      *
      * @param string $iban
+     *
      * @return string
      */
     public static function getBban(string $iban)
@@ -248,6 +253,7 @@ class Iban
      * Find the correct checksum for an IBAN
      *
      * @param string $iban The IBAN whose checksum should be calculated
+     *
      * @return string
      */
     public static function getChecksum(string $iban)
@@ -262,6 +268,7 @@ class Iban
 
     /**
      * @param string $iban
+     *
      * @return string
      */
     public static function setChecksum(string $iban)

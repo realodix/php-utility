@@ -34,6 +34,8 @@ trait NumberTrait
     /**
      * Validates whether the input follows the Fibonacci integer sequence.
      *
+     * @param mixed $input
+     *
      * @return bool
      */
     public static function fibonacci($input): bool
@@ -57,6 +59,7 @@ trait NumberTrait
      * Checks if the value is a number or a number written in a string.
      *
      * @param mixed $value
+     *
      * @return bool
      */
     public static function numeric($value): bool

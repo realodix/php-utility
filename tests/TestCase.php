@@ -26,8 +26,9 @@ abstract class TestCase extends BaseTestCase
      * @param string $method     Method name to call.
      * @param array  $parameters Array of parameters to pass into method.
      *
-     * @return mixed Method return.
      * @throws \Exception
+     *
+     * @return mixed Method return.
      */
     protected function invokeMethod($object, string $method, array $parameters = [])
     {

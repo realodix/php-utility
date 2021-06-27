@@ -9,7 +9,9 @@ class ReadTime
      * read time formula. Take the total word count of a post and translate it into
      * minutes.
      *
-     * @param int $wpm Estimated words per minute of reader
+     * @param string $content
+     * @param int    $wpm     Estimated words per minute of reader
+     *
      * @return string
      */
     public function readTime(string $content, int $wpm = 265): string
@@ -38,6 +40,8 @@ class ReadTime
      * tenth image are counted at three seconds.
      *
      * @param string $content
+     * @param int    $imgReadTime
+     *
      * @return float
      */
     private function imageReadTime(string $content, int $imgReadTime = 12): float
@@ -62,6 +66,7 @@ class ReadTime
      * Count the number of images.
      *
      * @param string $content
+     *
      * @return int
      */
     private function imageCount(string $content): int

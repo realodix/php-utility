@@ -18,8 +18,7 @@
         "nicebooks/isbn": "^0.2.91",
         "realodix/change-case": "^3.0",
         "realodix/readtime": "^1.0",
-        "spatie/url": "^1.0|^2.0",
-        "voku/portable-utf8": "^5.4"
+        "spatie/url": "^1.0|^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.14",

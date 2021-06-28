@@ -2,23 +2,8 @@
 
 namespace Realodix\Utils\Validator;
 
-use voku\helper\ASCII;
-
 trait StringTrait
 {
-    /**
-     * Checks if a string is 7 bit ASCII.
-     *
-     * @param string $str
-     *
-     * @return bool
-     * @codeCoverageIgnore
-     */
-    public static function ascii(string $str): bool
-    {
-        return ASCII::is_ascii($str);
-    }
-
     /**
      * Determine if a given string contains all array values.
      *

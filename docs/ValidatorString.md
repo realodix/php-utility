@@ -1,18 +1,6 @@
 VALIDATOR - STRING
 ---
 
-#### `ascii(string $str)`
-
-Checks if a string is 7 bit ASCII.
-
-```php
-use Realodix\Utils\Validator as Val;
-
-Val::ascii('白'); // false
-```
-
-<br>
-
 #### `containsAll()`
 
 Determines if the given string contains all array values:

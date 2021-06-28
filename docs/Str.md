@@ -128,7 +128,7 @@ Get the contents and settings of the class as an array.
 ##### `toJson()`
 Get the contents and settings of the class as a JSON string.
 
-This method uses [realodix/readtime](https://github.com/realodix/readtime), please see the documentation page for using other APIs.
+This method uses [realodix/readtime](https://github.com/realodix/readtime) for more info.
 
 <br>
 

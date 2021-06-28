@@ -143,7 +143,8 @@ trait IdentificationsTrait
         $checkSum = 0;
         $length = \strlen($value);
 
-        // Starting with the last digit and walking left, add every second digit to the check sum
+        // Starting with the last digit and walking left, add every second digit to the
+        // check sum
         // e.g. 7  9  9  2  7  3  9  8  7  1  3
         //      ^     ^     ^     ^     ^     ^
         //    = 7  +  9  +  7  +  9  +  7  +  3
@@ -151,8 +152,9 @@ trait IdentificationsTrait
             $checkSum += $value[$i];
         }
 
-        // Starting with the second last digit and walking left, double every second digit and add
-        // it to the check sum. For doubles greater than 9, sum the individual digits
+        // Starting with the second last digit and walking left, double every second digit
+        // and add it to the check sum. For doubles greater than 9, sum the individual
+        // digits
         // e.g. 7  9  9  2  7  3  9  8  7  1  3
         //         ^     ^     ^     ^     ^
         //    =    1+8 + 4  +  6  +  1+6 + 2

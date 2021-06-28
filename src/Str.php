@@ -200,6 +200,7 @@ class Str
     }
 
     // @codeCoverageIgnoreStart
+
     /**
      * Transliterate a UTF-8 value to ASCII.
      *
@@ -275,5 +276,6 @@ class Str
     {
         return (new ChangeCase)->swap($this->str);
     }
+
     // @codeCoverageIgnoreEnd
 }

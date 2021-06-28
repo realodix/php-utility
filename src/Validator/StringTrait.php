@@ -65,9 +65,9 @@ trait StringTrait
 
     /**
      * Checks if the value is in the given range [min, max], where the upper or lower
-     * limit can be omitted (null). Numbers, strings and DateTime objects can be
-     * compared. If both boundaries are missing ([null, null]) or the value is
-     * null, it returns false.
+     * limit can be omitted (null). Numbers, strings and DateTime objects can be compared.
+     * If both boundaries are missing ([null, null]) or the value is null, it returns
+     * false.
      *
      * @param mixed $value
      * @param array $range

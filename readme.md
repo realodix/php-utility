@@ -20,9 +20,6 @@ You can install the package via composer:
 
 ```sh
 composer require realodix/php-utility
-
-// Dev-build
-composer require realodix/php-utility 1.x-dev
 ```
 
 ## Testing

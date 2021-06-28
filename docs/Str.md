@@ -3,8 +3,6 @@ String
 
 ### Change Case
 
-Transform a string between camelCase, PascalCase, Capital Case, snake_case, param-case, CONSTANT_CASE and others.
-
 ```php
 use Realodix\Utils\Str;
 

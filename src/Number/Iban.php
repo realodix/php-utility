@@ -143,8 +143,7 @@ class Iban
         $iban = substr($iban, 4).substr($iban, 0, 4);
 
         // Convert all remaining letters to their ordinals. The result is an integer,
-        // which is too large for PHP's int data type, so we store it in a string
-        // instead.
+        // which is too large for PHP's int data type, so we store it in a string instead.
         // e.g. 0076 2011 6238 5295 7 CH93
         //   -> 0076 2011 6238 5295 7 121893
         $checkSum = Number::charUpperToInt($iban);
@@ -209,13 +208,13 @@ class Iban
      * HU69107000246667654851100005 -> HU** **** **** **** **** **** 0005
      *
      * We avoid the checksum as it may be used to infer the rest of the IBAN in cases
-     * where the country has few valid banks and branches, or other information about
-     * the account such as bank, branch, or date issued is known (where a sequential
-     * issuance scheme is in use).
+     * where the country has few valid banks and branches, or other information about the
+     * account such as bank, branch, or date issued is known (where a sequential issuance
+     * scheme is in use).
      *
-     * Note that output of this function should be presented with other information
-     * to a user, such as the date last used or the date added to their account,
-     * in order to better facilitate unambiguous relative identification.
+     * Note that output of this function should be presented with other information to a
+     * user, such as the date last used or the date added to their account, in order to
+     * better facilitate unambiguous relative identification.
      *
      * @param mixed $iban
      *

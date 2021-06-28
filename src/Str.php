@@ -109,20 +109,6 @@ class Str
     }
 
     /**
-     * Calculate the estimated reading time in seconds for a given piece of content.
-     *
-     * @param int $wordSpeed
-     * @param int $imageTime
-     * @param int $cjkSpeed
-     *
-     * @return \Realodix\ReadTime\ReadTime
-     */
-    public function readTime(int $wordSpeed = 265, int $imageTime = 12, int $cjkSpeed = 500)
-    {
-        return new ReadTime($this->str, $wordSpeed, $imageTime, $cjkSpeed);
-    }
-
-    /**
      * Remove non-alpha characters.
      *
      * @return string|empty
@@ -202,19 +188,17 @@ class Str
     // @codeCoverageIgnoreStart
 
     /**
-     * Transliterate a UTF-8 value to ASCII.
+     * Calculate the estimated reading time in seconds for a given piece of content.
      *
-     * @param string $language          Language of the source string.
-     * @param bool   $removeUnsupported Whether or not to remove the unsupported
-     *                                  characters.
+     * @param int $wordSpeed
+     * @param int $imageTime
+     * @param int $cjkSpeed
      *
-     * @return string
+     * @return \Realodix\ReadTime\ReadTime
      */
-    public function toAscii(string $language = 'en', bool $removeUnsupported = true)
+    public function readTime(int $wordSpeed = 265, int $imageTime = 12, int $cjkSpeed = 500)
     {
-        $str = $this->str;
-
-        return ASCII::to_ascii($str, $language, $removeUnsupported);
+        return new ReadTime($this->str, $wordSpeed, $imageTime, $cjkSpeed);
     }
 
     public function noCase()

@@ -218,62 +218,62 @@ class Str
 
     public function noCase()
     {
-        return (new ChangeCase)->noCase($this->str);
+        return (new ChangeCase)->no($this->str);
     }
 
     public function camelCase()
     {
-        return (new ChangeCase)->camelCase($this->str);
+        return (new ChangeCase)->camel($this->str);
     }
 
     public function capitalCase()
     {
-        return (new ChangeCase)->capitalCase($this->str);
+        return (new ChangeCase)->capital($this->str);
     }
 
     public function constantCase()
     {
-        return (new ChangeCase)->constantCase($this->str);
+        return (new ChangeCase)->constant($this->str);
     }
 
     public function dotCase()
     {
-        return (new ChangeCase)->dotCase($this->str);
+        return (new ChangeCase)->dot($this->str);
     }
 
     public function headerCase()
     {
-        return (new ChangeCase)->headerCase($this->str);
+        return (new ChangeCase)->header($this->str);
     }
 
     public function pascalCase()
     {
-        return (new ChangeCase)->pascalCase($this->str);
+        return (new ChangeCase)->pascal($this->str);
     }
 
     public function pathCase()
     {
-        return (new ChangeCase)->pathCase($this->str);
+        return (new ChangeCase)->path($this->str);
     }
 
     public function sentenceCase()
     {
-        return (new ChangeCase)->sentenceCase($this->str);
+        return (new ChangeCase)->sentence($this->str);
     }
 
     public function snakeCase()
     {
-        return (new ChangeCase)->snakeCase($this->str);
+        return (new ChangeCase)->snake($this->str);
     }
 
     public function spinalCase()
     {
-        return (new ChangeCase)->spinalCase($this->str);
+        return (new ChangeCase)->spinal($this->str);
     }
 
     public function swapCase()
     {
-        return (new ChangeCase)->swapCase($this->str);
+        return (new ChangeCase)->swap($this->str);
     }
     // @codeCoverageIgnoreEnd
 }

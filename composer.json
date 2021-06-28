@@ -16,7 +16,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "nicebooks/isbn": "^0.2.91",
-        "realodix/change-case": "^2.1",
+        "realodix/change-case": "^3.0",
         "realodix/readtime": "^1.0",
         "spatie/url": "^1.0|^2.0",
         "symfony/polyfill-php74": "^1.23",

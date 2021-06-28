@@ -110,13 +110,15 @@ class Str
     /**
      * Calculate the estimated reading time in seconds for a given piece of content.
      *
-     * @param int $wpm Estimated words per minute of reader
+     * @param int $wordSpeed
+     * @param int $imageTime
+     * @param int $cjkSpeed
      *
      * @return \Realodix\ReadTime\ReadTime
      */
     public function readTime(int $wordSpeed = 265, int $imageTime = 12, int $cjkSpeed = 500)
     {
-        return (new ReadTime($this->str, $wordSpeed, $imageTime, $cjkSpeed));
+        return new ReadTime($this->str, $wordSpeed, $imageTime, $cjkSpeed);
     }
 
     /**

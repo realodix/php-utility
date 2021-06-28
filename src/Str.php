@@ -2,7 +2,7 @@
 
 namespace Realodix\Utils;
 
-use Realodix\Utils\String\ReadTime;
+use Realodix\ReadTime\ReadTime;
 use voku\helper\ASCII;
 
 class Str
@@ -112,11 +112,11 @@ class Str
      *
      * @param int $wpm Estimated words per minute of reader
      *
-     * @return string|empty
+     * @return \Realodix\ReadTime\ReadTime
      */
-    public function readTime(int $wpm = 265): string
+    public function readTime(int $wordSpeed = 265, int $imageTime = 12, int $cjkSpeed = 500)
     {
-        return (new ReadTime)->readTime($this->str, $wpm);
+        return (new ReadTime($this->str, $wordSpeed, $imageTime, $cjkSpeed));
     }
 
     /**

@@ -90,26 +90,45 @@ Str::of($str)->limitWord(3, ' >>>');
 
 ### `readTime()`
 
-`readTime(int $wpm = 265): string`
+`readTime(int $wordSpeed = 265, int $imageTime = 12, int $cjkSpeed = 500)`
 
 Calculates the time some text takes the average human to read, based on Medium's read time formula.
 
-- **Read Time** — Based on the average reading speed of an adult (roughly 265 WPM).
-- **Image Read Time** — Images add an additional 12 seconds for the first image, 11 seconds for the second image, and minus an additional second for each subsequent image, through the tenth image. Any images after the tenth image are counted at three seconds.
+- Calculates read time of images in decreasing progression (Example - 12 seconds for the first image, 11 for the second, until images counted at 3 seconds).
+- Calculates read time of the Chinese / Japanese / Korean characters separately.
+- Removes unwanted html tags to calculate read time more efficiently.
+
 
 ```php
 use Realodix\Utils\Str;
 
 $sentences = str_repeat('word ', 300);
 
-Str::of($sentences)->readTime();    // '1 min read'
-Str::of($sentences)->readTime(100); // '3 min read'
+Str::of($sentences)->readTime()->get();    // '1 min read'
+Str::of($sentences)->readTime(100)->get(); // '3 min read'
 ```
 
-**References**
-- https://help.medium.com/hc/en-us/articles/214991667-Read-time
-- https://blog.medium.com/read-time-and-you-bc2048ab620c
-- https://medium.com/blogging-guide/how-is-medium-article-read-time-calculated-924420338a85
+##### `get()`
+Retrieve the read time.
+
+##### `setTranslation(array $translations)`
+Manually set the translation text for the class to use. If no key is passed it will default to the English counterpart. A complete translation array will contain the following:
+
+```php
+[
+    'less_than' => 'less than a minute',
+    'one_min'   => '1 min read',
+    'more_than' => 'min read',
+];
+```
+
+##### `toArray()`
+Get the contents and settings of the class as an array.
+
+##### `toJson()`
+Get the contents and settings of the class as a JSON string.
+
+This method uses [realodix/readtime](https://github.com/realodix/readtime), please see the documentation page for using other APIs.
 
 <br>
 

@@ -5,7 +5,7 @@ String
 
 Transform a string between camelCase, PascalCase, Capital Case, snake_case, param-case, CONSTANT_CASE and others.
 
-'''php
+```php
 use Realodix\Utils\Str;
 
 $str = 'foo bar';
@@ -22,7 +22,7 @@ Str::of($str)->sentenceCase()  // 'Foo bar'
 Str::of($str)->snakeCase()     // 'foo_bar'
 Str::of($str)->spinalCase()    // 'foo-bar'
 Str::of('fOO bAR')->swapCase() // 'Foo Bar'
-'''
+```
 
 <br>
 

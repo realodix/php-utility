@@ -8,18 +8,18 @@ use Realodix\Utils\Str;
 
 $str = 'foo bar';
 
-Str::of('fooBar')->noCase()    // 'foo bar'
-Str::of($str)->camelCase();    // 'fooBar'
-Str::of($str)->capitalCase();  // 'Foo Bar'
-Str::of($str)->constantCase(); // 'FOO_BAR'
-Str::of($str)->dotCase();      // 'foo.bar'
-Str::of($str)->headerCase()    // 'Foo-Bar'
-Str::of($str)->pascalCase()    // 'FooBar'
-Str::of($str)->pathCase()      // 'foo/bar'
-Str::of($str)->sentenceCase()  // 'Foo bar'
-Str::of($str)->snakeCase()     // 'foo_bar'
-Str::of($str)->spinalCase()    // 'foo-bar'
-Str::of('fOO bAR')->swapCase() // 'Foo Bar'
+Str::of('fooBar')->noCase();    // 'foo bar'
+Str::of($str)->camelCase();     // 'fooBar'
+Str::of($str)->capitalCase();   // 'Foo Bar'
+Str::of($str)->constantCase();  // 'FOO_BAR'
+Str::of($str)->dotCase();       // 'foo.bar'
+Str::of($str)->headerCase();    // 'Foo-Bar'
+Str::of($str)->pascalCase();    // 'FooBar'
+Str::of($str)->pathCase();      // 'foo/bar'
+Str::of($str)->sentenceCase();  // 'Foo bar'
+Str::of($str)->snakeCase();     // 'foo_bar'
+Str::of($str)->spinalCase();    // 'foo-bar'
+Str::of('fOO bAR')->swapCase(); // 'Foo Bar'
 ```
 
 <br>

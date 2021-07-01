@@ -24,7 +24,7 @@ composer require realodix/php-utility
 ```
 
 ## Testing
-From the projects root folder run `./vendor/bin/phpunit` (VSCode Task `Run test`).
+From the projects root folder run `./vendor/bin/phpunit`.
 
 
 ## License

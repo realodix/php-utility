@@ -146,27 +146,4 @@ class IdentificationsTest extends TestCase
     {
         $this->assertFalse(Val::luhn($value));
     }
-
-    /**
-     * @test
-     * @dataProvider uuidProvider
-     *
-     * @param string $value
-     * @param bool   $expected
-     */
-    public function uuid(string $value, bool $expected): void
-    {
-        $variations = [];
-        $variations[] = $value;
-        $variations[] = 'urn:uuid:'.$value;
-        $variations[] = '{'.$value.'}';
-
-        foreach ($variations as $variation) {
-            $variations[] = strtoupper($variation);
-        }
-
-        foreach ($variations as $variation) {
-            $this->assertSame($expected, Val::uuid($variation));
-        }
-    }
 }

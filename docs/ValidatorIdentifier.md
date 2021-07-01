@@ -83,18 +83,3 @@ use Realodix\Utils\Validator as Val;
 Val::luhn('79927398713'); // true
 Val::luhn('79927398712'); // false
 ```
-
-<br>
-
-#### `uuid()`
-
-Determines if the given string is a valid UUID:
-
-```php
-use Realodix\Utils\Validator as Val;
-
-$uuid = 'a0a2a2d2-0b87-4a18-83f2-2529882be2de';
-$isUuid = Val::uuid($uuid);    // true
-
-$isUuid = Val::uuid('qwerty'); // false
-```

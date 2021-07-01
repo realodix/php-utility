@@ -2,9 +2,6 @@
 
 namespace Realodix\Utils;
 
-use Realodix\ChangeCase\ChangeCase;
-use Realodix\ReadTime\ReadTime;
-
 class Str
 {
     protected $str = '';
@@ -108,36 +105,6 @@ class Str
     }
 
     /**
-     * Remove non-alpha characters.
-     *
-     * @return string|empty
-     */
-    public function removeNonAlpha()
-    {
-        return preg_replace('/[^a-z]/i', '', $this->str);
-    }
-
-    /**
-     * Remove non-alphanumeric characters.
-     *
-     * @return string|empty
-     */
-    public function removeNonAlphaNum()
-    {
-        return preg_replace('/[^a-z0-9]/i', '', $this->str);
-    }
-
-    /**
-     * Remove non-numeric characters.
-     *
-     * @return string|empty
-     */
-    public function removeNonNumeric()
-    {
-        return preg_replace('/[^0-9]/i', '', $this->str);
-    }
-
-    /**
      * Returns the substring beginning at $start, and up to, but not including the index
      * specified by $end. If $end is omitted, the function extracts the remaining string.
      * If $end is negative, it is computed from the end of the string.
@@ -183,82 +150,4 @@ class Str
 
         return $content;
     }
-
-    // @codeCoverageIgnoreStart
-
-    /**
-     * Calculate the estimated reading time in seconds for a given piece of content.
-     *
-     * @param int $wordSpeed
-     * @param int $imageTime
-     * @param int $cjkSpeed
-     *
-     * @return \Realodix\ReadTime\ReadTime
-     */
-    public function readTime(int $wordSpeed = 265, int $imageTime = 12, int $cjkSpeed = 500)
-    {
-        return new ReadTime($this->str, $wordSpeed, $imageTime, $cjkSpeed);
-    }
-
-    public function noCase()
-    {
-        return (new ChangeCase)->no($this->str);
-    }
-
-    public function camelCase()
-    {
-        return (new ChangeCase)->camel($this->str);
-    }
-
-    public function capitalCase()
-    {
-        return (new ChangeCase)->capital($this->str);
-    }
-
-    public function constantCase()
-    {
-        return (new ChangeCase)->constant($this->str);
-    }
-
-    public function dotCase()
-    {
-        return (new ChangeCase)->dot($this->str);
-    }
-
-    public function headerCase()
-    {
-        return (new ChangeCase)->header($this->str);
-    }
-
-    public function pascalCase()
-    {
-        return (new ChangeCase)->pascal($this->str);
-    }
-
-    public function pathCase()
-    {
-        return (new ChangeCase)->path($this->str);
-    }
-
-    public function sentenceCase()
-    {
-        return (new ChangeCase)->sentence($this->str);
-    }
-
-    public function snakeCase()
-    {
-        return (new ChangeCase)->snake($this->str);
-    }
-
-    public function spinalCase()
-    {
-        return (new ChangeCase)->spinal($this->str);
-    }
-
-    public function swapCase()
-    {
-        return (new ChangeCase)->swap($this->str);
-    }
-
-    // @codeCoverageIgnoreEnd
 }

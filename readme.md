@@ -12,6 +12,7 @@ In package realodix/php-utility you will find a set of useful classes for everyd
 - [Number](/docs/Number.md)
 - [String](/docs/Str.md)
 - [Url](/docs/Url.md) - Deal with URL's in your applications.
+- [PHP Reflection](/docs/)
 - [Validator](/docs/Validator.md)
 
 

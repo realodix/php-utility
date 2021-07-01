@@ -1,9 +1,6 @@
 VALIDATOR
 ---
 
-Need to quickly and easily verify that a variable contains for example a valid email address? Then `Realodix\Utils\Validator` will come in handy, a static class with useful functions for validating values.
-
-
 ### [Identifier](/docs/ValidatorIdentifier.md)
 - `creditCard()`
 - `iban()`
@@ -12,19 +9,9 @@ Need to quickly and easily verify that a variable contains for example a valid e
 - `isbnIs13()`
 - `issn()`
 - `luhn()`
-- `uuid()`
-
-### [Internet](/docs/ValidatorInternet.md)
-- `email()`
-- `url()`
 
 ### [Number](/docs/ValidatorNumber.md)
-- `divisibleBy()`
-- `numeric()`
-- `numericInt()`
+- `fibonacci()`
 
 ### [String](/docs/ValidatorString.md)
 - `containsAll()`
-- `hexRgbColor()`
-- `list()`
-- `range()`

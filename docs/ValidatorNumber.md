@@ -8,9 +8,9 @@ Validates that a value is divisible by another value.
 ```php
 use Realodix\Utils\Validator as Val;
 
-Val::divisibleBy(10, 5); // true
+Val::divisibleBy(10, 5);   // true
 Val::divisibleBy(10, 0.1); // true
-Val::divisibleBy(10, 4); // false
+Val::divisibleBy(10, 4);   // false
 ```
 
 <br>

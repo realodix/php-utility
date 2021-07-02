@@ -26,10 +26,7 @@
     "autoload": {
         "psr-4": {
             "Realodix\\Utils\\": "src/"
-        },
-        "files": [
-            "src/Helper.php"
-        ]
+        }
     },
     "extra": {
         "branch-alias": {

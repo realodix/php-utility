@@ -2,9 +2,7 @@ VALIDATOR
 ---
 
 ### [Identifier](/docs/ValidatorIdentifier.md)
-- `creditCard()`
 - `iban()`
-- `issn()`
 - `luhn()`
 
 ### [Number](/docs/ValidatorNumber.md)

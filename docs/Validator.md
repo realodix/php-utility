@@ -7,6 +7,3 @@ VALIDATOR
 
 ### [Number](/docs/ValidatorNumber.md)
 - `fibonacci()`
-
-### [String](/docs/ValidatorString.md)
-- `containsAll()`

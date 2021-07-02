@@ -11,29 +11,6 @@ class IdentificationsTest extends TestCase
 
     /**
      * @test
-     * @dataProvider creditCardProvider
-     *
-     * @param mixed $creditCard
-     * @param mixed $cardNumber
-     */
-    public function creditCard($creditCard, $cardNumber)
-    {
-        $this->assertTrue(Val::creditCard($cardNumber, $creditCard));
-    }
-
-    /**
-     * @dataProvider creditCardInvalidProvider
-     *
-     * @param mixed $creditCard
-     * @param mixed $cardNumber
-     */
-    public function creditCardInvalid($creditCard, $cardNumber)
-    {
-        $this->assertFalse(Val::creditCard($cardNumber, $creditCard));
-    }
-
-    /**
-     * @test
      * @dataProvider issnProvider
      *
      * @param mixed $value

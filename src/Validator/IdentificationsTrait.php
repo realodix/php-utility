@@ -7,35 +7,6 @@ use Nicebooks\Isbn\IsbnTools;
 trait IdentificationsTrait
 {
     /**
-     * Ensures that a credit card number is valid for a given credit card
-     * company.
-     *
-     * @param string $cNumber
-     * @param array  $scheme
-     *
-     * @return bool
-     */
-    public static function creditCard($cNumber, $scheme): bool
-    {
-        if (! is_numeric($cNumber)) {
-            return false;
-        }
-
-        $creditCard = array_flip((array) $scheme);
-        $schemeRegexes = array_intersect_key(self::CARD_SCHEMES, $creditCard);
-
-        foreach ($schemeRegexes as $regexes) {
-            foreach ($regexes as $regex) {
-                if (preg_match($regex, $cNumber)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    /**
      * Validates that a value is a valid International Standard Serial Number (ISSN).
      *
      * @param string $value

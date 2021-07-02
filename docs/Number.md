@@ -8,8 +8,8 @@ Number
 Convert alphabetic characters to integers.
 
 **Parameters**
-- `$string`: The string being converted. 
-- `$mode`
+- `string`: The string being converted. 
+- `mode`
   - 0 - alphabetic characters to integers.
   - 1 - alphabetic characters type uppercase to integers.
   - 2 - alphabetic characters type lowercase to integers.

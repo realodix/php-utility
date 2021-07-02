@@ -36,35 +36,6 @@ trait IdentificationsTrait
     }
 
     /**
-     * Validates that an International Standard Book Number (ISBN) is either a valid
-     * ISBN-10 or a valid ISBN-13.
-     *
-     * @param string $value
-     *
-     * @return bool
-     */
-    public static function isbn(string $value): bool
-    {
-        $isbn = str_replace(['ISBN', '-10:', '-13:', '-', ' '], '', $value);
-
-        return (new IsbnTools())->isValidIsbn($isbn);
-    }
-
-    public static function isbnIs10(string $value): bool
-    {
-        $isbn = str_replace(['ISBN', '-10:', '-13:', '-', ' '], '', $value);
-
-        return (new IsbnTools())->isValidIsbn10($isbn);
-    }
-
-    public static function isbnIs13(string $value): bool
-    {
-        $isbn = str_replace(['ISBN', '-10:', '-13:', '-', ' '], '', $value);
-
-        return (new IsbnTools())->isValidIsbn13($isbn);
-    }
-
-    /**
      * Validates that a value is a valid International Standard Serial Number (ISSN).
      *
      * @param string $value

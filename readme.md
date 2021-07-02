@@ -8,7 +8,6 @@ Collection of various PHP utility functions.
 
 In package realodix/php-utility you will find a set of useful classes for everyday use:
 
-- [Identifier](/docs/Identifier.md)
 - [Number](/docs/Number.md)
 - [String](/docs/Str.md)
 - [Url](/docs/Url.md) - Deal with URL's in your applications.

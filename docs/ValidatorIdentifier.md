@@ -33,27 +33,6 @@ Val::creditCard('0', 'MASTERCARD'); // false
 
 <br>
 
-#### `isbn()`
-
-Validates whether the input is a valid ISBN or not.
-
-```php
-use Realodix\Utils\Validator as Val;
-
-Val::isbn('ISBN-13: 978-0-596-52068-7'); // true
-Val::isbn('978 0 596 52068 7');          // true
-Val::isbn('ISBN-12: 978-0-596-52068-7'); // false
-Val::isbn('978 10 596 52068 7');         // false
-
-$isbn10 = '0545162076';
-Val::isbnIs10($isbn10 );   // true
-
-$isbn13 = '9780545162074';
-Val::isbnIs13($isbn13);    // true
-```
-
-<br>
-
 #### `issn()`
 
 Validates that a value is a valid International Standard Serial Number (ISSN).

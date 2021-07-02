@@ -17,22 +17,6 @@ Str::of($str)->charAt(7); // ''
 
 <br>
 
-### `incrementString()`
-
-`incrementString(string $separator = '_', int $first = 1): string`
-
-Increments a string by appending a number to it or increasing the number. Useful for creating “copies” or a file or duplicating database content which has unique titles or slugs.
-
-```php
-use Realodix\Utils\Str;
-
-Str::of('file')->incrementString('_');    // file_1
-Str::of('file')->incrementString('-', 2); // file-2
-Str::of('file_4')->incrementString();     // file_5
-```
-
-<br>
-
 ### `limit()`
 
 The `limit()` method truncates the given string at the specified length:

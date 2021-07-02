@@ -14,18 +14,15 @@ class NumbersTest extends TestCase
     {
         $this->assertSame('10 23 13', Number::charToInt('A 23 D'));
         $this->assertSame('10 23 45', Number::charToInt('A 23 d'));
-    }
 
-    /** @test */
-    public function charUpperToInt()
-    {
-        $this->assertSame('10 23 d', Number::charUpperToInt('A 23 d'));
-    }
+        $this->assertSame('upper to int', Number::charToInt('upper to int', 1));
+        $this->assertSame('30pper to 18nt', Number::charToInt('Upper to Int', 1));
+        $this->assertSame('LOWER TO INT', Number::charToInt('LOWER TO INT', 2));
+        $this->assertSame('L56644659 T56 I5561', Number::charToInt('Lower To Int', 2));
 
-    /** @test */
-    public function charLowerToInt()
-    {
-        $this->assertSame('A 23 45', Number::charLowerToInt('A 23 d'));
+        $this->expectException(\Exception::class);
+        Number::charToInt('A 23 D', 3);
+        Number::charToInt('A 23 D', -1);
     }
 
     /** @test */

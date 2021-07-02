@@ -15,7 +15,6 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "nicebooks/isbn": "^0.2.91",
         "spatie/url": "^1.0|^2.0"
     },
     "require-dev": {
@@ -34,7 +33,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "2.x-dev"
+            "dev-main": "3.x-dev"
         }
     },
     "autoload-dev": {

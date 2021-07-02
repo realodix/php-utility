@@ -22,7 +22,6 @@ class IdentificationsTest extends TestCase
     }
 
     /**
-     * @test
      * @dataProvider creditCardInvalidProvider
      *
      * @param mixed $creditCard
@@ -31,64 +30,6 @@ class IdentificationsTest extends TestCase
     public function creditCardInvalid($creditCard, $cardNumber)
     {
         $this->assertFalse(Val::creditCard($cardNumber, $creditCard));
-    }
-
-    /**
-     * @test
-     * @dataProvider isbn10Provider
-     *
-     * @param mixed $value
-     */
-    public function isbn($value)
-    {
-        $this->assertTrue(Val::isbn($value));
-    }
-
-    /**
-     * @test
-     * @dataProvider isbn10InvalidProvider
-     *
-     * @param mixed $value
-     */
-    public function isbnInvalid($value)
-    {
-        $this->assertFalse(Val::isbn($value));
-    }
-
-    /**
-     * @test
-     * @dataProvider isbn13Provider
-     *
-     * @param mixed $value
-     */
-    public function isbn13($value)
-    {
-        $this->assertTrue(Val::isbn($value));
-    }
-
-    /**
-     * @test
-     * @dataProvider isbn13InvalidProvider
-     *
-     * @param mixed $value
-     */
-    public function isbn13Invalid($value)
-    {
-        $this->assertFalse(Val::isbn($value));
-    }
-
-    /** @test */
-    public function isbnIs10()
-    {
-        $this->assertTrue(Val::isbnIs10('0545162076'));
-        $this->assertFalse(Val::isbnIs10('9780545162074'));
-    }
-
-    /** @test */
-    public function isbnIs13()
-    {
-        $this->assertTrue(Val::isbnIs13('9780545162074'));
-        $this->assertFalse(Val::isbnIs13('0545162076'));
     }
 
     /**

@@ -19,23 +19,23 @@ class StringsTest extends TestCase
      */
     public function charAt($expected, $value1, $value2)
     {
-        $this->assertSame($expected, str($value1)->charAt($value2));
+        $this->assertSame($expected, Str::charAt($value1, $value2));
     }
 
     /** @test */
     public function limit()
     {
-        $this->assertSame('Laravel is...', str('Laravel is a free, open source PHP web application framework.')->limit(10));
-        $this->assertSame('这是一...', str('这是一段中文')->limit(6));
+        $this->assertSame('Laravel is...', Str::limit('Laravel is a free, open source PHP web application framework.', 10));
+        $this->assertSame('这是一...', Str::limit('这是一段中文', 6));
 
-        $string = str('The PHP framework for web artisans.');
-        $this->assertSame('The PHP...', $string->limit(7));
-        $this->assertSame('The PHP', $string->limit(7, ''));
-        $this->assertSame('The PHP framework for web artisans.', $string->limit(100));
+        $string = 'The PHP framework for web artisans.';
+        $this->assertSame('The PHP...', Str::limit($string, 7));
+        $this->assertSame('The PHP', Str::limit($string, 7, ''));
+        $this->assertSame('The PHP framework for web artisans.', Str::limit($string, 100));
 
-        $nonAsciiString = str('这是一段中文');
-        $this->assertSame('这是一...', $nonAsciiString->limit(6));
-        $this->assertSame('这是一', $nonAsciiString->limit(6, ''));
+        $nonAscii = '这是一段中文';
+        $this->assertSame('这是一...', Str::limit($nonAscii, 6));
+        $this->assertSame('这是一', Str::limit($nonAscii, 6, ''));
     }
 
     /** @test */
@@ -43,10 +43,10 @@ class StringsTest extends TestCase
     {
         $str = 'Lorem ipsum dolor sit amet.';
 
-        $this->assertSame('Lorem ipsum...', str($str)->limitWord(2));
-        $this->assertSame('Lorem ipsum', str($str)->limitWord(2, ''));
-        $this->assertSame('Hanster___', str('Hanster Realodix')->limitWord(1, '___'));
-        $this->assertSame('Hanster Realodix', str('Hanster Realodix')->limitWord(3));
+        $this->assertSame('Lorem ipsum...', Str::limitWord($str, 2));
+        $this->assertSame('Lorem ipsum', Str::limitWord($str, 2, ''));
+        $this->assertSame('Hanster___', Str::limitWord('Hanster Realodix', 1, '___'));
+        $this->assertSame('Hanster Realodix', Str::limitWord('Hanster Realodix', 3));
     }
 
     /**
@@ -58,7 +58,7 @@ class StringsTest extends TestCase
      */
     public function stripTags($expected, $value)
     {
-        $this->assertSame($expected, str($value)->stripTags());
+        $this->assertSame($expected, Str::stripTags($value));
     }
 
     /**
@@ -71,7 +71,7 @@ class StringsTest extends TestCase
      */
     public function slice($expected, $value1, $value2)
     {
-        $this->assertSame($expected, str($value1)->slice($value2));
+        $this->assertSame($expected, Str::slice($value1, $value2));
     }
 
     /**
@@ -85,6 +85,6 @@ class StringsTest extends TestCase
      */
     public function slice2($expected, $value1, $value2, $value3)
     {
-        $this->assertSame($expected, str($value1)->slice($value2, $value3));
+        $this->assertSame($expected, Str::slice($value1, $value2, $value3));
     }
 }

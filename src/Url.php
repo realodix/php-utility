@@ -42,16 +42,16 @@ class Url
             // The length of string truncated by str()->limit() does not include a suffix,
             // so it needs to be adjusted so that the length of the truncated string
             // matches the expected limit.
-            $adjLimit = $limit - (strlen(str($url)->limit($limit)) - $limit);
+            $adjLimit = $limit - (strlen(Str::limit($url, $limit)) - $limit);
 
             $firstSide = $hostLen + intval(($pathLen - 1) * 0.5);
             $lastSide = -abs($adjLimit - $firstSide);
 
             if (((1 <= $pathLen) && ($pathLen <= 9)) || ($hostLen > $limit)) {
-                return str($url)->limit($adjLimit);
+                return Str::limit($url, $adjLimit);
             }
 
-            return str($url)->limit($firstSide).substr($url, $lastSide);
+            return Str::limit($url, $firstSide).substr($url, $lastSide);
         }
 
         return $url;

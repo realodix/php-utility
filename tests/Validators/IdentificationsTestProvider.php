@@ -4,67 +4,6 @@ namespace Realodix\Utils\Test\Validators;
 
 trait IdentificationsTestProvider
 {
-    public function issnProvider()
-    {
-        return [
-            // Valid lower cased issn
-            ['2162-321x'],
-            ['2160-200x'],
-            ['1537-453x'],
-            ['1937-710x'],
-            ['0002-922x'],
-            ['1553-345x'],
-            ['1553-619x'],
-
-            // Valid non hyphenated issn
-            ['2162321X'],
-            ['01896016'],
-            ['15744647'],
-            ['14350645'],
-            ['07174055'],
-            ['20905076'],
-            ['14401592'],
-
-            // Full valid issn
-            ['1550-7416'],
-            ['1539-8560'],
-            ['2156-5376'],
-            ['1119-023X'],
-            ['1684-5315'],
-            ['1996-0786'],
-            ['1684-5374'],
-            ['1996-0794'],
-        ];
-    }
-
-    public function issnInvalidProvider()
-    {
-        return [
-            // Too short error
-            [0],
-            [null],
-            ['1539'],
-
-            // Invalid characters error
-            ['2156-537y'],
-            ['1996-07y4'],
-
-            // Checksum failed error
-            ['1119-0231'],
-            ['1684-5312'],
-            ['1996-0783'],
-            ['1684-537X'],
-            ['1996-0795'],
-        ];
-    }
-
-    public function issnInvalidWithOptionsProvider()
-    {
-        return [
-            ['2162321x', true],
-        ];
-    }
-
     public function luhnProvider()
     {
         return [

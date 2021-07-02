@@ -7,69 +7,6 @@ use Nicebooks\Isbn\IsbnTools;
 trait IdentificationsTrait
 {
     /**
-     * Validates that a value is a valid International Standard Serial Number (ISSN).
-     *
-     * @param string $value
-     * @param bool   $caseSensitive
-     *
-     * @return bool
-     */
-    public static function issn($value, bool $caseSensitive = false): bool
-    {
-        if (null === $value || '' === $value) {
-            return false;
-        }
-
-        $canonical = (string) $value;
-
-        // 1234-567X
-        //     ^
-        if (isset($canonical[4]) && '-' === $canonical[4]) {
-            // remove hyphen
-            $canonical = substr($canonical, 0, 4).substr($canonical, 5);
-        }
-
-        $length = strlen($canonical);
-        if ($length < 8 || $length > 8) {
-            return false;
-        }
-
-        if (// 1234567X
-            // ^^^^^^^ digits only
-            ! ctype_digit(substr($canonical, 0, 7))
-
-            // 1234567X
-            //        ^ digit, x or X
-            || ! ctype_digit($canonical[7]) && 'x' !== $canonical[7] && 'X' !== $canonical[7]
-        ) {
-            return false;
-        }
-
-        // 1234567X
-        //        ^ case-sensitive?
-        if ($caseSensitive && 'x' === $canonical[7]) {
-            return false;
-        }
-
-        // Calculate a checksum. "X" equals 10.
-        $checkSum = 'X' === $canonical[7]
-        || 'x' === $canonical[7]
-        ? 10
-            : $canonical[7];
-
-        for ($i = 0; $i < 7; $i++) {
-            // Multiply the first digit by 8, the second by 7, etc.
-            $checkSum += (8 - $i) * (int) $canonical[$i];
-        }
-
-        if (0 !== $checkSum % 11) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
      * Validates that a value is a valid LUHN.
      *
      * @param string $value

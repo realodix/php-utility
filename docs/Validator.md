@@ -3,7 +3,6 @@ VALIDATOR
 
 ### [Identifier](/docs/ValidatorIdentifier.md)
 - `iban()`
-- `issn()`
 - `luhn()`
 
 ### [Number](/docs/ValidatorNumber.md)

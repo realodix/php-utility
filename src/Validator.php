@@ -6,5 +6,4 @@ class Validator
 {
     use Validator\IdentificationsTrait;
     use Validator\NumberTrait;
-    use Validator\StringTrait;
 }

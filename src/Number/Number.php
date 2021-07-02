@@ -7,67 +7,30 @@ class Number
     /**
      * Convert alphabetic characters to ordinals.
      *
-     * @param string $value
+     * @param string $string
+     * @param int    $mode
      *
      * @return string
      */
-    public static function charToInt(string $value): string
+    public static function charToInt(string $string, int $mode = 0): string
     {
-        $chars = mb_str_split($value);
+        if ($mode < 0 || $mode > 2) {
+            throw new \Exception('$mode: 0, 1, or 2');
+        }
+
+        $chars = mb_str_split($string);
         $bigInt = '';
 
         foreach ($chars as $char) {
-            if (ctype_alpha($char)) {
+            if ($mode === 0 && ctype_alpha($char)) {
                 $bigInt .= (ord($char) - 55);
                 continue;
             }
-
-            // Simply append digits
-            $bigInt .= $char;
-        }
-
-        return $bigInt;
-    }
-
-    /**
-     * Convert uppercase characters to ordinals.
-     *
-     * @param string $value
-     *
-     * @return string
-     */
-    public static function charUpperToInt(string $value): string
-    {
-        $chars = mb_str_split($value);
-        $bigInt = '';
-
-        foreach ($chars as $char) {
-            if (ctype_upper($char)) {
+            if ($mode === 1 && ctype_upper($char)) {
                 $bigInt .= (ord($char) - 55);
                 continue;
             }
-
-            // Simply append digits
-            $bigInt .= $char;
-        }
-
-        return $bigInt;
-    }
-
-    /**
-     * Convert uppercase characters to ordinals.
-     *
-     * @param string $value
-     *
-     * @return string
-     */
-    public static function charLowerToInt(string $value): string
-    {
-        $chars = mb_str_split($value);
-        $bigInt = '';
-
-        foreach ($chars as $char) {
-            if (ctype_lower($char)) {
+            if ($mode == 2 && ctype_lower($char)) {
                 $bigInt .= (ord($char) - 55);
                 continue;
             }

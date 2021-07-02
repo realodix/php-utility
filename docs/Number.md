@@ -3,15 +3,24 @@ Number
 
 ### Characters To Integers
 
+`charToInt(string $string, int $mode = 0): string`
+
 Convert alphabetic characters to integers.
+
+**Parameters**
+- `$string`: The string being converted. 
+- `$mode`
+  - 0 - alphabetic characters to integers.
+  - 1 - alphabetic characters type uppercase to integers.
+  - 2 - alphabetic characters type lowercase to integers.
 
 ```php
 use Realodix\Utils\Number\Number;
 
-Number::charToInt('A 23 D')      // 10 23 13
-Number::charToInt('A 23 d')      // 10 23 45
-Number::charUpperToInt('A 23 d') // 10 23 d
-Number::charLowerToInt('A 23 d') // A 23 45
+Number::charToInt('A 23 D')    // 10 23 13
+Number::charToInt('A 23 d')    // 10 23 45
+Number::charToInt('A 23 d', 1) // 10 23 d
+Number::charToInt('A 23 d', 2) // A 23 45
 ```
 
 <br>

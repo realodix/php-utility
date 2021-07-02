@@ -146,7 +146,7 @@ class Iban
         // which is too large for PHP's int data type, so we store it in a string instead.
         // e.g. 0076 2011 6238 5295 7 CH93
         //   -> 0076 2011 6238 5295 7 121893
-        $checkSum = Number::charUpperToInt($iban);
+        $checkSum = Number::charToInt($iban, 1);
 
         // Do a modulo-97 operation on the large integer. We cannot use PHP's modulo
         // operator, so we calculate the modulo step-wisely instead
@@ -258,7 +258,7 @@ class Iban
     public static function getChecksum(string $iban)
     {
         $iban = self::toMachineFormat($iban);
-        $charToInt = Number::charUpperToInt(substr($iban, 4).substr($iban, 0, 2).'00');
+        $charToInt = Number::charToInt(substr($iban, 4).substr($iban, 0, 2).'00', 1);
         $checksum = Number::mod97($charToInt);
 
         // return 98 minus the mod97-10 output, left zero padded to two digits

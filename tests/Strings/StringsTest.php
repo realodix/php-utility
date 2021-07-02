@@ -23,17 +23,6 @@ class StringsTest extends TestCase
     }
 
     /** @test */
-    public function incrementString()
-    {
-        $this->assertSame('my-test_1', Str::of('my-test')->incrementString());
-        $this->assertSame('my-test-1', Str::of('my-test')->incrementString('-'));
-        $this->assertSame('file_5', Str::of('file_4')->incrementString());
-        $this->assertSame('file-5', Str::of('file-4')->incrementString('-'));
-        $this->assertSame('file-1', Str::of('file')->incrementString('-', '1'));
-        $this->assertSame('124', Str::of('123')->incrementString(''));
-    }
-
-    /** @test */
     public function limit()
     {
         $this->assertSame('Laravel is...', str('Laravel is a free, open source PHP web application framework.')->limit(10));

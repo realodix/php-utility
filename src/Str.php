@@ -49,22 +49,6 @@ class Str
     }
 
     /**
-     * Add's _1 to a string or increment the ending number to allow _2, _3, etc
-     *
-     * @param string $separator What should the duplicate number be appended with
-     * @param int    $first     Which number should be used for the first dupe increment
-     *
-     * @return string
-     */
-    public function incrementString(string $separator = '_', int $first = 1): string
-    {
-        $str = $this->str;
-        preg_match('/(.+)'.preg_quote($separator, '/').'([0-9]+)$/', $str, $match);
-
-        return isset($match[2]) ? $match[1].$separator.($match[2] + 1) : $str.$separator.$first;
-    }
-
-    /**
      * Limit the number of characters in a string.
      *
      * @param int    $limit

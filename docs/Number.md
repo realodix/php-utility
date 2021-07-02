@@ -16,44 +16,6 @@ Number::charLowerToInt('A 23 d') // A 23 45
 
 <br>
 
-### IBAN
-
-IBAN (International Bank Account Number) is an internationally agreed means of identifying bank accounts across national borders with a reduced risk of propagating transcription errors.
-
-```php
-use Realodix\Utils\Number\Iban;
-
-//http://www.ibantest.com/en/how-is-the-iban-check-digit-calculated
-$iban = 'DE29100100100987654321';
-
-// Without spaces
-Iban::verify($iban); // true
-
-// With multiple spaces
-Iban::verify('DE29 1001 0010 0987 6543 21'); // true
-
-Iban::toHumanFormat($iban);
-// DE29 1001 0010 0987 6543 21
-
-Iban::toObfuscatedFormat($iban);
-// DE** **** **** **** **43 21
-
-Iban::toMachineFormat('DE29 1001 0010 0987 6543 21');
-// DE29100100100987654321
-
-Iban::getBban($iban);
-// 100100100987654321
-
-$withoutChecksum = 'DE00 1001 0010 0987 6543 21';
-Iban::getChecksum($withoutChecksum);
-// 29
-
-Iban::setChecksum($withoutChecksum);
-// DE29100100100987654321
-```
-
-<br>
-
 ### Number::precision()
 
 `Number::precision($value, int $precision = 2, string $locale = 'en_US'): string`

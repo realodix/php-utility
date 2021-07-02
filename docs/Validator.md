@@ -2,8 +2,6 @@ VALIDATOR
 ---
 
 ### [Identifier](/docs/ValidatorIdentifier.md)
-- `creditCard()`
-- `issn()`
 - `luhn()`
 
 ### [Number](/docs/ValidatorNumber.md)

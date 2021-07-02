@@ -1,4 +1,4 @@
-VALIDATOR INTERNET
+Validator - Internet
 ---
 
 #### `url()`

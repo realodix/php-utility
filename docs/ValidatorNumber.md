@@ -1,4 +1,4 @@
-VALIDATOR - NUMBER
+Validator- Number
 ---
 
 #### `fibonacci($value)`

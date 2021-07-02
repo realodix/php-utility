@@ -1,4 +1,4 @@
-VALIDATOR - IDENTIFICATION
+Validator - Identification
 ---
 
 #### `luhn()`

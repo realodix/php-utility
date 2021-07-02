@@ -1,4 +1,4 @@
-VALIDATOR - STRING
+Validator - String
 ---
 
 #### `containsAll()`

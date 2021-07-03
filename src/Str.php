@@ -17,6 +17,16 @@ class Str
         return (string) mb_substr($str, $index, 1);
     }
 
+    public static function hasLowercase(string $str): bool
+    {
+        return mb_ereg_match('.*[[:lower:]]', $str);
+    }
+
+    public static function hasUppercase(string $str): bool
+    {
+        return mb_ereg_match('.*[[:upper:]]', $str);
+    }
+
     public static function isAscii(string $str): bool
     {
         $regexAscii = "[^\x09\x10\x13\x0A\x0D\x20-\x7E]";

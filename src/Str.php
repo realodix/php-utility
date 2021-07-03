@@ -43,7 +43,7 @@ class Str
      *
      * @param string $str
      */
-    public static function lcfirst(string $str, ): string
+    public static function lcfirst(string $str): string
     {
         $strPartOne = mb_strtolower(mb_substr($str, 0, 1));
         $strPartTwo = mb_substr($str, 1);

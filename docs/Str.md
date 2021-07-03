@@ -10,9 +10,9 @@ use Realodix\Utils\Str;
 
 $str = 'foo bar';
 
-Str::of($str)->charAt(0); // 'f'
-Str::of($str)->charAt(6); // 'r'
-Str::of($str)->charAt(7); // ''
+Str::charAt($str, 0); // 'f'
+Str::charAt($str, 6); // 'r'
+Str::charAt($str, 7); // ''
 ```
 
 <br>
@@ -26,7 +26,7 @@ use Realodix\Utils\Str;
 
 $str = 'The quick brown fox jumps over the lazy dog';
 
-Str::of($str)->limit(20);
+Str::limit($str, 20);
 // The quick brown fox...
 ```
 
@@ -37,7 +37,7 @@ use Realodix\Utils\Str;
 
 $str = 'The quick brown fox jumps over the lazy dog';
 
-Str::of($str)->limit(20, '(...)');
+Str::limit($str, 20, '(...)');
 // The quick brown fox (...)
 ```
 
@@ -52,13 +52,13 @@ use Realodix\Utils\Str;
 
 $str = 'Lorem ipsum dolor sit amet.';
 
-Str::of($str)->limitWord(2);
+Str::limitWord($str, 2);
 // Lorem ipsum...
 
-Str::of($str)->limitWord(2, '');
+Str::limitWord($str, 2, '');
 // Lorem ipsum
 
-Str::of($str)->limitWord(3, ' >>>');
+Str::limitWord($str, 3, ' >>>');
 // Lorem ipsum dolor >>>
 ```
 
@@ -73,10 +73,10 @@ use Realodix\Utils\Str;
 
 $str = 'foobar';
 
-Str::of($str)->slice(-1);   // 'r'
-Str::of($str)->slice(0);    // 'foobar'
-Str::of($str)->slice(0, 5); // 'fooba'
-Str::of($str)->slice(3, 5); // 'ba'
+Str::slice($str, -1);   // 'r'
+Str::slice($str, 0);    // 'foobar'
+Str::slice($str, 0, 5); // 'fooba'
+Str::slice($str, 3, 5); // 'ba'
 ```
 
 <br>
@@ -89,11 +89,11 @@ Strip HTML, PHP and shortcode tags from a string.
 use Realodix\Utils\Str;
 
 $str = '<r><B><s>[b]</s>bold<e>[/b]</e></B></r>';
-Str::of($str)->stripTags(); // 'bold'
+Str::stripTags($str); // 'bold'
 
 $str = '[B]This is bold[/B] and This is [color=#FFCCCC]colored[/color]';
-Str::of($str)->stripTags(); // 'This is bold and This is colored'
+Str::stripTags($str); // 'This is bold and This is colored'
 
 $str = 'foo[bar';
-Str::of($str)->stripTags(); // 'foo[bar'
+Str::stripTags($str); // 'foo[bar'
 ```

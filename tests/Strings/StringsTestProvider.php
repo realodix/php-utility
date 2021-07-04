@@ -18,6 +18,42 @@ trait StringsTestProvider
         ];
     }
 
+    public function hasLowerCaseProvider()
+    {
+        return [
+            [false, ''],
+            [true, 'foobar'],
+            [false, 'FOO BAR'],
+            [true, 'fOO BAR'],
+            [true, 'foO BAR'],
+            [true, 'FOO BAr'],
+            [true, 'Foobar'],
+            [false, 'FÒÔBÀŘ'],
+            [true, 'fòôbàř'],
+            [true, 'fòôbàř2'],
+            [true, 'Fòô bàř'],
+            [true, 'fòôbÀŘ'],
+        ];
+    }
+
+    public function hasUpperCaseProvider()
+    {
+        return [
+            [false, ''],
+            [true, 'FOOBAR'],
+            [false, 'foo bar'],
+            [true, 'Foo bar'],
+            [true, 'FOo bar'],
+            [true, 'foo baR'],
+            [true, 'fOOBAR'],
+            [false, 'fòôbàř'],
+            [true, 'FÒÔBÀŘ'],
+            [true, 'FÒÔBÀŘ2'],
+            [true, 'fÒÔ BÀŘ'],
+            [true, 'FÒÔBàř'],
+        ];
+    }
+
     public function sliceProvider()
     {
         return [

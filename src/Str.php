@@ -137,7 +137,7 @@ class Str
         return $content;
     }
 
-    public static function strToWords(string $str, string $charList = '', bool $removeEmptyValues = false, int $removeShortValues = null): array
+    public static function toWords(string $str, string $charList = '', bool $removeEmptyValues = false, int $removeShortValues = null): array
     {
         if ($str === '') {
             return $removeEmptyValues ? [] : [''];
@@ -179,7 +179,7 @@ class Str
             return ucwords($str);
         }
 
-        $words = self::strToWords($str, $charList);
+        $words = self::toWords($str, $charList);
         $use_exceptions = $exceptions !== [];
 
         $words_str = '';

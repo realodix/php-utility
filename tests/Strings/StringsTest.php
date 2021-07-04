@@ -94,18 +94,18 @@ class StringsTest extends TestCase
         $this->assertSame($expected, Str::stripTags($value));
     }
 
-public function testStrToWords()
+public function testtoWords()
     {
-        $this->assertSame(['', 'iñt', ' ', 'ërn', ' ', 'I', ''], Str::strToWords('iñt ërn I'));
-        $this->assertSame(['iñt', 'ërn', 'I'], Str::strToWords('iñt ërn I', '', true));
-        $this->assertSame(['iñt', 'ërn'], Str::strToWords('iñt ërn I', '', false, 1));
+        $this->assertSame(['', 'iñt', ' ', 'ërn', ' ', 'I', ''], Str::toWords('iñt ërn I'));
+        $this->assertSame(['iñt', 'ërn', 'I'], Str::toWords('iñt ërn I', '', true));
+        $this->assertSame(['iñt', 'ërn'], Str::toWords('iñt ërn I', '', false, 1));
 
-        $this->assertSame(['', 'âti', "\n ", 'ônà', ''], Str::strToWords("âti\n ônà"));
-        $this->assertSame(["\t\t"], Str::strToWords("\t\t", "\n"));
-        $this->assertSame(['', "\t\t", ''], Str::strToWords("\t\t", "\t"));
-        $this->assertSame(['', '中文空白', ' ', 'oöäü#s', ''], Str::strToWords('中文空白 oöäü#s', '#'));
-        $this->assertSame(['', 'foo', ' ', 'oo', ' ', 'oöäü', '#', 's', ''], Str::strToWords('foo oo oöäü#s', ''));
-        $this->assertSame([''], Str::strToWords(''));
+        $this->assertSame(['', 'âti', "\n ", 'ônà', ''], Str::toWords("âti\n ônà"));
+        $this->assertSame(["\t\t"], Str::toWords("\t\t", "\n"));
+        $this->assertSame(['', "\t\t", ''], Str::toWords("\t\t", "\t"));
+        $this->assertSame(['', '中文空白', ' ', 'oöäü#s', ''], Str::toWords('中文空白 oöäü#s', '#'));
+        $this->assertSame(['', 'foo', ' ', 'oo', ' ', 'oöäü', '#', 's', ''], Str::toWords('foo oo oöäü#s', ''));
+        $this->assertSame([''], Str::toWords(''));
 
         $testArray = [
             'Düsseldorf'                       => 'Düsseldorf',
@@ -128,22 +128,22 @@ public function testStrToWords()
         ];
 
         foreach ($testArray as $test => $unused) {
-            $this->assertSame($test, \implode(Str::strToWords($test)), '');
+            $this->assertSame($test, \implode(Str::toWords($test)), '');
         }
 
         /*
          * UTF8 Global Non Strict
          */
-        $this->assertSame(['', 'iñt', ' ', 'ërn', ' ', 'I', ''], Str::strToWords('iñt ërn I'));
-        $this->assertSame(['iñt', 'ërn', 'I'], Str::strToWords('iñt ërn I', '', true));
-        $this->assertSame(['iñt', 'ërn'], Str::strToWords('iñt ërn I', '', false, 1));
+        $this->assertSame(['', 'iñt', ' ', 'ërn', ' ', 'I', ''], Str::toWords('iñt ërn I'));
+        $this->assertSame(['iñt', 'ërn', 'I'], Str::toWords('iñt ërn I', '', true));
+        $this->assertSame(['iñt', 'ërn'], Str::toWords('iñt ërn I', '', false, 1));
 
-        $this->assertSame(['', 'âti', "\n ", 'ônà', ''], Str::strToWords("âti\n ônà"));
-        $this->assertSame(["\t\t"], Str::strToWords("\t\t", "\n"));
-        $this->assertSame(['', "\t\t", ''], Str::strToWords("\t\t", "\t"));
-        $this->assertSame(['', '中文空白', ' ', 'oöäü#s', ''], Str::strToWords('中文空白 oöäü#s', '#'));
-        $this->assertSame(['', 'foo', ' ', 'oo', ' ', 'oöäü', '#', 's', ''], Str::strToWords('foo oo oöäü#s', ''));
-        $this->assertSame([''], Str::strToWords(''));
+        $this->assertSame(['', 'âti', "\n ", 'ônà', ''], Str::toWords("âti\n ônà"));
+        $this->assertSame(["\t\t"], Str::toWords("\t\t", "\n"));
+        $this->assertSame(['', "\t\t", ''], Str::toWords("\t\t", "\t"));
+        $this->assertSame(['', '中文空白', ' ', 'oöäü#s', ''], Str::toWords('中文空白 oöäü#s', '#'));
+        $this->assertSame(['', 'foo', ' ', 'oo', ' ', 'oöäü', '#', 's', ''], Str::toWords('foo oo oöäü#s', ''));
+        $this->assertSame([''], Str::toWords(''));
 
         $testArray = [
             'Düsseldorf'                       => 'Düsseldorf',
@@ -166,7 +166,7 @@ public function testStrToWords()
         ];
 
         foreach ($testArray as $test => $unused) {
-            $this->assertSame($test, \implode(Str::strToWords($test)), '');
+            $this->assertSame($test, \implode(Str::toWords($test)), '');
         }
     }
 

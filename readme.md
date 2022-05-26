@@ -4,6 +4,8 @@
 [![Tests](https://github.com/realodix/php-utility/actions/workflows/tests.yml/badge.svg)](https://github.com/realodix/php-utility/actions/workflows/tests.yml)
 [![GitHub license](https://img.shields.io/github/license/realodix/php-utility)](/LICENSE)
 
+> :warning: This project has been abandoned. Therefore this repository is unmaintained and will not get any further changes!
+
 Collection of various PHP utility functions.
 
 In package realodix/php-utility you will find a set of useful classes for everyday use:
